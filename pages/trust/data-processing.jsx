@@ -33,7 +33,6 @@ const DataProcessing = () => (
       title="Data Processing | SmartClover Trust Center"
       description="Draft SmartClover data-processing posture with GDPR role model by deployment mode and baseline DPA structure for enterprise procurement review."
       path="/trust/data-processing"
-      image="/images/governance-network.png"
     />
 
     <header className="page-header">

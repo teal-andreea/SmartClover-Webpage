@@ -3,7 +3,7 @@ import Head from 'next/head';
 export const siteUrl = 'https://smartclover.ro';
 
 const defaultRobots = 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1';
-const defaultImage = '/images/cerviguard/cerviguard-dashboard.png';
+const defaultImage = '/images/og/brand-card_v1.png';
 
 const toJsonLd = (data) => JSON.stringify(data).replace(/</g, '\\u003c');
 

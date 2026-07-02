@@ -49,7 +49,6 @@ const Pricing = () => (
       title="Pricing and Packaging | SmartClover"
       description="SmartClover pricing and packaging overview for B2B healthcare platform adoption, including pilot, production, and enterprise package boundaries with RFQ-only commercial policy."
       path="/pricing"
-      image="/images/partnership-handshake.png"
     />
 
     <header className="page-header">

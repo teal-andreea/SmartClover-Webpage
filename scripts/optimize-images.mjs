@@ -25,6 +25,12 @@ const MAX_WIDTH = 1600;
 const MIN_BYTES = 100 * 1024;
 const PALETTE_QUALITY = 90;
 const FAVICON_SIZE = 192;
+// Operator-locked article assets: published verbatim, never re-encoded here.
+const EXCLUDED = new Set([
+  'blog/images/collaboration-flow-imagegen.png',
+  'blog/images/evidence-flow-imagegen.png',
+  'blog/images/nis2compass-blog-hero-auditor-evidence-variant-3.png'
+]);
 
 const walk = async (dir) => {
   const entries = await readdir(dir, { withFileTypes: true });
@@ -40,6 +46,10 @@ const walk = async (dir) => {
 const formatKb = (bytes) => `${Math.round(bytes / 1024)}KB`;
 
 const optimize = async (file) => {
+  if (EXCLUDED.has(path.relative(PUBLIC_DIR, file))) {
+    return;
+  }
+
   const { size: before } = await stat(file);
   const isFavicon = path.basename(file) === 'favicon.png';
   if (!isFavicon && before < MIN_BYTES) {

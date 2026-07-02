@@ -29,7 +29,7 @@ const IncidentResponse = () => (
       title="Incident Response | SmartClover Trust Center"
       description="Draft SmartClover incident-response baseline covering severity model, response lifecycle, and post-incident corrective governance."
       path="/trust/incident-response"
-      image="/images/architecture/healthcare-cyber-resilience-loop-napkin_v1.0.png"
+      image="/images/diagrams/healthcare-cyber-resilience-loop_v2.png"
     />
 
     <header className="page-header">

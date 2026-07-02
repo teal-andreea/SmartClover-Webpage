@@ -8,7 +8,7 @@ const Cybersecurity = () => (
       title="Healthcare Cybersecurity | SmartClover"
       description="SmartClover cybersecurity and resilience services for healthcare organizations, delivered with authorized/certified personnel, partner products, and engineering workflows within scoped engagements."
       path="/cybersecurity"
-      image="/images/architecture/healthcare-cyber-resilience-loop-napkin_v1.0.png"
+      image="/images/diagrams/healthcare-cyber-resilience-loop_v2.png"
     />
 
     <header className="page-header">
@@ -53,10 +53,10 @@ const Cybersecurity = () => (
       </div>
       <figure className="content-visual">
         <Image
-          src="/images/architecture/healthcare-cyber-resilience-loop-napkin_v1.0.png"
-          alt="Healthcare cybersecurity and resilience loop showing assessment, identity hardening, partner security configuration, agentic engineering support, remediation, and evidence review."
+          src="/images/diagrams/healthcare-cyber-resilience-loop_v2.png"
+          alt="Healthcare cybersecurity loop: assess risks, harden access, configure partner products, automate monitoring and evidence collection, remediate, review and improve."
           width={1600}
-          height={1387}
+          height={740}
           sizes="(max-width: 960px) 100vw, 900px"
         />
         <figcaption>
@@ -71,7 +71,7 @@ const Cybersecurity = () => (
       <ul>
         <li>Healthcare-focused security assessment and resilience planning.</li>
         <li>Partner security product selection, configuration support, and workflow integration.</li>
-        <li>Agentic engineering workflows for monitoring support, documentation, remediation support, and hardening.</li>
+        <li>Automated monitoring, documentation, and remediation support, always under authorized human review.</li>
         <li>Risk review for cloud-on-edge, SaaS/PaaS, and tenant-boundary deployment models.</li>
         <li>Operational playbooks that keep authorized human review in the response path.</li>
       </ul>

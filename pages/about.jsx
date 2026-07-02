@@ -118,7 +118,6 @@ const About = () => (
       title="About SmartClover | Healthcare AI For Cervical Screening"
       description="SmartClover is a founder-led healthcare AI company from Cluj-Napoca building CerviGuard for cervical-screening workflows, with DataGems supporting synthetic-data research workflows."
       path="/about"
-      image="/images/cerviguard/cerviguard-dashboard.png"
       jsonLd={aboutSchema}
     />
 
@@ -138,9 +137,8 @@ const About = () => (
           <p className="kicker">Founder and product focus</p>
           <h2 id="about-founder-heading">SmartClover is built around cervical-screening workflows.</h2>
           <p>
-            Dr. Andreea Damian leads SmartClover with CerviGuard as the flagship product. The company focuses on
-            structured intake, AI-assisted review, triage coordination, and clinician-led follow-up for cervical
-            screening teams.
+            Dr. Andreea Damian leads SmartClover with CerviGuard as the flagship product: a live workspace built for
+            how cervical-screening teams already run cases, triage, and follow-up.
           </p>
           <p>
             The research links on this page provide context on screening participation and follow-up barriers in
@@ -215,9 +213,9 @@ const About = () => (
 
     <section className="surface-card" aria-labelledby="about-history-heading">
       <div className="section-heading">
-        <h2 id="about-history-heading">Public timeline connecting research, productization, and company development</h2>
+        <h2 id="about-history-heading">From published screening research to a live product</h2>
         <p>
-          The main public continuity points are presented in one place.
+          The main milestones, in order.
         </p>
       </div>
       <div className="timeline-grid">
@@ -233,9 +231,9 @@ const About = () => (
 
     <section className="surface-card" aria-labelledby="about-values-heading">
       <div className="section-heading">
-        <h2 id="about-values-heading">Core values integrated into the business overview</h2>
+        <h2 id="about-values-heading">What we value</h2>
         <p>
-          Values matter most when they are attached to leadership, products, and a visible operating model.
+          The values below are the ones we actually apply to leadership, products, and deployment.
         </p>
       </div>
       <div className="story-grid">
@@ -252,8 +250,7 @@ const About = () => (
       <div className="section-heading">
         <h2 id="about-principles-heading">Operating principles</h2>
         <p>
-          SmartClover states these principles publicly so partners can understand how products are built, deployed, and
-          governed.
+          SmartClover states these principles publicly so partners know how we scope and run products.
         </p>
       </div>
       <div className="story-grid">

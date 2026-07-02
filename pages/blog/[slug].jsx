@@ -4,7 +4,7 @@ import Link from 'next/link';
 import PageSeo, { siteUrl } from '../../components/PageSeo';
 import { getAllPostSlugs, getPostData, getSortedPostsData } from '../../lib/posts';
 
-const DEFAULT_ARTICLE_IMAGE = '/images/cerviguard/cerviguard-dashboard.png';
+const DEFAULT_ARTICLE_IMAGE = '/images/og/brand-card_v1.png';
 const DEFAULT_IMAGE_WIDTH = 1600;
 const DEFAULT_IMAGE_HEIGHT = 1000;
 const NIS2_COMPASS_URL = 'https://www.nis2compass.eu';
@@ -325,7 +325,7 @@ const getArticleJsonLd = (post) => {
       url: siteUrl,
       logo: {
         '@type': 'ImageObject',
-        url: `${siteUrl}/smartclover_logo.jpg`
+        url: `${siteUrl}/smartclover-logo_v2.png`
       }
     },
     articleSection: getTopic(post),

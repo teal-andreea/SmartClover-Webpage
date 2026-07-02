@@ -61,7 +61,6 @@ const ApiDocsPage = () => (
       title="SmartClover API Docs | Public Website APIs"
       description="Reference for SmartClover's public website status, host-id, and contact-intake APIs."
       path="/docs/api"
-      image="/images/cerviguard/cerviguard-dashboard.png"
     />
 
     <section className="hero-shell" aria-labelledby="api-docs-title">

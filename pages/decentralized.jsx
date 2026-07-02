@@ -8,7 +8,7 @@ const Decentralized = () => (
       title="Permissioned Cloud-On-Edge Deployment | SmartClover"
       description="SmartClover describes permissioned cloud-on-edge healthcare AI deployment with explicit data boundaries, traceable deployment records, and immutable anchoring."
       path="/decentralized"
-      image="/images/governance-network.png"
+      image="/images/diagrams/cloud-on-edge-boundary_v2.png"
     />
 
     <header className="page-header">
@@ -19,22 +19,16 @@ const Decentralized = () => (
         teams can keep sensitive workloads within approved boundaries while cloud coordination supports release control,
         observability, and traceable deployment records.
       </p>
-      <p>
-        <i>
-          Note: Within regulated research, eSource denotes the electronic source data captured at point of care, while the
-          patient health record (PHR) aggregates that longitudinal evidence for sponsors and clinicians.
-        </i>
-      </p>
     </header>
 
     <section className="surface-card spotlight" aria-labelledby="decentralized-governance">
       <div className="spotlight-content">
         <h2 id="decentralized-governance">Clinical data stays within your boundary</h2>
         <p>
-          Deployments run on &quot;your AI, your Data&quot; and &quot;your App, your Data&quot; boundaries that you designate, so AI
-          product platforms can operate on approved on-prem and on-edge infrastructure with cloud coordination layers
-          matched to residency, privacy, and procurement requirements. The goal is to keep eSource processing locations
-          explicit.
+          Deployments run on &quot;your AI, your Data&quot; boundaries that you designate, so AI product platforms can
+          operate on approved on-prem and on-edge infrastructure with cloud coordination layers matched to residency,
+          privacy, and procurement requirements. The goal is to keep the location where source clinical data is captured
+          and processed explicit.
         </p>
         <div className="key-points">
           <span>Restrict workloads to infrastructure that passes your clinical governance reviews.</span>
@@ -44,16 +38,16 @@ const Decentralized = () => (
       </div>
       <div className="spotlight-media">
         <Image
-          src="/images/governance-network.png"
-          alt="Healthcare data stewardship illustration"
-          width={896}
-          height={1152}
+          src="/images/diagrams/cloud-on-edge-boundary_v2.png"
+          alt="Cloud-on-edge deployment: healthcare data and AI workers stay inside the approved boundary; cloud coordination is control-plane only; immutable anchoring records deployment evidence."
+          width={1600}
+          height={960}
           sizes="(max-width: 879px) 100vw, 46vw"
         />
       </div>
     </section>
 
-    <section className="surface-card spotlight" aria-labelledby="decentralized-immutability">
+    <section className="surface-card" aria-labelledby="decentralized-immutability">
       <div className="spotlight-content">
         <h2 id="decentralized-immutability">Audit evidence from deployment traces</h2>
         <p>
@@ -67,18 +61,9 @@ const Decentralized = () => (
           <span>Build artifacts are fingerprinted to help prevent unexpected changes from reaching production.</span>
         </div>
       </div>
-      <div className="spotlight-media">
-        <Image
-          src="/images/analytics-dashboard.png"
-          alt="Audit dashboard timeline visual"
-          width={640}
-          height={822}
-          sizes="(max-width: 879px) 100vw, 46vw"
-        />
-      </div>
     </section>
 
-    <section className="surface-card spotlight" aria-labelledby="decentralized-governance-model">
+    <section className="surface-card" aria-labelledby="decentralized-governance-model">
       <div className="spotlight-content">
         <h2 id="decentralized-governance-model">Policy automation with human oversight</h2>
         <p>
@@ -101,19 +86,10 @@ const Decentralized = () => (
           <Link href="/trust/security" className="button tertiary">
             Security Baseline
           </Link>
-          <Link href="/blog" className="button secondary">
-            Read how we deploy with ledger immutability
+          <Link href="/blog/on-prem-ledger-ci-cd" className="button secondary">
+            Read how we deploy on permissioned cloud-on-edge
           </Link>
         </div>
-      </div>
-      <div className="spotlight-media">
-        <Image
-          src="/images/partnership-handshake.png"
-          alt="Clinicians and technologists reviewing decentralized AI governance controls"
-          width={1024}
-          height={1024}
-          sizes="(max-width: 879px) 100vw, 46vw"
-        />
       </div>
     </section>
   </>

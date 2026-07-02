@@ -100,13 +100,20 @@ const proofMapNodes = [
   'Review or RFQ conversation'
 ];
 
+const verifyTodayLinks = [
+  { href: '/proof', title: 'Product proof', cta: 'Open product proof' },
+  { href: '/regulatory', title: 'Draft regulatory material', cta: 'Open regulatory posture' },
+  { href: '/trust/security', title: 'Security baseline', cta: 'Open security baseline' },
+  { href: '/trust/incident-response', title: 'Incident response plan', cta: 'Open incident response' },
+  { href: '/gender-equality-plan', title: 'Gender Equality Plan', cta: 'Open Gender Equality Plan' }
+];
+
 const TrustCenter = () => (
   <>
     <PageSeo
       title="Trust Center | SmartClover"
       description="SmartClover diligence center for healthcare AI product proof, regulatory posture, security, privacy, cloud-on-edge architecture, and review routes."
       path="/trust"
-      image="/images/governance-network.png"
     />
 
     <header className="page-header">
@@ -118,6 +125,29 @@ const TrustCenter = () => (
         progress.
       </p>
     </header>
+
+    <section className="surface-card" aria-labelledby="trust-verify-heading">
+      <div className="section-heading">
+        <h2 id="trust-verify-heading">What you can verify today</h2>
+        <p>Direct links to the pages and documents this center already covers.</p>
+      </div>
+      <div className="feature-grid three-up">
+        <article className="feature">
+          <h3 className="feature-title">One-page review brief</h3>
+          <a href="/docs/SmartClover_1pagepitchdeck.pdf" className="button secondary" target="_blank" rel="noopener noreferrer">
+            Open review brief (PDF)
+          </a>
+        </article>
+        {verifyTodayLinks.map((item) => (
+          <article key={`${item.href}-verify`} className="feature">
+            <h3 className="feature-title">{item.title}</h3>
+            <Link href={item.href} className="button secondary" aria-label={item.cta}>
+              {item.cta}
+            </Link>
+          </article>
+        ))}
+      </div>
+    </section>
 
     <section className="surface-card" aria-labelledby="trust-status-heading">
       <div className="status-badge-list" id="trust-status-heading">

@@ -32,12 +32,12 @@ const portfolioTracks = [
 
 const healthcareDirections = [
   {
-    title: 'Direction 1: Classical analytics products',
+    title: 'Clinical analytics products',
     description:
       'Imaging and structured-data inferential/predictive analytics for screening, triage support, and follow-up coordination.'
   },
   {
-    title: 'Direction 2: Research and communication tools',
+    title: 'Research and communication tools',
     description:
       'Tools for prevention communication, qualitative questionnaire design, synthetic-data research, and aggregated insight analysis.'
   }
@@ -58,20 +58,20 @@ const dataGemsHighlights = [
 
 const dataGemsShots = [
   {
-    src: '/images/datagems/datagems-screen-dashboard.png',
-    width: 903,
-    height: 583,
-    alt: 'DataGems dashboard with totals for jobs, records, active runs, and failures.',
-    title: 'Dashboard metrics',
-    description: 'Operational overview for generated records, running jobs, failure counts, and last job timing.'
-  },
-  {
-    src: '/images/datagems/datagems-screen-job-form.png',
-    width: 903,
-    height: 584,
-    alt: 'DataGems generation job form with fields for title, description, instructions, and record count.',
+    src: '/images/datagems/datagems-job-form_v2.png',
+    width: 883,
+    height: 506,
+    alt: 'DataGems create-a-generation-job form with schema-first workflow.',
     title: 'Generation job setup',
     description: 'Job drafting flow with schema guidance, instruction fields, and configured generation controls.'
+  },
+  {
+    src: '/images/datagems/datagems-dashboard_v2.png',
+    width: 883,
+    height: 410,
+    alt: 'DataGems dashboard with job and record counters, shown with public-safe sample data.',
+    title: 'Dashboard metrics',
+    description: 'Operational overview for generated records, running jobs, failure counts, and last job timing.'
   }
 ];
 
@@ -79,7 +79,7 @@ const cerviGuardProofLinks = [
   {
     href: 'https://cerviguard.link',
     title: 'Live CerviGuard workspace',
-    description: 'Authenticated demo workspace for reviewing the current screening workflow surface.'
+    description: 'The authenticated live workspace, shown with public-safe sample data.'
   },
   {
     href: 'https://github.com/SmartCloverAI/CerviGuard',
@@ -100,28 +100,28 @@ const cerviGuardProofLinks = [
 
 const cerviGuardProofShots = [
   {
-    src: '/images/cerviguard/cerviguard-dashboard.png',
-    width: 1600,
-    height: 1100,
-    alt: 'CerviGuard workspace dashboard with screening workflow overview.',
+    src: '/images/cerviguard/cerviguard-dashboard-stats_v2.png',
+    width: 1228,
+    height: 281,
+    alt: 'CerviGuard workspace stats strip: completed analyses, healthy patients, mid-risk and high-risk alerts.',
     title: 'Operational dashboard',
     description: 'Workspace overview for case distribution, review queues, and follow-up coordination.'
   },
   {
-    src: '/images/cerviguard/cerviguard-add-case.png',
-    width: 1600,
-    height: 1100,
-    alt: 'CerviGuard workspace intake form using demo data.',
+    src: '/images/cerviguard/cerviguard-add-case_v2.png',
+    width: 933,
+    height: 516,
+    alt: 'CerviGuard add-case form for uploading a de-identified cervical image with clinical notes.',
     title: 'Case intake',
     description: 'Guided intake flow for de-identified cervical-screening material and review notes.'
   },
   {
-    src: '/images/blog/cerviguard-workflow-napkin_v1.0.png',
+    src: '/images/diagrams/cerviguard-workflow-flow_v2.png',
     width: 1600,
-    height: 1384,
-    alt: 'CerviGuard workflow diagram from intake through clinician-led follow-up.',
+    height: 620,
+    alt: 'CerviGuard workflow from structured case intake through AI-assisted and clinician review to triage and follow-up tracking.',
     title: 'Workflow model',
-    description: 'Structured intake, AI-assisted review, clinician review, triage coordination, and follow-up planning.'
+    description: 'From a new case through AI-assisted review to the clinician sign-off and follow-up plan.'
   }
 ];
 
@@ -131,7 +131,7 @@ const Products = () => (
       title="Products | SmartClover"
       description="SmartClover product and service portfolio covering CerviGuard, DataGems research, permissioned cloud-on-edge deployment, and healthcare cybersecurity/resilience."
       path="/products"
-      image="/images/cerviguard/cerviguard-dashboard.png"
+      image="/images/cerviguard/cerviguard-dashboard-stats_v2.png"
     />
 
     <header className="page-header">
@@ -167,10 +167,10 @@ const Products = () => (
       <div className="product-proof-grid">
         <div className="visual-frame product-visual-frame">
           <Image
-            src="/images/cerviguard/cerviguard-dashboard.png"
-            alt="CerviGuard workspace dashboard showing screening workflow overview"
-            width={1600}
-            height={1100}
+            src="/images/cerviguard/cerviguard-dashboard-stats_v2.png"
+            alt="CerviGuard workspace stats strip: completed analyses, healthy patients, mid-risk and high-risk alerts."
+            width={1228}
+            height={281}
             sizes="(max-width: 879px) 100vw, 44vw"
             priority
           />
@@ -218,7 +218,7 @@ const Products = () => (
 
     <section className="surface-card" aria-labelledby="products-directions-heading">
       <div className="section-heading">
-        <h2 id="products-directions-heading">Two healthcare AI product directions</h2>
+        <h2 id="products-directions-heading">Two directions in our healthcare AI work</h2>
       </div>
       <div className="feature-grid two-up">
         {healthcareDirections.map((direction) => (
@@ -305,7 +305,7 @@ const Products = () => (
     <DiligenceLinksSection
       headingId="products-more-links"
       heading="Commercial and trust routes"
-      description="Review pricing, buying steps, proof, regulatory context, and trust material before starting qualification."
+      description="Pricing, procurement, evidence, and trust context for the products above."
     />
   </>
 );

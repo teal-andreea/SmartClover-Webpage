@@ -85,7 +85,7 @@ const pathCards = [
   },
   {
     title: 'Investor inquiry',
-    description: 'For investors or accelerators reviewing SmartClover\'s healthcare AI platform, public product evidence, and current routes.',
+    description: 'For investors and accelerators reviewing SmartClover\'s healthcare AI platform and public product evidence.',
     href: '/contact#inquiry-form'
   }
 ];
@@ -96,8 +96,8 @@ const organizationSchema = {
   name: 'SmartClover',
   url: siteUrl,
   description:
-    'Healthcare AI company building CerviGuard for cervical-screening workflows where clinical work actually happens, with DataGems supporting synthetic-data research.',
-  logo: `${siteUrl}/smartclover_logo.jpg`,
+    'Healthcare AI company building CerviGuard for cervical-screening workflows, with DataGems supporting synthetic-data research.',
+  logo: `${siteUrl}/smartclover-logo_v2.png`,
   sameAs: ['https://www.linkedin.com/company/smartclover'],
   founder: {
     '@type': 'Person',
@@ -122,9 +122,9 @@ const Home = () => (
   <>
     <PageSeo
       title="SmartClover | Healthcare AI With Live Product Proof"
-      description="SmartClover builds healthcare AI where clinical work actually happens, led by CerviGuard for cervical-screening teams and DataGems for synthetic-data research."
+      description="SmartClover builds healthcare AI led by CerviGuard for cervical-screening teams, with DataGems for synthetic-data research."
       path="/"
-      image="/images/cerviguard/cerviguard-dashboard.png"
+      image="/images/og/brand-card_v1.png"
       jsonLd={organizationSchema}
     />
 
@@ -162,17 +162,17 @@ const Home = () => (
         <div className="detail-panel">
           <div className="visual-frame product-visual-frame">
             <Image
-              src="/images/cerviguard/cerviguard-dashboard.png"
-              alt="CerviGuard workspace dashboard showing case distribution and operational overview"
+              src="/images/cerviguard/cerviguard-login_v3.png"
+              alt="CerviGuard sign-in page at cerviguard.link, the entry to the live workspace."
               width={1600}
-              height={1100}
+              height={867}
               priority
               sizes="(max-width: 1080px) 100vw, 42vw"
             />
           </div>
           <div className="visual-caption">
             <strong>CerviGuard workspace proof</strong>
-            <span>Current authenticated demo workspace capture showing operational review and follow-up workflow surfaces.</span>
+            <span>The live workspace entry at cerviguard.link, captured from the running product.</span>
           </div>
         </div>
       </div>
@@ -189,10 +189,10 @@ const Home = () => (
       <div className="product-proof-grid">
         <div className="visual-frame product-visual-frame">
           <Image
-            src="/images/cerviguard/cerviguard-add-case.png"
-            alt="CerviGuard workspace case-intake screen using demo data"
-            width={1600}
-            height={1100}
+            src="/images/cerviguard/cerviguard-add-case_v2.png"
+            alt="CerviGuard add-case form for uploading a de-identified cervical image with clinical notes."
+            width={933}
+            height={516}
             sizes="(max-width: 879px) 100vw, 44vw"
           />
         </div>
@@ -223,8 +223,8 @@ const Home = () => (
       <div className="section-heading">
         <h2 id="home-portfolio-heading">Research and service tracks around the flagship product</h2>
         <p>
-          CerviGuard is the product teams review first. DataGems and service capabilities sit around that product
-          path as research and deployment conversations.
+          CerviGuard is the product teams review first. DataGems and the deployment services are the research and
+          infrastructure conversations that follow.
         </p>
       </div>
       <div className="story-grid">
@@ -250,7 +250,7 @@ const Home = () => (
       <div className="founder-grid">
         <div className="story-card">
           <p className="kicker">Founder and research credibility</p>
-          <h2 id="home-credibility-heading">Built around cervical-screening work, not generic AI positioning.</h2>
+          <h2 id="home-credibility-heading">SmartClover&apos;s product work starts from cervical-screening research.</h2>
           <p>
             Founder Dr. Andreea Damian leads SmartClover from Cluj-Napoca with CerviGuard as the flagship product.
             The research links below are kept as context for the cervical-screening problem space; current product
@@ -294,8 +294,8 @@ const Home = () => (
 
     <section className="surface-card" aria-labelledby="home-timeline-heading">
       <div className="section-heading">
-        <h2 id="home-timeline-heading">Public timeline of research, productization, and company development</h2>
-        <p>The homepage shows the public milestones that connect research, productization, and transparent company execution.</p>
+        <h2 id="home-timeline-heading">Public timeline: from screening research to a live product</h2>
+        <p>These milestones connect the published screening research, the CerviGuard build, and how SmartClover works today.</p>
       </div>
       <div className="timeline-grid">
         {timelineCards.map((item) => (
@@ -329,7 +329,7 @@ const Home = () => (
     <DiligenceLinksSection
       headingId="home-diligence-links"
       heading="Trust, proof, and buying routes"
-      description="Use these routes to check product evidence, regulatory posture, trust, pricing, and procurement context before outreach."
+      description="Everything a buyer, partner, or investor needs to vet SmartClover before reaching out."
     />
   </>
 );

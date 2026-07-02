@@ -7,7 +7,7 @@ const servicePrinciples = [
   {
     title: 'CerviGuard-led product work',
     description:
-      'We lead with CerviGuard: structured intake, AI-assisted review, triage coordination, and clinician-led follow-up for cervical-screening teams.'
+      'CerviGuard is the product we lead with: a live workspace where cervical-screening teams run case intake and AI-assisted review under clinician sign-off.'
   },
   {
     title: 'Permissioned cloud-on-edge deployment',
@@ -25,7 +25,7 @@ const productTracks = [
   {
     title: 'CerviGuard: screening workflow product',
     description:
-      'Our flagship product helps cervical-screening teams structure intake, review cases with AI support, coordinate triage, and manage follow-up.'
+      'CerviGuard gives cervical-screening teams one traceable path from a new case to a signed-off follow-up decision.'
   },
   {
     title: 'DataGems: synthetic-data research track',
@@ -45,7 +45,7 @@ const serviceCapabilities = [
     ]
   },
   {
-    status: 'Live research track',
+    status: 'Live research pilot',
     title: 'DataGems synthetic-data research',
     points: [
       'Controlled synthetic-data workflows for research planning',
@@ -68,7 +68,7 @@ const serviceCapabilities = [
     points: [
       'Healthcare-focused assessment, hardening, and resilience planning',
       'Delivery with authorized/certified personnel and partner security products within approved scopes',
-      'Agentic engineering workflows for monitoring support, remediation support, documentation, and operational hardening'
+      'Automated monitoring, documentation, and remediation support, always under authorized human review.'
     ]
   }
 ];
@@ -79,7 +79,6 @@ const Services = () => (
       title="Services | SmartClover"
       description="SmartClover services covering CerviGuard, DataGems research, permissioned cloud-on-edge deployment, and healthcare cybersecurity/resilience."
       path="/services"
-      image="/images/partnership-handshake.png"
     />
 
     <header className="page-header">
@@ -161,7 +160,7 @@ const Services = () => (
 
     <section className="surface-card" aria-labelledby="services-modules-heading">
       <div className="section-heading">
-        <h2 id="services-modules-heading">Offer set and status</h2>
+        <h2 id="services-modules-heading">What you can engage today</h2>
       </div>
       <div className="service-programs">
         {serviceCapabilities.map((capability) => (
@@ -196,10 +195,10 @@ const Services = () => (
       </div>
       <div className="spotlight-media">
         <Image
-          src="/images/partnership-handshake.png"
-          alt="Healthcare and technology teams aligning on product rollout"
-          width={1024}
-          height={1024}
+          src="/images/diagrams/rollout-onboarding-flow_v2.png"
+          alt="Rollout flow from qualification and security and legal review through environment readiness and 30/60/90 activation to operational handoff."
+          width={1600}
+          height={620}
           sizes="(max-width: 879px) 100vw, 46vw"
         />
       </div>
@@ -207,7 +206,7 @@ const Services = () => (
 
     <DiligenceLinksSection
       headingId="services-diligence-links"
-      description="Use Pricing, How to Buy, Proof, Regulatory, and Trust pages to review scope, evidence, and next steps."
+      description="Scope, evidence, and next steps for a services engagement."
     />
   </>
 );

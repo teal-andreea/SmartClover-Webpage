@@ -67,7 +67,7 @@ const CloudArchitecture = () => (
       title="Cloud Architecture | SmartClover"
       description="SmartClover cloud architecture baseline describing permissioned cloud-on-edge services, tenancy boundaries, encryption, reliability posture, and traceable deployment records."
       path="/cloud-architecture"
-      image="/images/architecture/cloud-on-edge-boundaries-napkin_v1.0.png"
+      image="/images/diagrams/cloud-on-edge-boundary_v2.png"
     />
 
     <header className="page-header">
@@ -100,15 +100,15 @@ const CloudArchitecture = () => (
       </div>
       <figure className="content-visual">
         <Image
-          src="/images/architecture/cloud-on-edge-boundaries-napkin_v1.0.png"
-          alt="Provider-neutral cloud-on-edge boundary diagram showing healthcare team and data, permissioned edge workers, cloud coordination, and immutable anchoring."
+          src="/images/diagrams/cloud-on-edge-boundary_v2.png"
+          alt="Cloud-on-edge deployment: healthcare data and AI workers stay inside the approved boundary; cloud coordination is control-plane only; immutable anchoring records deployment evidence."
           width={1600}
-          height={1349}
+          height={960}
           sizes="(max-width: 960px) 100vw, 900px"
         />
         <figcaption>
-          A provider-neutral view of how healthcare users, permissioned edge workers, cloud coordination, and traceable
-          deployment records fit together.
+          Provider-neutral cloud-on-edge boundary diagram: healthcare users, permissioned edge workers, cloud
+          coordination, and traceable deployment records in one view.
         </figcaption>
       </figure>
     </section>

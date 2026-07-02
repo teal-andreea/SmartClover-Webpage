@@ -5,11 +5,11 @@
   --surface-soft: rgba(247, 250, 248, 0.88);
   --ink-strong: #102027;
   --ink-muted: #536471;
-  --teal-strong: #0f766e;
-  --teal-deep: #0a5d57;
+  --teal-strong: #0f788d;
+  --teal-deep: #0a5d66;
   --gold-soft: #c59a58;
   --line-soft: rgba(16, 32, 39, 0.1);
-  --line-strong: rgba(15, 118, 110, 0.18);
+  --line-strong: rgba(15, 120, 141, 0.18);
   --shadow-soft: 0 20px 40px rgba(16, 24, 40, 0.08);
   --shadow-strong: 0 28px 60px rgba(16, 24, 40, 0.14);
   --page-max: 1180px;
@@ -21,7 +21,7 @@ html {
 
 body {
   background:
-    radial-gradient(circle at top left, rgba(15, 118, 110, 0.12), transparent 28%),
+    radial-gradient(circle at top left, rgba(15, 120, 141, 0.12), transparent 28%),
     radial-gradient(circle at 92% 12%, rgba(197, 154, 88, 0.12), transparent 26%),
     linear-gradient(180deg, #f8fbfa 0%, var(--canvas) 100%);
   color: var(--ink-strong);
@@ -61,7 +61,7 @@ a:hover {
 .skip-link:focus-visible {
   transform: translateY(0);
   color: #ffffff;
-  outline: 3px solid rgba(15, 118, 110, 0.45);
+  outline: 3px solid rgba(15, 120, 141, 0.45);
   outline-offset: 3px;
 }
 
@@ -84,7 +84,7 @@ a:hover {
   pointer-events: none;
   background:
     linear-gradient(120deg, rgba(255, 255, 255, 0.3), transparent 36%),
-    radial-gradient(circle at 10% 20%, rgba(15, 118, 110, 0.05), transparent 20%),
+    radial-gradient(circle at 10% 20%, rgba(15, 120, 141, 0.05), transparent 20%),
     radial-gradient(circle at 88% 18%, rgba(197, 154, 88, 0.06), transparent 18%);
   z-index: -1;
 }
@@ -101,7 +101,7 @@ a:hover {
   margin: 0 auto;
   position: relative;
   z-index: 121;
-  border-radius: 28px;
+  border-radius: 24px;
   padding: 0.9rem 1.1rem;
   border: 1px solid rgba(255, 255, 255, 0.8);
   background: rgba(255, 255, 255, 0.78);
@@ -171,12 +171,12 @@ a:hover {
 }
 
 .nav-link:hover {
-  background: rgba(15, 118, 110, 0.08);
+  background: rgba(15, 120, 141, 0.08);
   color: var(--teal-strong);
 }
 
 .nav-link.active {
-  background: rgba(15, 118, 110, 0.11);
+  background: rgba(15, 120, 141, 0.11);
   color: var(--ink-strong);
 }
 
@@ -191,10 +191,11 @@ a:hover {
 }
 
 .page-header h1 {
-  max-width: 14ch;
-  font-size: clamp(2.85rem, 6vw, 5rem);
-  line-height: 0.96;
-  letter-spacing: -0.05em;
+  /* utility pages: hero-scale type stacked long headings into word towers */
+  max-width: 22ch;
+  font-size: clamp(2.3rem, 4.2vw, 3.3rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
 }
 
 .page-header p {
@@ -206,9 +207,9 @@ a:hover {
 .tagline {
   padding: 0.35rem 0.9rem;
   border-radius: 999px;
-  background: rgba(15, 118, 110, 0.09);
+  background: rgba(15, 120, 141, 0.09);
   color: var(--teal-strong);
-  border: 1px solid rgba(15, 118, 110, 0.12);
+  border: 1px solid rgba(15, 120, 141, 0.12);
   font-size: 0.84rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -219,7 +220,7 @@ a:hover {
 .service-program {
   background: linear-gradient(180deg, var(--surface-strong) 0%, rgba(255, 255, 255, 0.84) 100%);
   border: 1px solid var(--line-soft);
-  border-radius: 28px;
+  border-radius: 24px;
   box-shadow: var(--shadow-soft);
 }
 
@@ -247,13 +248,13 @@ a:hover {
 }
 
 .button.primary {
-  background: linear-gradient(135deg, var(--teal-strong), #118f84);
-  box-shadow: 0 16px 30px rgba(15, 118, 110, 0.22);
+  background: linear-gradient(135deg, var(--teal-strong), #148aa0);
+  box-shadow: 0 16px 30px rgba(15, 120, 141, 0.22);
 }
 
 .button.secondary {
   background: rgba(255, 255, 255, 0.82);
-  border-color: rgba(15, 118, 110, 0.18);
+  border-color: rgba(15, 120, 141, 0.18);
 }
 
 .button.tertiary {
@@ -274,7 +275,7 @@ a:hover {
 .blog-card:focus-visible,
 .proof-link-card:focus-visible,
 .artifact-card-list a:focus-visible {
-  outline: 3px solid rgba(15, 118, 110, 0.45);
+  outline: 3px solid rgba(15, 120, 141, 0.45);
   outline-offset: 4px;
 }
 
@@ -309,7 +310,7 @@ a:hover {
 .contact-side-card {
   background: linear-gradient(180deg, var(--surface-strong) 0%, rgba(255, 255, 255, 0.82) 100%);
   border: 1px solid var(--line-soft);
-  border-radius: 28px;
+  border-radius: 24px;
   box-shadow: var(--shadow-soft);
 }
 
@@ -337,7 +338,7 @@ a:hover {
   font-weight: 600;
   color: var(--ink-strong);
   background: rgba(248, 250, 250, 0.96);
-  border: 1px solid rgba(15, 118, 110, 0.12);
+  border: 1px solid rgba(15, 120, 141, 0.12);
 }
 
 .proof-pill strong,
@@ -451,7 +452,7 @@ a:hover {
 .visual-frame {
   overflow: hidden;
   border-radius: 22px;
-  border: 1px solid rgba(15, 118, 110, 0.12);
+  border: 1px solid rgba(15, 120, 141, 0.12);
   box-shadow: var(--shadow-soft);
 }
 
@@ -563,6 +564,29 @@ a:hover {
   object-position: center 54%;
 }
 
+/* the workspace stats strip is ~4.4:1; cover-cropping it in 16:9 frames
+   amputates the outer tiles, so it letterboxes on a visible tinted mat */
+.product-visual-frame img[src*='dashboard-stats'],
+.product-shot-media img[src*='dashboard-stats'],
+.cerviguard-hero-media img[src*='dashboard-stats'],
+.cerviguard-shot-media img[src*='dashboard-stats'] {
+  object-fit: contain;
+  padding: 4% 3%;
+  background:
+    linear-gradient(180deg, rgba(15, 120, 141, 0.07), rgba(15, 120, 141, 0.03)),
+    #f6fafb;
+}
+
+/* rendered diagrams must never be cover-cropped mid-label in media frames */
+.product-visual-frame img[src*='diagrams'],
+.product-shot-media img[src*='diagrams'],
+.cerviguard-hero-media img[src*='diagrams'],
+.cerviguard-shot-media img[src*='diagrams'],
+.spotlight-media img[src*='diagrams'] {
+  object-fit: contain;
+  background: #ffffff;
+}
+
 .proof-link-grid,
 .artifact-card-list {
   display: grid;
@@ -584,7 +608,7 @@ a:hover {
 
 .proof-link-card:hover,
 .artifact-card-list a:hover {
-  border-color: rgba(15, 118, 110, 0.24);
+  border-color: rgba(15, 120, 141, 0.24);
   color: var(--ink-strong);
 }
 
@@ -608,7 +632,7 @@ a:hover {
   display: grid;
   gap: 1.25rem;
   background:
-    linear-gradient(135deg, rgba(15, 118, 110, 0.08), rgba(197, 154, 88, 0.08)),
+    linear-gradient(135deg, rgba(15, 120, 141, 0.08), rgba(197, 154, 88, 0.08)),
     linear-gradient(180deg, var(--surface-strong) 0%, rgba(255, 255, 255, 0.88) 100%);
 }
 
@@ -626,7 +650,7 @@ a:hover {
   right: 7%;
   top: 2.1rem;
   height: 2px;
-  background: linear-gradient(90deg, rgba(15, 118, 110, 0.2), rgba(197, 154, 88, 0.42));
+  background: linear-gradient(90deg, rgba(15, 120, 141, 0.2), rgba(197, 154, 88, 0.42));
 }
 
 .trust-proof-node {
@@ -635,7 +659,7 @@ a:hover {
   gap: 0.65rem;
   min-width: 0;
   padding: 1rem;
-  border: 1px solid rgba(15, 118, 110, 0.16);
+  border: 1px solid rgba(15, 120, 141, 0.16);
   border-radius: 18px;
   background: rgba(255, 255, 255, 0.88);
   box-shadow: 0 14px 28px rgba(16, 24, 40, 0.08);
@@ -652,7 +676,7 @@ a:hover {
   font-size: 0.78rem;
   font-weight: 700;
   letter-spacing: 0.04em;
-  box-shadow: 0 10px 18px rgba(15, 118, 110, 0.2);
+  box-shadow: 0 10px 18px rgba(15, 120, 141, 0.2);
 }
 
 .trust-proof-node strong {
@@ -778,13 +802,13 @@ a:hover {
 
 .path-card:hover,
 .path-card.is-active {
-  border-color: rgba(15, 118, 110, 0.32);
+  border-color: rgba(15, 120, 141, 0.32);
   box-shadow: var(--shadow-strong);
   color: var(--ink-strong);
 }
 
 .path-card.is-active {
-  background: linear-gradient(180deg, rgba(15, 118, 110, 0.09) 0%, rgba(255, 255, 255, 0.92) 100%);
+  background: linear-gradient(180deg, rgba(15, 120, 141, 0.09) 0%, rgba(255, 255, 255, 0.92) 100%);
 }
 
 .path-card .button.tertiary {
@@ -834,8 +858,8 @@ a:hover {
 .contact-form input:focus,
 .contact-form select:focus,
 .contact-form textarea:focus {
-  outline: 2px solid rgba(15, 118, 110, 0.18);
-  border-color: rgba(15, 118, 110, 0.34);
+  outline: 2px solid rgba(15, 120, 141, 0.18);
+  border-color: rgba(15, 120, 141, 0.34);
 }
 
 .field-hint,
@@ -879,12 +903,12 @@ a:hover {
 }
 
 .site-footer-panel {
-  border-radius: 34px;
+  border-radius: 24px;
   padding: 1.5rem;
   background:
-    radial-gradient(circle at top left, rgba(15, 118, 110, 0.12), transparent 32%),
+    radial-gradient(circle at top left, rgba(15, 120, 141, 0.12), transparent 32%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(247, 249, 248, 0.88) 100%);
-  border: 1px solid rgba(15, 118, 110, 0.1);
+  border: 1px solid rgba(15, 120, 141, 0.1);
   box-shadow: var(--shadow-strong);
 }
 
@@ -901,11 +925,12 @@ a:hover {
 }
 
 .site-footer-intro h2 {
+  /* the footer is a sitemap, not a second hero */
   margin: 0;
-  max-width: 16ch;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 0.98;
-  letter-spacing: -0.05em;
+  max-width: 28ch;
+  font-size: clamp(1.4rem, 2.2vw, 1.8rem);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
 }
 
 .site-footer-intro p {
@@ -918,6 +943,7 @@ a:hover {
   display: grid;
   gap: 1rem;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
 }
 
 .site-footer-group {
@@ -976,7 +1002,7 @@ a:hover {
   align-items: center;
   border-radius: 999px;
   padding: 0.18rem 0.6rem;
-  background: rgba(15, 118, 110, 0.1);
+  background: rgba(15, 120, 141, 0.1);
   color: var(--ink-strong);
   font-weight: 700;
 }
@@ -1040,7 +1066,7 @@ a:hover {
   min-width: 0;
   overflow: hidden;
   border: 1px solid rgba(16, 32, 39, 0.11);
-  border-radius: 26px;
+  border-radius: 24px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.97) 0%, rgba(247, 250, 248, 0.9) 100%);
   box-shadow: var(--shadow-soft);
@@ -1051,7 +1077,7 @@ a:hover {
 .blog-featured-card:hover,
 .blog-card:hover {
   color: var(--ink-strong);
-  border-color: rgba(15, 118, 110, 0.24);
+  border-color: rgba(15, 120, 141, 0.24);
   box-shadow: var(--shadow-strong);
   transform: translateY(-2px);
 }
@@ -1067,9 +1093,9 @@ a:hover {
 .blog-card-media {
   position: relative;
   overflow: hidden;
-  background:
-    linear-gradient(135deg, rgba(15, 118, 110, 0.07), rgba(197, 154, 88, 0.09)),
-    #ffffff;
+  /* plain white: hero diagrams are white-canvas, so a tinted letterbox
+     would read as a mismatched mat around them */
+  background: #ffffff;
 }
 
 .blog-featured-media {
@@ -1322,11 +1348,16 @@ a:hover {
   display: grid;
   gap: 1.1rem;
   width: 100%;
-  max-width: 260px;
   max-height: calc(100svh - 8rem);
   min-width: 0;
   align-self: start;
   overflow-y: auto;
+}
+
+/* cap the rail only in two-column (toc) mode; in single-column mode the
+   summary spans the article column instead of floating in a 260px sliver */
+.article-layout.has-toc .article-sidebar {
+  max-width: 260px;
 }
 
 .article-toc {
@@ -1366,7 +1397,7 @@ a:hover {
 
 .article-toc .toc-level-3 {
   padding-left: 0.75rem;
-  border-left: 1px solid rgba(15, 118, 110, 0.14);
+  border-left: 1px solid rgba(15, 120, 141, 0.14);
 }
 
 .article-toc a {
@@ -1384,10 +1415,10 @@ a:hover {
 }
 
 .article-toc a:focus-visible {
-  outline: 2px solid rgba(15, 118, 110, 0.55);
+  outline: 2px solid rgba(15, 120, 141, 0.55);
   outline-offset: 3px;
   border-radius: 6px;
-  background: rgba(15, 118, 110, 0.07);
+  background: rgba(15, 120, 141, 0.07);
   color: var(--teal-deep);
 }
 
@@ -1419,7 +1450,7 @@ a:hover {
   max-width: 820px;
   padding: clamp(1.25rem, 4vw, 2.6rem);
   border: 1px solid rgba(16, 32, 39, 0.1);
-  border-radius: 26px;
+  border-radius: 24px;
   background: rgba(255, 255, 255, 0.94);
   box-shadow: var(--shadow-soft);
 }
@@ -1461,7 +1492,7 @@ a:hover {
 .article-content-card .markdown-body blockquote {
   margin: 1.6rem 0;
   padding: 0.2rem 0 0.2rem 1.1rem;
-  border-left: 3px solid rgba(15, 118, 110, 0.28);
+  border-left: 3px solid rgba(15, 120, 141, 0.28);
   color: var(--ink-strong);
 }
 
@@ -1480,7 +1511,7 @@ a:hover {
 }
 
 .article-tag-list li {
-  border: 1px solid rgba(15, 118, 110, 0.16);
+  border: 1px solid rgba(15, 120, 141, 0.16);
   border-radius: 999px;
   padding: 0.26rem 0.58rem;
   background: rgba(255, 255, 255, 0.68);
@@ -1506,7 +1537,7 @@ a:hover {
 
 .article-related-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 0.9rem;
 }
 
@@ -1771,7 +1802,7 @@ a:hover {
 
   .site-footer-panel {
     padding: 1.2rem;
-    border-radius: 28px;
+    border-radius: 24px;
   }
 
   .site-footer-meta {

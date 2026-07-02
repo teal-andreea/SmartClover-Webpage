@@ -4,14 +4,13 @@ const Values = () => (
   <>
     <PageSeo
       title="Our Values | SmartClover"
-      description="Creativity, digitalization, and responsible AI for good guide every SmartClover product and platform release."
+      description="Creativity, digitalization, and responsible AI shape how SmartClover scopes products, reviews claims, and runs platform operations."
       path="/values"
-      image="/images/eq-learning-tablet.png"
     />
 
     <header className="page-header">
       <span className="tagline">Values</span>
-      <h1>Principles that keep technology human</h1>
+      <h1>The values behind what we build</h1>
       <p>
         Creativity, digitalization, and responsible AI for good shape how SmartClover scopes products, reviews claims,
         and manages platform operations.

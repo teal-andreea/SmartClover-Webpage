@@ -48,7 +48,6 @@ const PrivacyPolicy = () => (
       title="Privacy Policy | SmartClover Trust Center"
       description="Draft privacy policy baseline for SmartClover trust center, including data categories, lawful basis framing, retention schedule, and rights contact channel."
       path="/trust/privacy-policy"
-      image="/images/governance-network.png"
     />
 
     <header className="page-header">

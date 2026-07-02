@@ -60,7 +60,7 @@ const HowToBuy = () => (
       title="How to Buy | SmartClover"
       description="SmartClover procurement and onboarding flow for healthcare SaaS/PaaS adoption, including buyer personas and structured 30/60/90 activation path."
       path="/how-to-buy"
-      image="/images/partnership-handshake.png"
+      image="/images/diagrams/rollout-onboarding-flow_v2.png"
     />
 
     <header className="page-header">

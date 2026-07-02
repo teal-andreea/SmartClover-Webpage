@@ -1,5 +1,38 @@
 # SmartClover Change Log
 
+### [2026-07-02 22:51 UTC] TYPE: change
+- Author: Claude (Fable 5) + review council (codex xhigh, fable visual, opus S-WRITER, opus VC-EXPERT) over two review-spec-refine-test cycles
+- Summary: Prepared release `3.43` removing the remaining AI-slop and repeated imagery, rebuilding all workflow diagrams as one rendered family, recropping authentic product captures, de-slopping page copy, and tightening the visual system, per the operator's "review-spec-refine-test until ultra-verified" directive.
+- Evidence:
+  - Deleted generative/decorative assets after replacing every reference: `partnership-handshake.png`, `governance-network.png`, `research-lab.png`, `analytics-dashboard.png` (fake dashboard with garbled text), `eq-learning-tablet.png`, stale `datagems-screen-*` captures, empty-padded `cerviguard-dashboard.png`/`cerviguard-add-case.png`, all four spiral/temple `*napkin_v1.0.png` diagrams, and `smartclover_logo.jpg` (re-exported as tight `smartclover-logo_v2.png`).
+  - New `scripts/render-diagrams.mjs` (Playwright + site Google Fonts, 2x) renders the "SmartClover schematic" family: cerviguard-workflow-flow, datagems-workflow-flow, healthcare-cyber-resilience-loop, cloud-on-edge-boundary, rollout-onboarding-flow, research-evidence-flow (all `_v2`), plus `og/brand-card_v1.png` used as the default social image; label slop from the old spirals ("Feedback Arrow to Workflow Improvement", "Use Agentic Engineering") eliminated.
+  - Authentic captures recropped to versioned files: `cerviguard-dashboard-stats_v2.png` (dead padding removed), `cerviguard-add-case_v2.png` (clipped edge cleaned), `datagems-job-form_v2.png`/`datagems-dashboard_v2.png` (browser chrome cropped), and a fresh public capture of the live product entry `cerviguard-login_v3.png` (cerviguard.link) now leading the homepage hero.
+  - Blog: every post has a distinct on-family hero (was: cerviguard-dashboard fallback + three identical spirals in one row); default hero/OG fallbacks now the brand card.
+  - Copy: ~30 adjudicated S-WRITER fixes (four-verb pitch macro de-duplicated, "productization"/"digital-native" buzz clusters removed, inaccurate alt text corrected, mislinked CTA fixed, "Live research track" aligned to locked "Live research pilot", consent banner explanation added); proof/trust/regulatory pages lead with "What you can verify today" tiles; wording harmonized to "live workspace" + "public-safe sample data".
+  - CSS: refactor.css teals consolidated to accent `#0f788d` family; utility-page h1 and footer descaled (footer is a sitemap, not a second hero); large radii normalized to 24px; blog media letterboxes white; diagrams never cover-cropped (`img[src*='diagrams']` contain rule — note: next/image URL-encodes src, so `/diagrams/` selectors never match); stats strip letterboxes on a tinted mat; article summary spans the column when no TOC.
+  - `scripts/optimize-images.mjs` now excludes the operator-locked NIS2COMPASS article assets from re-encoding.
+  - Verification: 32 tests pass (napkin test rewritten to the diagram family), lint clean, build green, Playwright overflow sweep ALL-CLEAR at 1440/390 across 14 routes, two council verification passes (codex xhigh, fable) converged to SHIP after two fix rounds; full-page capture tooling now scrolls first so lazy-loaded figures paint (prior "blank diagram" findings were capture artifacts).
+- Impact: The public site no longer contains fabricated UI or generative decorative art; every visible diagram is a locally rendered, reproducible asset in one visual language; product proof imagery is authentic, current, and de-duplicated; social previews are route-appropriate.
+- Follow-up: Operator-gated items — supply a real founder photo for About (none exists in the repos; page currently states credibility in text only); decide on re-rendering the two locked NIS2COMPASS article figures into the v2 family (current pair is off-system, "imagegen" filenames visible in URLs, hero label/line collision); /values needs operator content to fill its three sparse cards; fresh authenticated CerviGuard/DataGems interior captures need credentials (live DataGems is v1.1.3 vs captured v1.0.2). Cloudflare cache rule for `/_next/image*` remains pending from v3.42.
+
+### [2026-07-02 22:51 UTC] ADVERSARIAL-CHECK
+- Scope: Site-wide imagery replacement, diagram system, copy de-slop, CSS refinement (release 3.43).
+- BUILDER Intent + Change:
+  - Remove everything that reads as AI-generated or repeated, replace with authentic captures and one rendered diagram family, de-slop copy, and refine CSS — without touching locked NIS2COMPASS content, locked product-status language, or tone-test-required strings.
+- CRITIC Findings:
+  - Codex xhigh verify: og repetition across product routes; "pilot/demo workspace" wording tension with locked "live product" status; two "blank diagram" screenshots.
+  - Fable verify: products workflow card cover-cropped mid-label (root cause: `[src*='/diagrams/']` never matches next/image's URL-encoded src); stats strip read as empty panel on white; login hero carried sliced debug chips; diagram canvases held dead space; og mark sat on off-white patch; article summary rendered as 260px sliver.
+  - Optimizer re-encoded locked NIS2COMPASS images when run.
+- BUILDER Response / Refinements:
+  - Selector fixed to `[src*='diagrams']`; strip slots given tinted mats; login recaptured region recropped and version-bumped to `_v3` (in-place overwrite of versioned assets goes stale behind 30-day caches); canvases tightened and re-rendered; og mark brightness-corrected; `.article-sidebar` width cap scoped to TOC mode; cerviguard og varied to the login capture; wording harmonized ("live workspace", "public-safe sample data") while keeping honest demo-data disclaimers; optimizer given a locked-asset exclusion list and locked files restored from git; "blank diagram" findings reproduced as lazy-load capture artifacts (images report complete:true after scroll) and the capture harness now scrolls before shooting.
+- Verification:
+  - `node --test tests/*.mjs` -> pass (32/32, includes rewritten diagram-family test)
+  - `npm run lint` -> pass
+  - `npm run build` -> pass
+  - Playwright overflow sweep 14 routes x 1440/390 -> ALL-CLEAR
+  - Fable re-verify of both residuals on final captures -> FIXED; council verdict SHIP
+- Residual Risk: Locked NIS2COMPASS figures remain visually off-system until the operator approves a re-render; /values remains content-thin; founder photo absent; DataGems captures show v1.0.2 vs live v1.1.3.
+
 ### [2026-07-02 15:33 UTC] TYPE: change
 - Author: Claude (Fable 5) + fable/opus/codex analysis council
 - Summary: Prepared release version `3.42` fixing the desktop image-frame overflow ("images not centered") and the slow image loading reported on `smartclover.ro`.

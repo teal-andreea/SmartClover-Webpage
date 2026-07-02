@@ -4,7 +4,7 @@ import Link from 'next/link';
 import PageSeo, { siteUrl } from '../../components/PageSeo';
 import { getSortedPostsData } from '../../lib/posts';
 
-const DEFAULT_BLOG_IMAGE = '/images/blog/cerviguard-workflow-napkin_v1.0.png';
+const DEFAULT_BLOG_IMAGE = '/images/og/brand-card_v1.png';
 const DEFAULT_IMAGE_WIDTH = 1600;
 const DEFAULT_IMAGE_HEIGHT = 1000;
 

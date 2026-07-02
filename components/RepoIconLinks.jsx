@@ -22,7 +22,7 @@ const RepoIconLinks = ({ githubHref, labelPrefix = 'Open source links' }) => (
       aria-label="Open SmartClover on Hugging Face"
       title="Open SmartClover on Hugging Face"
     >
-      <span aria-hidden="true">🤗</span>
+      <span aria-hidden="true">HF</span>
     </a>
   </div>
 );

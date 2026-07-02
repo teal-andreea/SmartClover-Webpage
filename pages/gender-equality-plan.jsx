@@ -51,7 +51,6 @@ const GenderEqualityPlan = ({ document }) => {
         title={`${document.title} | SmartClover`}
         description={document.description}
         path={document.canonicalPath}
-        image="/images/research-lab.png"
         jsonLd={jsonLd}
       />
 

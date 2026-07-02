@@ -30,7 +30,7 @@ const Security = () => (
       title="Security | SmartClover Trust Center"
       description="Draft SmartClover security baseline covering access control, encryption controls, data boundaries, and traceable event records without certification claims."
       path="/trust/security"
-      image="/images/architecture/cloud-on-edge-boundaries-napkin_v1.0.png"
+      image="/images/diagrams/cloud-on-edge-boundary_v2.png"
     />
 
     <header className="page-header">

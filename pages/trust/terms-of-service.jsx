@@ -30,7 +30,6 @@ const TermsOfService = () => (
       title="Terms of Service | SmartClover Trust Center"
       description="Draft terms-of-service baseline for SmartClover healthcare SaaS/PaaS products, covering service scope, obligations, response posture, and contractual boundaries."
       path="/trust/terms-of-service"
-      image="/images/governance-network.png"
     />
 
     <header className="page-header">

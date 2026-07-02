@@ -90,7 +90,7 @@ const Layout = ({ children, hostId = 'unknown' }) => {
             <div className="nav-inner">
               <div className="nav-header">
                 <Link href="/" className="nav-brand" aria-label="SmartClover home">
-                  <Image src="/smartclover_logo.jpg" alt="SmartClover logo" width={48} height={48} className="nav-logo" />
+                  <Image src="/smartclover-logo_v2.png" alt="SmartClover logo" width={48} height={48} className="nav-logo" />
                   <span className="nav-brand-block">
                     <span className="nav-brand-text">SmartClover</span>
                     <span className="nav-brand-subtitle">Healthcare AI for screening workflows and research</span>
@@ -185,7 +185,7 @@ const Layout = ({ children, hostId = 'unknown' }) => {
               <ServedBy hostId={hostId} />
               <p className="site-footer-meta">
                 © {new Date().getFullYear()} SmartClover. v{versionData.version}
-                <span>Clinical software · Research continuity · Responsible AI</span>
+                <span>Clinical software and healthcare AI research</span>
               </p>
             </div>
           </div>

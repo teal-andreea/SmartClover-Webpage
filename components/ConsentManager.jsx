@@ -143,6 +143,7 @@ gtag('config', '${GA_ID}', { anonymize_ip: true });`}
         <section className="consent-banner" aria-label="Cookie notice">
           <div className="consent-banner-copy">
             <h2>Cookie choices</h2>
+            <p>We use necessary cookies for site function and optional analytics only with your consent.</p>
           </div>
           <div className="consent-banner-actions">
             <button

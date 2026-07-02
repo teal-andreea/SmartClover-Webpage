@@ -73,6 +73,24 @@ const evidenceStatus = [
   }
 ];
 
+const verifyTodayLinks = [
+  {
+    href: 'https://cerviguard.link',
+    title: 'Live CerviGuard workspace',
+    description: 'Open the live workspace at cerviguard.link.'
+  },
+  {
+    href: 'https://github.com/SmartCloverAI/CerviGuard',
+    title: 'GitHub repository',
+    description: 'Read the public implementation source.'
+  },
+  {
+    href: '/docs/CerviGuard_MDR_Class_I_Self_Assessment_Draft.pdf',
+    title: 'Draft MDR Class I self-assessment',
+    description: 'Download the draft regulatory PDF.'
+  }
+];
+
 const verifiedProductProof = [
   {
     href: 'https://cerviguard.link',
@@ -102,7 +120,7 @@ const Proof = () => (
       title="Proof | SmartClover"
       description="SmartClover proof page with product timeline, pilot methodology notes, and KPI disclosure template with publication limits."
       path="/proof"
-      image="/images/cerviguard/cerviguard-dashboard.png"
+      image="/images/cerviguard/cerviguard-dashboard-stats_v2.png"
     />
 
     <header className="page-header">
@@ -113,6 +131,30 @@ const Proof = () => (
         Numeric KPI publication remains gated until cohort definitions and reporting windows are finalized.
       </p>
     </header>
+
+    <section className="surface-card" aria-labelledby="proof-verify-today-heading">
+      <div className="section-heading">
+        <h2 id="proof-verify-today-heading">What you can verify today</h2>
+      </div>
+      <div className="proof-link-grid">
+        {verifyTodayLinks.map((item) => {
+          const isExternal = item.href.startsWith('http');
+
+          return (
+            <a
+              key={item.href}
+              href={item.href}
+              className="proof-link-card"
+              target={isExternal ? '_blank' : undefined}
+              rel={isExternal ? 'noopener noreferrer' : undefined}
+            >
+              <strong>{item.title}</strong>
+              <span>{item.description}</span>
+            </a>
+          );
+        })}
+      </div>
+    </section>
 
     <section className="surface-card" aria-labelledby="proof-status-heading">
       <div className="status-badge-list" id="proof-status-heading">
@@ -140,10 +182,10 @@ const Proof = () => (
       <div className="product-proof-grid">
         <div className="visual-frame product-visual-frame">
           <Image
-            src="/images/cerviguard/cerviguard-dashboard.png"
-            alt="CerviGuard workspace dashboard used as product proof"
-            width={1600}
-            height={1100}
+            src="/images/cerviguard/cerviguard-dashboard-stats_v2.png"
+            alt="CerviGuard workspace stats strip: completed analyses, healthy patients, mid-risk and high-risk alerts."
+            width={1228}
+            height={281}
             sizes="(max-width: 879px) 100vw, 44vw"
             priority
           />

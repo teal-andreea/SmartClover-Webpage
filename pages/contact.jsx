@@ -307,7 +307,6 @@ const Contact = ({
         title={seoTitle}
         description={seoDescription}
         path={seoPath}
-        image="/images/cerviguard/cerviguard-dashboard.png"
         jsonLd={contactSchema}
       />
 
@@ -325,9 +324,8 @@ const Contact = ({
                 One contact hub for demos, pilots, research, and investor conversations.
               </h1>
               <p>
-                SmartClover routes public inbound requests through one structured hub so organizations can start
-                qualification without ambiguity. The main path is still a product demo or pilot conversation, while
-                research, investor, and general inquiries remain explicit.
+                SmartClover routes public inbound requests through one structured hub. The main path is a product demo
+                or pilot; research, investor, and general inquiries stay explicit.
               </p>
             </div>
             <ul className="hero-evidence-list">

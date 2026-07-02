@@ -10,6 +10,14 @@ const declarationFields = [
   { field: 'Public draft artifact', value: 'CerviGuard MDR Class I Self-Assessment Draft (PDF)' }
 ];
 
+const verifyTodayLinks = [
+  {
+    href: '/docs/CerviGuard_MDR_Class_I_Self_Assessment_Draft.pdf',
+    title: 'Draft MDR Class I self-assessment',
+    description: 'Download the draft regulatory PDF published for review.'
+  }
+];
+
 const monitoringSteps = [
   'Capture and triage product complaints through controlled intake channels.',
   'Assess severity and potential patient-safety impact with documented review ownership.',
@@ -23,7 +31,6 @@ const Regulatory = () => (
       title="Regulatory | SmartClover"
       description="Regulatory overview for CerviGuard intended use, draft MDR Class I self-assessment, jurisdiction scope, and post-market process summary with publication limits."
       path="/regulatory"
-      image="/images/cerviguard/cerviguard-dashboard.png"
     />
 
     <header className="page-header">
@@ -34,6 +41,20 @@ const Regulatory = () => (
         draft and pending-publication fields plainly.
       </p>
     </header>
+
+    <section className="surface-card" aria-labelledby="reg-verify-today-heading">
+      <div className="section-heading">
+        <h2 id="reg-verify-today-heading">What you can verify today</h2>
+      </div>
+      <div className="proof-link-grid">
+        {verifyTodayLinks.map((item) => (
+          <a key={item.href} href={item.href} className="proof-link-card" target="_blank" rel="noopener noreferrer">
+            <strong>{item.title}</strong>
+            <span>{item.description}</span>
+          </a>
+        ))}
+      </div>
+    </section>
 
     <section className="surface-card" aria-labelledby="reg-status-heading">
       <div className="status-badge-list" id="reg-status-heading">

@@ -10,7 +10,7 @@ const pageDescription =
 
 const featurePillars = [
   {
-    title: 'Clinical Workflow Platform',
+    title: 'Clinical workflow',
     description:
       'Structured case intake, triage prioritization, and follow-up tracking keep screening operations consistent across distributed teams.'
   },
@@ -20,9 +20,9 @@ const featurePillars = [
       'SmartClover publishes a draft MDR Class I self-assessment while keeping CerviGuard positioned as clinician-led support, not autonomous diagnosis.'
   },
   {
-    title: 'Digital-Native Delivery',
+    title: 'Flexible delivery',
     description:
-      'CerviGuard supports managed SaaS workspaces, private SaaS environments, and PaaS/API-led integrations.'
+      'CerviGuard runs as a managed SaaS workspace, a private SaaS environment, or a PaaS/API integration.'
   }
 ];
 
@@ -43,20 +43,29 @@ const screenshotGallery = [
   {
     title: 'Operational dashboard',
     description:
-      'A live operational overview shows completed analyses and risk distribution for daily triage review.',
-    src: '/images/cerviguard/cerviguard-dashboard.png',
-    alt: 'CerviGuard dashboard view with case overview cards',
-    width: 1600,
-    height: 1100
+      'The workspace overview where teams see the current case queue at a glance.',
+    src: '/images/cerviguard/cerviguard-dashboard-stats_v2.png',
+    alt: 'CerviGuard workspace stats strip: completed analyses, healthy patients, mid-risk and high-risk alerts.',
+    width: 1228,
+    height: 281
   },
   {
     title: 'New case onboarding',
     description:
       'De-identified cervical image upload and notes are captured through a guided intake flow with privacy guardrails.',
-    src: '/images/cerviguard/cerviguard-add-case.png',
-    alt: 'CerviGuard add-case form for image upload and notes',
+    src: '/images/cerviguard/cerviguard-add-case_v2.png',
+    alt: 'CerviGuard add-case form for uploading a de-identified cervical image with clinical notes.',
+    width: 933,
+    height: 516
+  },
+  {
+    title: 'Workspace sign-in',
+    description:
+      'The public entry to the live workspace at cerviguard.link.',
+    src: '/images/cerviguard/cerviguard-login_v3.png',
+    alt: 'CerviGuard sign-in page at cerviguard.link, the entry to the live workspace.',
     width: 1600,
-    height: 1100
+    height: 867
   }
 ];
 
@@ -94,7 +103,7 @@ const deploymentModes = [
   {
     title: 'PaaS and API Extensions',
     description:
-      'Engineering teams can integrate CerviGuard workflows into broader digital health ecosystems through PaaS interfaces.'
+      'Engineering teams can integrate CerviGuard workflows through PaaS interfaces and APIs.'
   }
 ];
 
@@ -132,14 +141,14 @@ const CerviGuard = () => (
       title={pageTitle}
       description={pageDescription}
       path="/cerviguard"
-      image="/images/cerviguard/cerviguard-dashboard.png"
+      image="/images/cerviguard/cerviguard-login_v3.png"
       keywords="CerviGuard, healthcare AI platform, cervical screening software, SaaS healthcare, PaaS healthcare"
       jsonLd={softwareSchema}
     />
 
     <header className="page-header">
       <span className="tagline">CerviGuard</span>
-      <h1>CerviGuard: AI-supported cervical screening platform for digital care teams</h1>
+      <h1>CerviGuard: AI-supported cervical screening for clinical teams</h1>
       <p>
         CerviGuard is SmartClover&apos;s live product for cervical-screening teams that need structured intake,
         AI-assisted analysis, and clinician-led follow-up. The public regulatory material is a draft MDR Class I
@@ -187,10 +196,10 @@ const CerviGuard = () => (
       </div>
       <div className="cerviguard-hero-media">
         <Image
-          src="/images/cerviguard/cerviguard-dashboard.png"
-          alt="CerviGuard dashboard showing analysis and triage overview"
-          width={1600}
-          height={1100}
+          src="/images/cerviguard/cerviguard-dashboard-stats_v2.png"
+          alt="CerviGuard workspace stats strip: completed analyses, healthy patients, mid-risk and high-risk alerts."
+          width={1228}
+          height={281}
           sizes="(max-width: 879px) 100vw, 48vw"
           priority
         />
@@ -265,10 +274,10 @@ const CerviGuard = () => (
       </div>
       <div className="workflow-visual-frame">
         <Image
-          src="/images/blog/cerviguard-workflow-napkin_v1.0.png"
-          alt="CerviGuard workflow diagram from structured intake to clinician-led follow-up planning"
+          src="/images/diagrams/cerviguard-workflow-flow_v2.png"
+          alt="CerviGuard workflow from structured case intake through AI-assisted and clinician review to triage and follow-up tracking."
           width={1600}
-          height={1384}
+          height={620}
           sizes="(max-width: 879px) 100vw, 72vw"
         />
       </div>
@@ -284,7 +293,7 @@ const CerviGuard = () => (
 
     <section className="surface-card" aria-labelledby="cerviguard-deployment-heading">
       <div className="section-heading">
-        <h2 id="cerviguard-deployment-heading">Digital-native SaaS/PaaS deployment model</h2>
+        <h2 id="cerviguard-deployment-heading">Deployment options: managed SaaS, private SaaS, or PaaS</h2>
         <p>
           SmartClover offers CerviGuard as a product with deployment options, so teams can start with a defined
           workflow and add integrations only when scope is clear.
@@ -332,15 +341,6 @@ const CerviGuard = () => (
           </Link>
           <RepoIconLinks githubHref="https://github.com/SmartCloverAI/CerviGuard" labelPrefix="Technical repository links" />
         </div>
-      </div>
-      <div className="spotlight-media workflow-visual-frame">
-        <Image
-          src="/images/blog/cerviguard-workflow-napkin_v1.0.png"
-          alt="CerviGuard workflow diagram showing structured intake, AI-assisted review, and clinician-led follow-up"
-          width={1600}
-          height={1384}
-          sizes="(max-width: 879px) 100vw, 44vw"
-        />
       </div>
     </section>
   </>

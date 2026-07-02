@@ -16,7 +16,7 @@ CerviGuard establishes a clinical operating model where structured cervical case
 
 The objective is not to replace clinical judgment. The objective is to make follow-up signals easier to review, keep triage support consistent, and keep context visible for clinician decisions.
 
-![CerviGuard workflow showing structured intake, AI-assisted review, clinician review, triage coordination, clinician-led follow-up planning, and a feedback loop for workflow improvement.](/images/blog/cerviguard-workflow-napkin_v1.0.png)
+![CerviGuard workflow from structured case intake through AI-assisted and clinician review to triage and follow-up tracking.](/images/diagrams/cerviguard-workflow-flow_v2.png)
 *CerviGuard connects intake, review, triage coordination, and follow-up planning in a clinician-led workflow.*
 
 ## Why this is tied to field screening and follow-up research

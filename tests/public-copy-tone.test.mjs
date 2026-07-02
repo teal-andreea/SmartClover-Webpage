@@ -416,7 +416,7 @@ test('products page keeps CerviGuard first and DataGems as a research pilot', ()
     'products page should include an explicit CerviGuard proof section'
   );
   assert.equal(
-    source.includes('image="/images/cerviguard/cerviguard-dashboard.png"'),
+    source.includes('image="/images/cerviguard/cerviguard-dashboard-stats_v2.png"'),
     true,
     'products social preview should use CerviGuard proof while the page is CerviGuard-led'
   );
@@ -677,12 +677,16 @@ test('blog posts use scoped evidence and reader-value language', () => {
   }
 });
 
-test('NapkinAI visuals are hosted locally and keep public claims scoped', () => {
+test('workflow diagrams are locally rendered assets and keep public claims scoped', () => {
   const requiredAssets = [
-    'public/images/blog/datagems-workflow-napkin_v1.0.png',
-    'public/images/blog/cerviguard-workflow-napkin_v1.0.png',
-    'public/images/architecture/cloud-on-edge-boundaries-napkin_v1.0.png',
-    'public/images/architecture/healthcare-cyber-resilience-loop-napkin_v1.0.png'
+    'public/images/diagrams/cerviguard-workflow-flow_v2.png',
+    'public/images/diagrams/datagems-workflow-flow_v2.png',
+    'public/images/diagrams/healthcare-cyber-resilience-loop_v2.png',
+    'public/images/diagrams/cloud-on-edge-boundary_v2.png',
+    'public/images/diagrams/rollout-onboarding-flow_v2.png',
+    'public/images/diagrams/research-evidence-flow_v2.png',
+    'public/images/og/brand-card_v1.png',
+    'scripts/render-diagrams.mjs'
   ];
 
   for (const assetPath of requiredAssets) {
@@ -695,21 +699,21 @@ test('NapkinAI visuals are hosted locally and keep public claims scoped', () => 
   const cyberPage = normalizeCopy(readFileSync('pages/cybersecurity.jsx', 'utf8'));
 
   for (const requiredFragment of [
-    '/images/blog/datagems-workflow-napkin_v1.0.png',
+    '/images/diagrams/datagems-workflow-flow_v2.png',
     'schema definition through export'
   ]) {
     assert.equal(datagemsPost.includes(requiredFragment), true, `DataGems post should include visual context: ${requiredFragment}`);
   }
 
   for (const requiredFragment of [
-    '/images/blog/cerviguard-workflow-napkin_v1.0.png',
+    '/images/diagrams/cerviguard-workflow-flow_v2.png',
     'intake, review, triage coordination, and follow-up planning'
   ]) {
     assert.equal(cerviguardPost.includes(requiredFragment), true, `CerviGuard post should include visual context: ${requiredFragment}`);
   }
 
   assert.equal(
-    cloudPage.includes('/images/architecture/cloud-on-edge-boundaries-napkin_v1.0.png'),
+    cloudPage.includes('/images/diagrams/cloud-on-edge-boundary_v2.png'),
     true,
     'cloud architecture page should reference the local cloud-on-edge visual'
   );
@@ -719,7 +723,7 @@ test('NapkinAI visuals are hosted locally and keep public claims scoped', () => 
     'cloud architecture visual should keep provider-neutral language'
   );
   assert.equal(
-    cyberPage.includes('/images/architecture/healthcare-cyber-resilience-loop-napkin_v1.0.png'),
+    cyberPage.includes('/images/diagrams/healthcare-cyber-resilience-loop_v2.png'),
     true,
     'cybersecurity page should reference the local resilience-loop visual'
   );
