@@ -41,13 +41,13 @@ const aiHealthcareDirections = [
 
 const screenshotGallery = [
   {
-    title: 'Operational dashboard',
+    title: 'Case history',
     description:
-      'The workspace overview where teams see the current case queue at a glance.',
-    src: '/images/cerviguard/cerviguard-dashboard-stats_v2.png',
-    alt: 'CerviGuard workspace stats strip: completed analyses, healthy patients, mid-risk and high-risk alerts.',
-    width: 1228,
-    height: 281
+      'Every submitted case with its analysis status and TZ/lesion classification at a glance.',
+    src: '/images/cerviguard/cerviguard-case-history_v1.png',
+    alt: 'CerviGuard case history table with pseudonymous case IDs, analysis status, and TZ and lesion classifications.',
+    width: 1600,
+    height: 1114
   },
   {
     title: 'New case onboarding',
@@ -57,6 +57,15 @@ const screenshotGallery = [
     alt: 'CerviGuard add-case form for uploading a de-identified cervical image with clinical notes.',
     width: 864,
     height: 528
+  },
+  {
+    title: 'AI analysis output',
+    description:
+      'Per-case transformation-zone and lesion classification with confidence context for clinician review.',
+    src: '/images/cerviguard/cerviguard-analysis-panel_v1.png',
+    alt: 'CerviGuard AI analysis output: transformation-zone type and lesion classification with per-class confidence bars.',
+    width: 736,
+    height: 934
   },
   {
     title: 'Workspace sign-in',
@@ -196,10 +205,10 @@ const CerviGuard = () => (
       </div>
       <div className="cerviguard-hero-media">
         <Image
-          src="/images/cerviguard/cerviguard-dashboard-stats_v2.png"
-          alt="CerviGuard workspace stats strip: completed analyses, healthy patients, mid-risk and high-risk alerts."
-          width={1228}
-          height={281}
+          src="/images/cerviguard/cerviguard-dashboard-live_v1.png"
+          alt="CerviGuard dashboard with completed-analysis counters and the recent-cases queue from the demo workspace."
+          width={1600}
+          height={890}
           sizes="(max-width: 879px) 100vw, 48vw"
           priority
         />

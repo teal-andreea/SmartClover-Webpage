@@ -416,7 +416,7 @@ test('products page keeps CerviGuard first and DataGems as a research pilot', ()
     'products page should include an explicit CerviGuard proof section'
   );
   assert.equal(
-    source.includes('image="/images/cerviguard/cerviguard-dashboard-stats_v2.png"'),
+    source.includes('image="/images/cerviguard/cerviguard-dashboard-live_v1.png"'),
     true,
     'products social preview should use CerviGuard proof while the page is CerviGuard-led'
   );

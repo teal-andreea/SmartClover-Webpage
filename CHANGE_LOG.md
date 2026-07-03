@@ -1,5 +1,16 @@
 # SmartClover Change Log
 
+### [2026-07-03 06:35 UTC] TYPE: change
+- Author: Claude (Fable 5); operator-authenticated capture session (operator signed in by hand in a WSLg headed browser; no credentials were handled by the agent)
+- Summary: Release `3.45` — fresh authenticated CerviGuard workspace captures replace the thin stats strip and add real screenshot diversity: populated dashboard, case-history table, and AI analysis output.
+- Evidence:
+  - New assets (element-level crops at 2x from the live pilot workspace, floating badges hidden): `cerviguard-dashboard-live_v1.png` (stat tiles + recent-cases queue), `cerviguard-case-history_v1.png` (15 rows of pseudonymous cases with status and TZ/lesion classification), `cerviguard-analysis-panel_v1.png` (AI analysis card: TZ type and lesion classification with per-class confidence bars, processed-at stamp).
+  - Privacy curation per playbook: all colposcopy/clinical imagery excluded from published crops (case-detail screens contain real cervical imagery — not public-safe); profile page rejected; crops exclude the logged-in account header; only pseudonymous case IDs and demo-workspace data appear. Raw captures never entered the repo; the saved auth session file was deleted after use.
+  - Placements: cerviguard hero -> dashboard-live; cerviguard gallery -> case history / intake / AI analysis / sign-in (4 distinct surfaces); products lead + og -> dashboard-live, products proof shots lead -> case history; proof page frame -> analysis panel, og -> dashboard-live. `cerviguard-dashboard-stats_v2.png` retired (all references replaced).
+  - CSS: capture-mat rule consolidated to `img[src*='cerviguard-']:not([src*='diagrams'])`; tone test og assertion updated; 32 tests, lint, build green; element-level visual verification at 1440px.
+- Impact: The site's CerviGuard evidence now shows four genuinely different, current product surfaces from the running pilot (v0.4.9) instead of one repeated stats strip; the empty-panel look is gone.
+- Follow-up: DataGems interior captures still stale (live v1.1.3 vs captured v1.0.2) — needs a DataGems demo account session, same operator-signs-in flow.
+
 ### [2026-07-03 04:51 UTC] TYPE: change
 - Author: Claude (Fable 5), operator-reported visual defect
 - Summary: Release `3.44` — the homepage hero and product-evidence captures rendered too large for their frames (`object-fit: cover` sliced the login capture mid-word at real browser size). Authentic captures now render smaller, centered, on the tinted mat.

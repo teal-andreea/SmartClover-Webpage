@@ -100,12 +100,12 @@ const cerviGuardProofLinks = [
 
 const cerviGuardProofShots = [
   {
-    src: '/images/cerviguard/cerviguard-dashboard-stats_v2.png',
-    width: 1228,
-    height: 281,
-    alt: 'CerviGuard workspace stats strip: completed analyses, healthy patients, mid-risk and high-risk alerts.',
-    title: 'Operational dashboard',
-    description: 'Workspace overview for case distribution, review queues, and follow-up coordination.'
+    src: '/images/cerviguard/cerviguard-case-history_v1.png',
+    width: 1600,
+    height: 1114,
+    alt: 'CerviGuard case history table with pseudonymous case IDs, analysis status, and TZ and lesion classifications.',
+    title: 'Case history',
+    description: 'Every submitted case with its analysis status and classification, from the demo workspace.'
   },
   {
     src: '/images/cerviguard/cerviguard-add-case_v3.png',
@@ -131,7 +131,7 @@ const Products = () => (
       title="Products | SmartClover"
       description="SmartClover product and service portfolio covering CerviGuard, DataGems research, permissioned cloud-on-edge deployment, and healthcare cybersecurity/resilience."
       path="/products"
-      image="/images/cerviguard/cerviguard-dashboard-stats_v2.png"
+      image="/images/cerviguard/cerviguard-dashboard-live_v1.png"
     />
 
     <header className="page-header">
@@ -167,10 +167,10 @@ const Products = () => (
       <div className="product-proof-grid">
         <div className="visual-frame product-visual-frame">
           <Image
-            src="/images/cerviguard/cerviguard-dashboard-stats_v2.png"
-            alt="CerviGuard workspace stats strip: completed analyses, healthy patients, mid-risk and high-risk alerts."
-            width={1228}
-            height={281}
+            src="/images/cerviguard/cerviguard-dashboard-live_v1.png"
+            alt="CerviGuard dashboard with completed-analysis counters and the recent-cases queue from the demo workspace."
+            width={1600}
+            height={890}
             sizes="(max-width: 879px) 100vw, 44vw"
             priority
           />

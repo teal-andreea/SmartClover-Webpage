@@ -120,7 +120,7 @@ const Proof = () => (
       title="Proof | SmartClover"
       description="SmartClover proof page with product timeline, pilot methodology notes, and KPI disclosure template with publication limits."
       path="/proof"
-      image="/images/cerviguard/cerviguard-dashboard-stats_v2.png"
+      image="/images/cerviguard/cerviguard-dashboard-live_v1.png"
     />
 
     <header className="page-header">
@@ -182,10 +182,10 @@ const Proof = () => (
       <div className="product-proof-grid">
         <div className="visual-frame product-visual-frame">
           <Image
-            src="/images/cerviguard/cerviguard-dashboard-stats_v2.png"
-            alt="CerviGuard workspace stats strip: completed analyses, healthy patients, mid-risk and high-risk alerts."
-            width={1228}
-            height={281}
+            src="/images/cerviguard/cerviguard-analysis-panel_v1.png"
+            alt="CerviGuard AI analysis output: transformation-zone type and lesion classification with per-class confidence bars."
+            width={736}
+            height={934}
             sizes="(max-width: 879px) 100vw, 44vw"
             priority
           />

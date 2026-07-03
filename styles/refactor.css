@@ -564,17 +564,15 @@ a:hover {
   object-position: center 54%;
 }
 
-/* authentic workspace captures (stats strip ~4.4:1, login/add-case ~1.8:1)
-   must never be cover-cropped mid-text by the frame: render them smaller,
-   centered, on a visible tinted mat instead */
-.product-visual-frame img[src*='dashboard-stats'],
-.product-shot-media img[src*='dashboard-stats'],
-.cerviguard-hero-media img[src*='dashboard-stats'],
-.cerviguard-shot-media img[src*='dashboard-stats'],
-.product-visual-frame img[src*='cerviguard-login'],
-.product-shot-media img[src*='cerviguard-login'],
-.cerviguard-hero-media img[src*='cerviguard-login'],
-.cerviguard-shot-media img[src*='cerviguard-login'],
+/* authentic workspace captures (login, add-case, dashboard, case history,
+   analysis panel) must never be cover-cropped mid-text by the frame: render
+   them smaller, centered, on a visible tinted mat instead. The :not guard
+   keeps rendered diagram files (cerviguard-workflow-*) on the diagram rule.
+   Substrings match the URL-encoded next/image src, so no slashes. */
+.product-visual-frame img[src*='cerviguard-']:not([src*='diagrams']),
+.product-shot-media img[src*='cerviguard-']:not([src*='diagrams']),
+.cerviguard-hero-media img[src*='cerviguard-']:not([src*='diagrams']),
+.cerviguard-shot-media img[src*='cerviguard-']:not([src*='diagrams']),
 .product-visual-frame img[src*='add-case'],
 .product-shot-media img[src*='add-case'],
 .cerviguard-hero-media img[src*='add-case'],
