@@ -20,6 +20,8 @@ That is the trap [NIS2COMPASS](https://www.nis2compass.eu) is designed to addres
 
 ## Why This Matters Now
 
+> Our partner published a twin blog article on their site, which you can read here: [https://stm.ai/blog/nis2compass/](https://stm.ai/blog/nis2compass/)
+
 NIS2 is the European Union's updated cybersecurity framework for important and essential sectors. It expands the scope of regulated sectors, raises expectations around risk management, strengthens incident reporting, and brings management accountability closer to cybersecurity practice. For organizations in manufacturing, healthcare-adjacent activity, digital infrastructure, hosting, cloud, data centers, managed services, public administration, and other critical areas, this changes the tone of cybersecurity work.
 
 The old comfort zone was: "we did the scan," "we patched the server," "we trained the staff," or "we monitored the traffic."
@@ -51,8 +53,6 @@ SmartClover SRL contributes the operational cybersecurity and dissemination side
 **Neither role is enough by itself.** A graph without real operational evidence becomes an elegant database with no ground truth. Security testing without traceable evidence becomes another folder of disconnected reports. [NIS2COMPASS](https://www.nis2compass.eu) is the attempt to join those two worlds: real cybersecurity activity and structured proof.
 
 [![Collaboration diagram showing SmartClover operational evidence, AI STM Evidence Graph governance, and public playbooks and templates.](images/collaboration-flow-imagegen.png)](https://www.nis2compass.eu)
-
-> Our partner published a twin blog article on their site, which you can read here: [https://stm.ai/blog/nis2compass/](https://stm.ai/blog/nis2compass/)
 
 ## What SmartClover Brings To The Project
 

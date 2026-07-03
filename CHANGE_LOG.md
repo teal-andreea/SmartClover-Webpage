@@ -1,5 +1,13 @@
 # SmartClover Change Log
 
+### [2026-07-03 11:14 UTC] TYPE: change
+- Author: Claude (Opus 4.8), operator-requested placement change
+- Summary: Release `3.47` — moved the partner twin-article note (added in 3.46) to sit directly under the "Why This Matters Now" section title, per operator request, so it appears near the top of the article instead of inside the Partnership section.
+- Evidence: `posts/nis2compass-verifiable-cybersecurity-proof.md` — the blockquote note (verbatim: "Our partner published a twin blog article on their site, which you can read here: https://stm.ai/blog/nis2compass/") removed from after the collaboration diagram and re-inserted immediately below `## Why This Matters Now`. Note text and its `stm.ai/blog/nis2compass/` link unchanged; all AI STM → stm.ai links and Further Reading bullets unchanged. 32 tests, lint, build green.
+- Impact: Readers see the pointer to the partner's parallel write-up high in the article rather than mid-way through.
+- ADVERSARIAL-CHECK: Does relocating the note break the required-fragment lock? No — the tone test checks `source.includes(...)` for the note string, which is position-independent; the exact sentence + link are still present (verified by the passing run). No new `NIS2COMPASS` uppercase token introduced (URL is lowercase), so the unlinked-mention guard still passes.
+- Follow-up: none new.
+
 ### [2026-07-03 10:57 UTC] TYPE: change
 - Author: Claude (Opus 4.8), operator-requested partner attribution
 - Summary: Release `3.46` — the NIS2COMPASS blog article now links our partner AI STM Learning to their site (`stm.ai`) and carries an operator-requested note pointing readers to the partner's twin blog article.
