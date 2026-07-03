@@ -44,13 +44,15 @@ The project does not try to replace every security tool. That would be the wrong
 
 [NIS2COMPASS](https://www.nis2compass.eu) works because the roles are deliberately different.
 
-AI STM Learning SRL coordinates the project and leads the compliance/evidence architecture. That means project control, NIS2 mapping, the Evidence Graph, governance logic, reviewable evidence packs, human review of AI-suggested mappings, and funder-facing delivery evidence.
+[AI STM Learning SRL](https://stm.ai) coordinates the project and leads the compliance/evidence architecture. That means project control, NIS2 mapping, the Evidence Graph, governance logic, reviewable evidence packs, human review of AI-suggested mappings, and funder-facing delivery evidence.
 
 SmartClover SRL contributes the operational cybersecurity and dissemination side. That means monitoring evidence, threat-intelligence alignment, vulnerability assessment and penetration-test coordination, remediation verification, awareness material, aggregate phishing or training metrics, public-safe technical writing, and community-facing outputs.
 
 **Neither role is enough by itself.** A graph without real operational evidence becomes an elegant database with no ground truth. Security testing without traceable evidence becomes another folder of disconnected reports. [NIS2COMPASS](https://www.nis2compass.eu) is the attempt to join those two worlds: real cybersecurity activity and structured proof.
 
 [![Collaboration diagram showing SmartClover operational evidence, AI STM Evidence Graph governance, and public playbooks and templates.](images/collaboration-flow-imagegen.png)](https://www.nis2compass.eu)
+
+> Our partner published a twin blog article on their site, which you can read here: [https://stm.ai/blog/nis2compass/](https://stm.ai/blog/nis2compass/)
 
 ## What SmartClover Brings To The Project
 
@@ -138,13 +140,15 @@ At the end of [NIS2COMPASS](https://www.nis2compass.eu), the strongest result wo
 
 For SmartClover, this project also connects two parts of our work that are usually discussed separately: secure healthcare AI delivery and cybersecurity resilience. Both need traceability. Both need disciplined evidence. Both need human review. Both need careful public communication.
 
-[NIS2COMPASS](https://www.nis2compass.eu) gives us a way to turn that discipline into a reusable cybersecurity pattern, together with AI STM Learning and within the CYberSynchrony ecosystem.
+[NIS2COMPASS](https://www.nis2compass.eu) gives us a way to turn that discipline into a reusable cybersecurity pattern, together with [AI STM Learning](https://stm.ai) and within the CYberSynchrony ecosystem.
 
 ## Further Reading
 
 - European Commission: [NIS2 Directive: securing network and information systems](https://digital-strategy.ec.europa.eu/en/policies/nis2-directive)
 - European Commission: [NIS2 Directive FAQs](https://digital-strategy.ec.europa.eu/en/faqs/directive-measures-high-common-level-cybersecurity-across-union-nis2-directive-faqs)
 - [NIS2COMPASS](https://www.nis2compass.eu)
+- AI STM Learning: [stm.ai](https://stm.ai)
+- AI STM Learning: [partner twin article on this project](https://stm.ai/blog/nis2compass/)
 - CYberSynchrony: [Open Calls](https://cybersynchrony.eu/open-calls/)
 - CYberSynchrony: [Public Deliverables](https://cybersynchrony.eu/public-deliverables/)
 - SmartClover: [Healthcare AI with live product proof](https://smartclover.ro/)

@@ -1,5 +1,17 @@
 # SmartClover Change Log
 
+### [2026-07-03 10:57 UTC] TYPE: change
+- Author: Claude (Opus 4.8), operator-requested partner attribution
+- Summary: Release `3.46` — the NIS2COMPASS blog article now links our partner AI STM Learning to their site (`stm.ai`) and carries an operator-requested note pointing readers to the partner's twin blog article.
+- Evidence:
+  - `posts/nis2compass-verifiable-cybersecurity-proof.md`: the primary partnership mention ("AI STM Learning SRL coordinates the project…") and the closing mention are now hyperlinked to `https://stm.ai`; two "Further Reading" bullets added (`stm.ai` and the partner twin article). All wording preserved — links wrap existing text only.
+  - New note (blockquote in the Partnership section, verbatim operator wording): "Our partner published a twin blog article on their site, which you can read here: https://stm.ai/blog/nis2compass/". The twin URL was fetched and confirmed live (title: "NIS2COMPASS: Evidence-Linked AI for Verifiable Cybersecurity"); it is the partner's own domain.
+  - Verbatim-lock discipline: frontmatter `subtitle` and the section heading (both locked and rendered as plain-text meta / heading) left untouched; only the coordinating-sentence lock in `tests/public-copy-tone.test.mjs` was updated to its linked form, and the twin note + partner bullet were added to the required-fragment list so they cannot silently regress.
+  - Link-text avoids the uppercase `NIS2COMPASS` token, so the existing "no unlinked NIS2COMPASS mention" body check still passes. 32 tests, lint, and `next build` all green.
+- Impact: Partner AI STM Learning is now properly credited with outbound links from the joint article, and readers are pointed to the partner's parallel write-up — reciprocal cross-linking between the two partner sites.
+- ADVERSARIAL-CHECK: Could the edits break the verbatim lock or the tone tests? The three locked NIS2COMPASS fragments and the article structure/imagery are unchanged; only the one AI-STM sentence lock moved to its linked form (words identical), and the operator explicitly authorized the link + note. Could the new link text trip the unlinked-`NIS2COMPASS` guard? No — the only `nis2compass` tokens added are lowercase (inside URLs), and the guard's regex is uppercase/case-sensitive; verified by the passing test run. Is the twin URL trustworthy? It is the partner's own domain (`stm.ai`), operator-supplied, and returns a real NIS2COMPASS article (fetched and confirmed, not a 404).
+- Follow-up: none new. Prior operator-gated items unchanged (DataGems interior captures still stale; founder photo for /about).
+
 ### [2026-07-03 06:35 UTC] TYPE: change
 - Author: Claude (Fable 5); operator-authenticated capture session (operator signed in by hand in a WSLg headed browser; no credentials were handled by the agent)
 - Summary: Release `3.45` — fresh authenticated CerviGuard workspace captures replace the thin stats strip and add real screenshot diversity: populated dashboard, case-history table, and AI analysis output.
