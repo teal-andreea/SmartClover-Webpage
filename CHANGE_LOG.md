@@ -1,5 +1,12 @@
 # SmartClover Change Log
 
+### [2026-07-03 04:51 UTC] TYPE: change
+- Author: Claude (Fable 5), operator-reported visual defect
+- Summary: Release `3.44` — the homepage hero and product-evidence captures rendered too large for their frames (`object-fit: cover` sliced the login capture mid-word at real browser size). Authentic captures now render smaller, centered, on the tinted mat.
+- Evidence: `styles/refactor.css` extends the contain-on-mat rule from the stats strip to `cerviguard-login` and `add-case` images across all media frames; `cerviguard-add-case_v3.png` recropped tight to the form card (864x528, from the original capture in git history) so its own background margins no longer show mat-on-mat; refs/dims updated in `pages/index.jsx`, `pages/cerviguard.jsx`, `pages/products.jsx`. Verified with element-level screenshots at 1440px and 390px; 32 tests, lint, build green.
+- Impact: No authentic capture is ever cover-cropped; all workspace captures share the same matted-exhibit treatment.
+- Follow-up: none (operator-gated items from 3.43 unchanged). Note for local testing: `next start` does not serve `public/` files created after the server boots — restart after adding assets.
+
 ### [2026-07-02 22:51 UTC] TYPE: change
 - Author: Claude (Fable 5) + review council (codex xhigh, fable visual, opus S-WRITER, opus VC-EXPERT) over two review-spec-refine-test cycles
 - Summary: Prepared release `3.43` removing the remaining AI-slop and repeated imagery, rebuilding all workflow diagrams as one rendered family, recropping authentic product captures, de-slopping page copy, and tightening the visual system, per the operator's "review-spec-refine-test until ultra-verified" directive.

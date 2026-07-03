@@ -53,10 +53,10 @@ const screenshotGallery = [
     title: 'New case onboarding',
     description:
       'De-identified cervical image upload and notes are captured through a guided intake flow with privacy guardrails.',
-    src: '/images/cerviguard/cerviguard-add-case_v2.png',
+    src: '/images/cerviguard/cerviguard-add-case_v3.png',
     alt: 'CerviGuard add-case form for uploading a de-identified cervical image with clinical notes.',
-    width: 933,
-    height: 516
+    width: 864,
+    height: 528
   },
   {
     title: 'Workspace sign-in',

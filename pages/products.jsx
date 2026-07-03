@@ -108,9 +108,9 @@ const cerviGuardProofShots = [
     description: 'Workspace overview for case distribution, review queues, and follow-up coordination.'
   },
   {
-    src: '/images/cerviguard/cerviguard-add-case_v2.png',
-    width: 933,
-    height: 516,
+    src: '/images/cerviguard/cerviguard-add-case_v3.png',
+    width: 864,
+    height: 528,
     alt: 'CerviGuard add-case form for uploading a de-identified cervical image with clinical notes.',
     title: 'Case intake',
     description: 'Guided intake flow for de-identified cervical-screening material and review notes.'

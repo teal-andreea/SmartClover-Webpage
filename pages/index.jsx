@@ -189,10 +189,10 @@ const Home = () => (
       <div className="product-proof-grid">
         <div className="visual-frame product-visual-frame">
           <Image
-            src="/images/cerviguard/cerviguard-add-case_v2.png"
+            src="/images/cerviguard/cerviguard-add-case_v3.png"
             alt="CerviGuard add-case form for uploading a de-identified cervical image with clinical notes."
-            width={933}
-            height={516}
+            width={864}
+            height={528}
             sizes="(max-width: 879px) 100vw, 44vw"
           />
         </div>

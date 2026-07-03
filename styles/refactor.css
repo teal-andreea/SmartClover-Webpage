@@ -564,14 +564,23 @@ a:hover {
   object-position: center 54%;
 }
 
-/* the workspace stats strip is ~4.4:1; cover-cropping it in 16:9 frames
-   amputates the outer tiles, so it letterboxes on a visible tinted mat */
+/* authentic workspace captures (stats strip ~4.4:1, login/add-case ~1.8:1)
+   must never be cover-cropped mid-text by the frame: render them smaller,
+   centered, on a visible tinted mat instead */
 .product-visual-frame img[src*='dashboard-stats'],
 .product-shot-media img[src*='dashboard-stats'],
 .cerviguard-hero-media img[src*='dashboard-stats'],
-.cerviguard-shot-media img[src*='dashboard-stats'] {
+.cerviguard-shot-media img[src*='dashboard-stats'],
+.product-visual-frame img[src*='cerviguard-login'],
+.product-shot-media img[src*='cerviguard-login'],
+.cerviguard-hero-media img[src*='cerviguard-login'],
+.cerviguard-shot-media img[src*='cerviguard-login'],
+.product-visual-frame img[src*='add-case'],
+.product-shot-media img[src*='add-case'],
+.cerviguard-hero-media img[src*='add-case'],
+.cerviguard-shot-media img[src*='add-case'] {
   object-fit: contain;
-  padding: 4% 3%;
+  padding: 5% 4%;
   background:
     linear-gradient(180deg, rgba(15, 120, 141, 0.07), rgba(15, 120, 141, 0.03)),
     #f6fafb;
