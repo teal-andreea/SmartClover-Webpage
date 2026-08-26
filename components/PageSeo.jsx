@@ -32,6 +32,7 @@ const PageSeo = ({
   description,
   path = '/',
   image = defaultImage,
+  imageAlt,
   type = 'website',
   robots = defaultRobots,
   keywords,
@@ -63,6 +64,7 @@ const PageSeo = ({
       <meta property="og:description" content={description} />
       <meta property="og:url" content={canonicalUrl} />
       <meta property="og:image" content={imageUrl} />
+      {imageAlt && <meta property="og:image:alt" content={imageAlt} />}
       {publishedTime && <meta property="article:published_time" content={publishedTime} />}
       {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
       {type === 'article' && author && <meta property="article:author" content={author} />}
@@ -74,6 +76,7 @@ const PageSeo = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
+      {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
       {scripts.filter(Boolean).map((item, index) => (
         <script key={`${title}-jsonld-${index}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(item) }} />
       ))}

@@ -71,9 +71,12 @@ const extractFirstMarkdownImage = (content = '') => {
   };
 };
 
-const getPostSummary = (post) => post.summary || post.excerpt || post.subtitle || '';
+const getPostSummary = (post) => post.excerpt || post.summary || post.subtitle || '';
 
 const getPostHref = (post) => post.href || `/blog/${post.slug}`;
+
+const getPostSeoImage = (post) =>
+  normalizeImagePath(post.seoImage || post.seo_image || post.ogImage || post.og_image) || getPostImage(post)?.src || DEFAULT_BLOG_IMAGE;
 
 const getPostImage = (post) => {
   const contentImage = extractFirstMarkdownImage(post.content);
@@ -159,7 +162,7 @@ const BlogImage = ({ image, title, priority = false }) => {
 const Blog = ({ posts }) => {
   const [featuredPost, ...latestPosts] = posts;
   const featuredImage = featuredPost ? getPostImage(featuredPost) : null;
-  const seoImage = featuredImage?.src || DEFAULT_BLOG_IMAGE;
+  const seoImage = featuredPost ? getPostSeoImage(featuredPost) : DEFAULT_BLOG_IMAGE;
   const blogJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Blog',
@@ -189,6 +192,7 @@ const Blog = ({ posts }) => {
         description="Clinical evidence, product notes, research workflows, deployment boundaries, and cybersecurity evidence from the SmartClover team."
         path="/blog"
         image={seoImage}
+        imageAlt={featuredPost?.seoImageAlt || featuredPost?.seo_image_alt || featuredImage?.alt}
         jsonLd={blogJsonLd}
       />
 

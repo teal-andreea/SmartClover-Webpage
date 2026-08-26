@@ -1126,6 +1126,7 @@ a:hover {
 .blog-featured-body,
 .blog-card-body {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   align-content: start;
   min-width: 0;
 }
@@ -1160,7 +1161,7 @@ a:hover {
 }
 
 .blog-featured-body h2 {
-  font-size: clamp(1.7rem, 3.2vw, 2.55rem);
+  font-size: 2rem;
 }
 
 .blog-featured-body p,
@@ -1241,6 +1242,50 @@ a:hover {
 
 .article-shell {
   width: 100%;
+}
+
+.article-funding-strip {
+  display: grid;
+  grid-template-columns: auto minmax(280px, 1fr);
+  gap: clamp(1rem, 2.5vw, 2rem);
+  align-items: center;
+  padding: 0.9rem 0;
+  border-top: 1px solid rgba(16, 32, 39, 0.1);
+  border-bottom: 1px solid rgba(16, 32, 39, 0.1);
+}
+
+.article-funding-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(0.9rem, 2vw, 1.5rem);
+  align-items: center;
+}
+
+.article-funding-logos img {
+  width: auto;
+  max-width: min(100%, 234px);
+  height: auto;
+  object-fit: contain;
+}
+
+.article-funding-logos .funding-logo-eu {
+  width: 234px;
+}
+
+.article-funding-logos .funding-logo-government {
+  width: 67px;
+}
+
+.article-funding-logos .funding-logo-health {
+  width: 136px;
+}
+
+.article-funding-strip p {
+  max-width: 48rem;
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
+  line-height: 1.55;
 }
 
 .article-hero {
@@ -1324,6 +1369,10 @@ a:hover {
   border-radius: 22px;
   background: #ffffff;
   box-shadow: var(--shadow-soft);
+}
+
+.tealguard-article .article-hero-media img {
+  aspect-ratio: 1698 / 948;
 }
 
 .article-hero-media figcaption,
@@ -1451,6 +1500,10 @@ a:hover {
   min-width: 0;
 }
 
+.article-mobile-toc {
+  display: none;
+}
+
 .article-content-card {
   min-width: 0;
   width: 100%;
@@ -1506,6 +1559,14 @@ a:hover {
 .article-content-card.markdown-body blockquote p,
 .article-content-card .markdown-body blockquote p {
   color: var(--ink-strong);
+}
+
+.article-content-card.markdown-body a,
+.article-content-card .markdown-body a {
+  color: var(--teal-strong);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
 }
 
 .article-tag-list {
@@ -1580,6 +1641,19 @@ a:hover {
   display: grid;
   gap: 0.65rem;
   margin: clamp(1.5rem, 3vw, 2.1rem) 0;
+}
+
+.article-figure-link,
+.article-hero-image-link {
+  display: block;
+  border-radius: 18px;
+  text-decoration: none;
+}
+
+.article-figure-link:focus-visible,
+.article-hero-image-link:focus-visible {
+  outline: 3px solid rgba(15, 120, 141, 0.55);
+  outline-offset: 4px;
 }
 
 .article-figure img,
@@ -1667,6 +1741,74 @@ a:hover {
 
   .article-content-card {
     max-width: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .article-funding-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .article-funding-logos {
+    flex-wrap: nowrap;
+    gap: 3px;
+    justify-content: space-between;
+  }
+
+  .article-funding-logos .funding-logo-eu {
+    width: 178px;
+  }
+
+  .article-funding-logos .funding-logo-government {
+    width: 67px;
+  }
+
+  .article-funding-logos .funding-logo-health {
+    width: 101px;
+  }
+
+  .article-layout.has-toc .article-sidebar {
+    display: none;
+  }
+
+  .article-mobile-toc {
+    display: block;
+    padding: 0.8rem 0.9rem;
+    border: 1px solid rgba(16, 32, 39, 0.11);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .article-mobile-toc summary {
+    color: var(--ink-strong);
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+  .article-mobile-toc ol {
+    display: grid;
+    gap: 0.45rem;
+    margin: 0.8rem 0 0;
+    padding-left: 1.25rem;
+  }
+
+  .article-mobile-toc a {
+    color: var(--teal-strong);
+    text-decoration: underline;
+    text-underline-offset: 0.14em;
+  }
+}
+
+@media (max-width: 380px) {
+  .article-funding-logos {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.55rem 1rem;
+    justify-items: center;
+  }
+
+  .article-funding-logos .funding-logo-eu {
+    grid-column: 1 / -1;
   }
 }
 

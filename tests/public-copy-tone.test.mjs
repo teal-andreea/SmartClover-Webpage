@@ -593,14 +593,14 @@ test('NIS2COMPASS blog links project mentions and uses reader-friendly emphasis'
   const blogPost = readFileSync('pages/blog/[slug].jsx', 'utf8');
 
   assert.equal(
-    blogIndex.includes('post.excerpt || post.subtitle'),
+    blogIndex.includes('post.excerpt || post.summary || post.subtitle'),
     true,
-    'blog index should use subtitle metadata when a verbatim article does not define excerpt'
+    'blog index should preserve excerpts and use subtitle metadata when a verbatim article does not define one'
   );
   assert.equal(
-    blogPost.includes('post.excerpt || post.subtitle'),
+    blogPost.includes('post.excerpt || post.summary || post.subtitle'),
     true,
-    'blog post metadata should use subtitle metadata when a verbatim article does not define excerpt'
+    'blog post metadata should preserve excerpts and use subtitle metadata when a verbatim article does not define one'
   );
   assert.equal(blogPost.includes(nis2CompassUrl), true, 'article title renderer should link the NIS2COMPASS title token');
   assert.equal(blogPost.includes('renderLinkedTitle(post.title)'), true, 'article page should render linked titles');

@@ -8,6 +8,7 @@ const DEFAULT_ARTICLE_IMAGE = '/images/og/brand-card_v1.png';
 const DEFAULT_IMAGE_WIDTH = 1600;
 const DEFAULT_IMAGE_HEIGHT = 1000;
 const NIS2_COMPASS_URL = 'https://www.nis2compass.eu';
+const TEALGUARD_ANNOUNCEMENT_SLUG = 'tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology';
 
 export const getStaticPaths = () => ({
   paths: getAllPostSlugs(),
@@ -185,7 +186,7 @@ const getTopic = (post) => {
 };
 
 const getDescription = (post) => {
-  const description = post.summary || post.excerpt || post.subtitle;
+  const description = post.excerpt || post.summary || post.subtitle;
 
   return (
     description ||
@@ -194,13 +195,13 @@ const getDescription = (post) => {
 };
 
 const getSummaryPoints = (post) => {
-  const rawItems = [post.summary, post.excerpt, post.subtitle].flatMap((item) => normalizeTextItems(item));
+  const rawItems = [post.excerpt, post.summary, post.subtitle].flatMap((item) => normalizeTextItems(item));
   const seen = new Set();
 
   return rawItems.filter((item) => {
-    const key = item.toLowerCase();
+    const key = item.toLowerCase().replace(/(?:\.{3}|…)+$/, '').trim();
 
-    if (seen.has(key)) {
+    if ([...seen].some((existingKey) => existingKey.startsWith(key) || key.startsWith(existingKey))) {
       return false;
     }
 
@@ -239,7 +240,10 @@ const getPostImage = (post) => {
   };
 };
 
-const getSeoImage = (post) => getPostImage(post)?.src || DEFAULT_ARTICLE_IMAGE;
+const getSeoImage = (post) =>
+  normalizeImagePath(post.seoImage || post.seo_image || post.ogImage || post.og_image) ||
+  getPostImage(post)?.src ||
+  DEFAULT_ARTICLE_IMAGE;
 
 const normalizeRelatedPost = (item, allPosts) => {
   if (!item) {
@@ -315,10 +319,22 @@ const getArticleJsonLd = (post) => {
     datePublished: post.date || post.publishedDate,
     dateModified: post.updated || post.modifiedDate || post.date,
     image: normalizedImage,
-    author: {
-      '@type': post.authorType || 'Organization',
-      name: post.author || 'SmartClover'
-    },
+    author:
+      post.slug === TEALGUARD_ANNOUNCEMENT_SLUG
+        ? [
+            {
+              '@type': 'Person',
+              name: 'Andreea Damian'
+            },
+            {
+              '@type': 'Organization',
+              name: 'SmartClover'
+            }
+          ]
+        : {
+            '@type': post.authorType || 'Organization',
+            name: post.author || 'SmartClover'
+          },
     publisher: {
       '@type': 'Organization',
       name: 'SmartClover',
@@ -363,7 +379,7 @@ const renderLinkedTitle = (title) => {
   });
 };
 
-const ArticleHeroImage = ({ image, title }) => {
+const ArticleHeroImage = ({ image, title, zoomable = false }) => {
   if (!image?.src) {
     return null;
   }
@@ -377,16 +393,32 @@ const ArticleHeroImage = ({ image, title }) => {
     );
   }
 
+  const imageElement = (
+    <Image
+      src={image.src}
+      alt={image.alt || `${title} article visual`}
+      width={image.width || DEFAULT_IMAGE_WIDTH}
+      height={image.height || DEFAULT_IMAGE_HEIGHT}
+      sizes="(min-width: 1180px) 500px, (min-width: 880px) 42vw, 100vw"
+      priority
+    />
+  );
+
   return (
     <figure className="article-hero-media">
-      <Image
-        src={image.src}
-        alt={image.alt || `${title} article visual`}
-        width={image.width || DEFAULT_IMAGE_WIDTH}
-        height={image.height || DEFAULT_IMAGE_HEIGHT}
-        sizes="(min-width: 880px) 360px, 100vw"
-        priority
-      />
+      {zoomable ? (
+        <a
+          className="article-hero-image-link"
+          href={image.src}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={`Open full-size ${title} visual in a new tab`}
+        >
+          {imageElement}
+        </a>
+      ) : (
+        imageElement
+      )}
       {image.caption && <figcaption>{image.caption}</figcaption>}
     </figure>
   );
@@ -425,6 +457,44 @@ const ArticleMetaStrip = ({ post }) => {
   );
 };
 
+const TealGuardFundingStrip = () => (
+  <aside className="article-funding-strip" aria-label="TealGuard project funding">
+    <div className="article-funding-logos" aria-label="Funding programme identities">
+      <Image
+        className="funding-logo-eu"
+        src="/images/tealguard/funding/eu-cofunded-ro.png"
+        alt="Cofinanțat de Uniunea Europeană"
+        width={234}
+        height={50}
+        priority
+        unoptimized
+      />
+      <Image
+        className="funding-logo-government"
+        src="/images/tealguard/funding/guvernul-romaniei.png"
+        alt="Guvernul României"
+        width={49}
+        height={49}
+        priority
+        unoptimized
+      />
+      <Image
+        className="funding-logo-health"
+        src="/images/tealguard/funding/programul-sanatate.png"
+        alt="Programul Sănătate"
+        width={136}
+        height={51}
+        priority
+        unoptimized
+      />
+    </div>
+    <p>
+      The project is co-financed by the European Union through the European Regional Development Fund under
+      the Health Programme 2021–2027.
+    </p>
+  </aside>
+);
+
 const BlogPost = ({ post, relatedPosts }) => {
   const description = getDescription(post);
   const seoTitle = `${post.title} | SmartClover Blog`;
@@ -436,6 +506,7 @@ const BlogPost = ({ post, relatedPosts }) => {
   const contentHtml = explicitToc.length > 0 ? post.contentHtml : generatedToc.html;
   const shouldShowToc = tocItems.length >= 3 && getWordCount(post.contentHtml) >= 900;
   const shouldShowSidebar = shouldShowToc || summaryPoints.length > 0;
+  const isTealGuardAnnouncement = post.slug === TEALGUARD_ANNOUNCEMENT_SLUG;
 
   return (
     <>
@@ -444,6 +515,7 @@ const BlogPost = ({ post, relatedPosts }) => {
         description={description}
         path={getPostHref(post)}
         image={getSeoImage(post)}
+        imageAlt={post.seoImageAlt || post.seo_image_alt || heroImage?.alt}
         type="article"
         author={post.author || 'SmartClover'}
         publishedTime={post.date || post.publishedDate}
@@ -453,7 +525,8 @@ const BlogPost = ({ post, relatedPosts }) => {
         jsonLd={getArticleJsonLd(post)}
       />
 
-      <article className="article-shell">
+      <article className={isTealGuardAnnouncement ? 'article-shell tealguard-article' : 'article-shell'}>
+        {isTealGuardAnnouncement && <TealGuardFundingStrip />}
         <header className="article-hero">
           <div className={heroImage ? 'article-hero-grid' : 'article-hero-copy'}>
             <div className="article-hero-copy">
@@ -463,13 +536,13 @@ const BlogPost = ({ post, relatedPosts }) => {
               <ArticleMetaStrip post={post} />
               {normalizeList(post.tags).length > 0 && (
                 <ul className="article-tag-list" aria-label="Article tags">
-                  {normalizeList(post.tags).slice(0, 5).map((tag) => (
+                  {normalizeList(post.tags).map((tag) => (
                     <li key={`${post.slug}-${tag}`}>{tag}</li>
                   ))}
                 </ul>
               )}
             </div>
-            <ArticleHeroImage image={heroImage} title={post.title} />
+            <ArticleHeroImage image={heroImage} title={post.title} zoomable={isTealGuardAnnouncement} />
           </div>
         </header>
 
@@ -503,6 +576,19 @@ const BlogPost = ({ post, relatedPosts }) => {
           )}
 
           <div className="article-main">
+            {shouldShowToc && (
+              <details className="article-mobile-toc">
+                <summary>Contents</summary>
+                <ol>
+                  {tocItems.map((item) => (
+                    <li key={`mobile-${item.id}`} className={item.level > 2 ? 'toc-level-3' : undefined}>
+                      <a href={`#${item.id}`}>{item.title}</a>
+                    </li>
+                  ))}
+                </ol>
+              </details>
+            )}
+
             <div
               className="article-content-card markdown-body"
               dangerouslySetInnerHTML={{

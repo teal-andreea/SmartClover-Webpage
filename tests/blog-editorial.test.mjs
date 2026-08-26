@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { existsSync, mkdtempSync, readFileSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { createRequire } from 'node:module';
@@ -157,6 +158,75 @@ test('getPostData adds heading ids, toc entries, image attributes, and related c
   for (const relatedPost of post.relatedPosts) {
     assert.equal(Object.hasOwn(relatedPost, 'content'), false, 'related posts should not expose Markdown body content');
     assert.equal(Object.hasOwn(relatedPost, 'contentHtml'), false, 'related posts should not expose rendered body content');
+  }
+});
+
+test('TealGuard announcement preserves supplied metadata and renders its supplied visual set', dependencySkip, async () => {
+  const { getPostData } = await loadPostsModule();
+  const post = await getPostData('tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology');
+  const exactExcerpt =
+    'The financing contract is signed. Over the next 36 months, the HIPERDIA–SmartClover consortium will mature TealGuard from TRL 6 to TRL 9, validate it in real clinical settings, and measure its contribution to better screening processes, patient navigation and continuity of care.';
+
+  assert.equal(post.topic, 'Project Announcement');
+  assert.equal(post.excerpt, exactExcerpt);
+  assert.equal(post.seoImage, '/images/og/tealguard-announcement_v1.png');
+  assert.deepEqual(post.tags, [
+    'TealGuard',
+    'Artificial Intelligence',
+    'Deep Tech',
+    "Women's Health",
+    'Gynecologic Oncology',
+    'STEP',
+    'Digital Health'
+  ]);
+  assert.equal(post.heroImage, '/blog/tealguard-platform-modules.png');
+  assert.equal(post.heroImageWidth, 1698);
+  assert.equal(post.heroImageHeight, 948);
+  assert.equal(
+    post.contentHtml.includes('<h1 id="user-content-tealguard-is-officially-in-implementation-building-sovereign-ai-for-gynecologic-oncology">'),
+    false,
+    'the source title should render once through the article template'
+  );
+  assert.ok(post.contentHtml.startsWith('<p>On 19 August 2026'));
+  assert.ok(post.contentHtml.includes('src="/blog/tealguard-deep-tech-architecture.png"'));
+  assert.ok(post.contentHtml.includes('src="/blog/tealguard-impact-roadmap.png"'));
+  assert.ok(post.contentHtml.includes('href="/blog/tealguard-deep-tech-architecture.png"'));
+  assert.ok(post.contentHtml.includes('href="/blog/tealguard-impact-roadmap.png"'));
+
+  for (const imagePath of [
+    'public/blog/tealguard-platform-modules.png',
+    'public/blog/tealguard-deep-tech-architecture.png',
+    'public/blog/tealguard-impact-roadmap.png',
+    'public/images/tealguard/funding/eu-cofunded-ro.png',
+    'public/images/tealguard/funding/guvernul-romaniei.png',
+    'public/images/tealguard/funding/programul-sanatate.png',
+    'public/images/og/tealguard-announcement_v1.png'
+  ]) {
+    assert.equal(existsSync(imagePath), true, `expected TealGuard publication asset: ${imagePath}`);
+  }
+
+  const articlePageSource = readFileSync('pages/blog/[slug].jsx', 'utf8');
+  assert.ok(articlePageSource.includes('TEALGUARD_ANNOUNCEMENT_SLUG'));
+  assert.ok(articlePageSource.includes('<TealGuardFundingStrip />'));
+  assert.ok(articlePageSource.includes('className="article-mobile-toc"'));
+  assert.ok(articlePageSource.includes('European Regional Development Fund'));
+  assert.ok(articlePageSource.includes('unoptimized'));
+  assert.ok(articlePageSource.includes('post.excerpt || post.summary'));
+
+  const expectedHashes = new Map([
+    ['posts/tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology.md', 'a35ef3c45f13c695f7815af2564b0cb52c999c04e3c9adc6a38d28851e9886c1'],
+    ['public/blog/tealguard-platform-modules.png', 'd1d1c303b1d1af177e25550643e3992007ec3ecdf7a99dd9fd0358796503a6df'],
+    ['public/blog/tealguard-deep-tech-architecture.png', '2325a92332959e2773182ff157e8f647a8fc961c05b8c603b0f7779fc3fbced6'],
+    ['public/blog/tealguard-impact-roadmap.png', 'bccdccb8b0cdcfe4833099201f813c62c442607af623f0d75cd2372c5823f579'],
+    ['public/images/tealguard/funding/eu-cofunded-ro.png', '93f8dd63d1bf7b6f6e2ed7ea137ff7484b10c76ed92ceb0ca76216000cf87320'],
+    ['public/images/tealguard/funding/guvernul-romaniei.png', '86ea57e38b14642f75d5a9f9ee8d74d1e684cc89fb997875cb678bb53820ca42'],
+    ['public/images/tealguard/funding/programul-sanatate.png', '52b9c70365dfba187fa9faeb06aa710f91fa0a08164abaf2025874b2ab3422d8'],
+    ['public/images/og/tealguard-announcement_v1.png', '74b6816465268c41331f69b230d8a9302e611f386f088f7f8b436df47e6c6a6f']
+  ]);
+
+  for (const [filePath, expectedHash] of expectedHashes) {
+    const actualHash = createHash('sha256').update(readFileSync(filePath)).digest('hex');
+    assert.equal(actualHash, expectedHash, `expected verbatim TealGuard source asset: ${filePath}`);
   }
 });
 

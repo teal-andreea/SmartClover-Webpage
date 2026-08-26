@@ -843,3 +843,41 @@
   - `rg -n "cerviguard-login\\.png|cerviguard-profile\\.png|cerviguard-case-detail\\.png|cerviguard-cases-list\\.png|Pilot Console|pilot accounts|pilot guidelines|pilot build" pages components lib posts public tests styles CHANGE_LOG.md -S` -> pass for public source/assets; remaining matches are changelog/test context only.
   - `file public/images/cerviguard/*.png` -> pass, only sanitized dashboard and add-case PNGs remain, both `1600 x 1100`.
 - Residual Risk: Browser screenshot/aXe QA remains blocked until Playwright browser dependencies are installed; any CDN or image optimizer cache may briefly retain old direct asset responses immediately after deployment.
+
+### [2026-08-26 14:00 UTC] TYPE: change
+- Author: Codex + xhigh publication, visual/UI, VC, and deep-tech review council
+- Summary: Prepared the operator-supplied TealGuard project announcement for verbatim publication with its three supplied diagrams, mandatory Health Programme identity, release metadata, and full-size figure access.
+- Evidence: `posts/tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology.md`, `public/blog/tealguard-*.png`, `public/images/tealguard/funding/`, `public/images/og/tealguard-announcement_v1.png`, `lib/posts.js`, `pages/blog/[slug].jsx`, `pages/blog/index.jsx`, `components/PageSeo.jsx`, `styles/refactor.css`, `tests/blog-editorial.test.mjs`, `tests/public-copy-tone.test.mjs`, `public/sitemap.xml`, `version.json`, `public/openapi.json`.
+- Impact: The SmartClover blog can publish the signed-financing announcement without editorial drift while exposing exact source metadata, accessible social metadata, required programme identities, and inspectable source diagrams.
+- Follow-up: Deploy version `3.48`, verify the live article and assets, then implement the separately reviewed durable homepage widget and project disclosure page after the project evidence lock is complete.
+
+### [2026-08-26 14:00 UTC] ADVERSARIAL-CHECK
+- Scope: TealGuard verbatim announcement integration and release `3.48`.
+- BUILDER Intent + Change:
+  - Preserved the Google Drive Markdown and three supplied images byte-for-byte; source SHA-256 is `a35ef3c45f13c695f7815af2564b0cb52c999c04e3c9adc6a38d28851e9886c1`.
+  - Added only mechanical article integration: route metadata, duplicate template-title suppression, local asset placement, responsive figure presentation, and full-size image links.
+  - Added the official three-mark Health Programme identity strip from the programme visual-identity manual and a mechanical 1200x630 social image using the supplied cover and official marks.
+  - Kept the exact source excerpt first in page copy, index copy, description metadata, Open Graph, and Twitter metadata; rendered all seven source tags and corrected author JSON-LD.
+  - Added a compact native mobile contents control and underlined prose links without changing article wording, headings, captions, alt text, claim strength, or selected article images.
+  - Incremented the release version from `3.47` to `3.48` and synchronized the OpenAPI status example.
+- CRITIC Findings:
+  - The first publication review found a truncated excerpt, undersized/lossy identity marks, missing funding identity in the social preview, incomplete author/tag metadata, and missing direct figure inspection.
+  - The first visual review found the desktop contents rail unsuitable for mobile and identified weak figure/link affordances.
+  - The VC review found that "EUR 3M grant" is unsupported by the supplied article, that the RON values are programme-level rather than a stated SmartClover allocation, and that a financing contract must not be presented as cash received, commercial revenue, or customer traction.
+  - The final reviewers noted that the exact official Government mark extracted from the programme manual is only 49x49 pixels and may appear soft at the required 67px display width.
+  - The final visual reviewer noted that the existing site-wide consent banner covers part of the first screen on short mobile viewports, but remains dismissible, fully operable, and non-blocking.
+- BUILDER Response / Refinements:
+  - Restored the exact source excerpt everywhere and added source/asset hash regression checks.
+  - Served original identity PNGs without optimizer conversion, enforced manual minimum display sizes, and retained the exact official low-resolution Government asset instead of substituting an unverified redraw.
+  - Added the funding-aware social image, complete author/tag metadata, compact mobile contents, clear link styles, and full-size figure links.
+  - Kept all commercial, achieved-outcome, customer, and SmartClover-specific funding inferences out of the integration.
+  - Obtained final independent PASS verdicts from both the xhigh publication-integrity reviewer and xhigh visual/UI reviewer, with no release-blocking finding.
+- Verification:
+  - Google Drive/local source comparison -> pass, exact Markdown match at 15,851 characters.
+  - `sha256sum` source article and seven publication assets -> pass, all expected hashes match.
+  - `npm test` -> pass, 33/33 tests.
+  - `npm run lint` -> pass, no warnings or errors.
+  - `npm run build` -> pass, 33 static/generated routes including the TealGuard article; existing Browserslist data-age warning only.
+  - Local Playwright QA at `1440x1000`, `390x844`, and `360x640` -> pass, no overflow or broken images; identity marks meet minimum dimensions and remain above the fold.
+  - Manual inspection of article, blog index, official marks, supplied figures, and social preview -> pass.
+- Residual Risk: A durable SmartClover homepage widget and project disclosure page remain mandatory follow-up work; contract-grade evidence and regulatory review are required before reusing financial, target, or intended MDR Class I statements; replace the 49x49 Government mark only if the programme authority supplies a verified higher-resolution asset; reduce the site-wide mobile consent footprint in a separate release.
