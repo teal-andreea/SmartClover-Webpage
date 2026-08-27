@@ -209,9 +209,28 @@ test('TealGuard announcement preserves supplied metadata and renders its supplie
   assert.ok(articlePageSource.includes('TEALGUARD_ANNOUNCEMENT_SLUG'));
   assert.ok(articlePageSource.includes('<TealGuardFundingStrip />'));
   assert.ok(articlePageSource.includes('className="article-mobile-toc"'));
+  assert.ok(articlePageSource.includes('className="article-summary article-summary--main"'));
+  assert.ok(articlePageSource.includes('id="article-tldr-heading">TL;DR</h2>'));
+  assert.ok(articlePageSource.includes('!isTealGuardAnnouncement && summaryPoints.length > 0'));
+  assert.ok(articlePageSource.includes('description && !isTealGuardAnnouncement'));
+  assert.ok(
+    articlePageSource.indexOf('className="article-summary article-summary--main"') <
+      articlePageSource.indexOf('className="article-mobile-toc"'),
+    'TealGuard TL;DR should precede the compact mobile contents disclosure'
+  );
   assert.ok(articlePageSource.includes('European Regional Development Fund'));
   assert.ok(articlePageSource.includes('unoptimized'));
   assert.ok(articlePageSource.includes('post.excerpt || post.summary'));
+
+  const articleStyles = readFileSync('styles/refactor.css', 'utf8');
+  assert.ok(
+    articleStyles.includes('.tealguard-article .article-layout.has-toc .article-sidebar'),
+    'TealGuard should hide the narrow desktop contents rail when its article layout collapses'
+  );
+  assert.ok(
+    articleStyles.includes('.tealguard-article .article-mobile-toc'),
+    'TealGuard should expose the compact contents disclosure in the collapsed article layout'
+  );
 
   const expectedHashes = new Map([
     ['posts/tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology.md', 'a35ef3c45f13c695f7815af2564b0cb52c999c04e3c9adc6a38d28851e9886c1'],

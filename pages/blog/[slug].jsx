@@ -505,8 +505,8 @@ const BlogPost = ({ post, relatedPosts }) => {
   const tocItems = explicitToc.length > 0 ? explicitToc : generatedToc.toc;
   const contentHtml = explicitToc.length > 0 ? post.contentHtml : generatedToc.html;
   const shouldShowToc = tocItems.length >= 3 && getWordCount(post.contentHtml) >= 900;
-  const shouldShowSidebar = shouldShowToc || summaryPoints.length > 0;
   const isTealGuardAnnouncement = post.slug === TEALGUARD_ANNOUNCEMENT_SLUG;
+  const shouldShowSidebar = shouldShowToc || (!isTealGuardAnnouncement && summaryPoints.length > 0);
 
   return (
     <>
@@ -532,7 +532,7 @@ const BlogPost = ({ post, relatedPosts }) => {
             <div className="article-hero-copy">
               <span className="blog-topic">{getTopic(post)}</span>
               <h1>{renderLinkedTitle(post.title)}</h1>
-              {description && <p className="article-dek">{description}</p>}
+              {description && !isTealGuardAnnouncement && <p className="article-dek">{description}</p>}
               <ArticleMetaStrip post={post} />
               {normalizeList(post.tags).length > 0 && (
                 <ul className="article-tag-list" aria-label="Article tags">
@@ -549,7 +549,7 @@ const BlogPost = ({ post, relatedPosts }) => {
         <div className={shouldShowToc ? 'article-layout has-toc' : 'article-layout'}>
           {shouldShowSidebar && (
             <aside className="article-sidebar">
-              {summaryPoints.length > 0 && (
+              {!isTealGuardAnnouncement && summaryPoints.length > 0 && (
                 <section className="article-summary" aria-labelledby="article-summary-heading">
                   <h2 id="article-summary-heading">{summaryPoints.length > 1 ? 'Key points' : 'Summary'}</h2>
                   <ul>
@@ -576,6 +576,21 @@ const BlogPost = ({ post, relatedPosts }) => {
           )}
 
           <div className="article-main">
+            {isTealGuardAnnouncement && summaryPoints.length > 0 && (
+              <section className="article-summary article-summary--main" aria-labelledby="article-tldr-heading">
+                <h2 id="article-tldr-heading">TL;DR</h2>
+                {summaryPoints.length === 1 ? (
+                  <p>{summaryPoints[0]}</p>
+                ) : (
+                  <ul>
+                    {summaryPoints.map((item) => (
+                      <li key={`tldr-${item}`}>{item}</li>
+                    ))}
+                  </ul>
+                )}
+              </section>
+            )}
+
             {shouldShowToc && (
               <details className="article-mobile-toc">
                 <summary>Contents</summary>
