@@ -588,6 +588,12 @@ const BlogPost = ({ post, relatedPosts }) => {
                     ))}
                   </ul>
                 )}
+                {post.tldr_project_website && (
+                  <p>
+                    More information can be found on the official TealGuard project website:{' '}
+                    <a href={post.tldr_project_website}>tealguard.eu</a>.
+                  </p>
+                )}
               </section>
             )}
 

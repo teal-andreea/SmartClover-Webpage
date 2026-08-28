@@ -161,7 +161,7 @@ test('getPostData adds heading ids, toc entries, image attributes, and related c
   }
 });
 
-test('TealGuard announcement renders the operator-supplied verbatim article and visual set', dependencySkip, async () => {
+test('TealGuard announcement renders the operator-approved article, project links, and visual set', dependencySkip, async () => {
   const { getPostData } = await loadPostsModule();
   const post = await getPostData('tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology');
   const exactExcerpt =
@@ -190,9 +190,10 @@ test('TealGuard announcement renders the operator-supplied verbatim article and 
   assert.equal(post.topic, 'Project Announcement');
   assert.equal(post.excerpt, exactExcerpt);
   assert.equal(post.date, '2026-08-26');
-  assert.equal(post.updated, '');
-  assert.equal(post.modifiedDate, '2026-08-26');
+  assert.equal(post.updated, '2026-08-28');
+  assert.equal(post.modifiedDate, '2026-08-28');
   assert.equal(post.author, 'Andreea Damian and the SmartClover team');
+  assert.equal(post.tldr_project_website, 'https://tealguard.eu');
   assert.equal(post.seoImage, '/images/og/tealguard-announcement_v1.png');
   assert.deepEqual(post.tags, [
     'TealGuard',
@@ -223,6 +224,8 @@ test('TealGuard announcement renders the operator-supplied verbatim article and 
   assert.ok(post.contentHtml.includes('href="/blog/cerviguard-trl6-workflow.png"'));
   assert.ok(post.contentHtml.includes('href="/blog/tealguard-deep-tech-architecture.png"'));
   assert.ok(post.contentHtml.includes('https://cerviguard.link'));
+  assert.equal(post.contentHtml.split('href="https://tealguard.eu"').length - 1, 1);
+  assert.ok(post.contentHtml.includes('More information and project updates are available'));
   assert.ok(post.contentHtml.includes('https://www.who.int/initiatives/cervical-cancer-elimination-initiative'));
   assert.ok(post.contentHtml.includes('Development-status notice'));
   assert.equal(post.contentHtml.includes('/blog/images/evidence/'), false);
@@ -274,6 +277,8 @@ test('TealGuard announcement renders the operator-supplied verbatim article and 
   assert.ok(articlePageSource.includes('className="article-mobile-toc"'));
   assert.ok(articlePageSource.includes('className="article-summary article-summary--main"'));
   assert.ok(articlePageSource.includes('id="article-tldr-heading">TL;DR</h2>'));
+  assert.ok(articlePageSource.includes('post.tldr_project_website'));
+  assert.ok(articlePageSource.includes('More information can be found on the official TealGuard project website'));
   assert.ok(articlePageSource.includes('!isTealGuardAnnouncement && summaryPoints.length > 0'));
   assert.ok(articlePageSource.includes('description && !isTealGuardAnnouncement'));
   assert.ok(
@@ -284,6 +289,15 @@ test('TealGuard announcement renders the operator-supplied verbatim article and 
   assert.ok(articlePageSource.includes('European Regional Development Fund'));
   assert.ok(articlePageSource.includes('unoptimized'));
   assert.ok(articlePageSource.includes('post.excerpt || post.summary'));
+
+  const cerviGuardPageSource = readFileSync('pages/cerviguard.jsx', 'utf8');
+  const homePageSource = readFileSync('pages/index.jsx', 'utf8');
+  const layoutSource = readFileSync('components/Layout.jsx', 'utf8');
+
+  assert.ok(cerviGuardPageSource.includes('Visit the TealGuard project website'));
+  assert.ok(cerviGuardPageSource.includes('/blog/tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology'));
+  assert.ok(homePageSource.includes('Official project information, objectives, partners, evidence, and updates.'));
+  assert.ok(layoutSource.includes("{ label: 'TealGuard project website', href: 'https://tealguard.eu', external: true }"));
 
   const articleStyles = readFileSync('styles/refactor.css', 'utf8');
   assert.ok(
@@ -296,7 +310,7 @@ test('TealGuard announcement renders the operator-supplied verbatim article and 
   );
 
   const expectedHashes = new Map([
-    ['posts/tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology.md', 'be544dcda64ebaa3c429f9ddc1d39ff634159885c404a09c2ca14655a4371469'],
+    ['posts/tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology.md', 'cfd1445ec11fc535819da14e0e85a9fcc1f08b431c8e8fb1c3e941f11d18c828'],
     ['public/blog/cerviguard-trl6-dashboard.png', 'bd4bd260e505b569af7fdcc97d38971fdd3e8cb281968b159c9fff85a94ddfa3'],
     ['public/blog/cerviguard-trl6-workflow.png', '2760f734f6177f13f2698773ca1e22029f11b65f3be893d3d01bea56a9e422f7'],
     ['public/blog/tealguard-platform-modules.png', 'd1d1c303b1d1af177e25550643e3992007ec3ecdf7a99dd9fd0358796503a6df'],

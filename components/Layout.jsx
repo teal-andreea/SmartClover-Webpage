@@ -39,6 +39,7 @@ const footerGroups = [
     title: 'Public resources',
     links: [
       { label: 'CerviGuard live product', href: 'https://cerviguard.link', external: true },
+      { label: 'TealGuard project website', href: 'https://tealguard.eu', external: true },
       { label: 'CerviGuard GitHub', href: 'https://github.com/SmartCloverAI/CerviGuard', external: true },
       { label: 'SmartClover Hugging Face', href: 'https://huggingface.co/smartclover', external: true },
       { label: 'Gender Equality Plan', href: '/gender-equality-plan' },

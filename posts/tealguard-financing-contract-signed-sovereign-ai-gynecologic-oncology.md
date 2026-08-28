@@ -2,8 +2,10 @@
 title: "TealGuard is officially in implementation: building sovereign AI for gynecologic oncology"
 slug: "tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology"
 date: "2026-08-26"
+updated: "2026-08-28"
 author: "Andreea Damian and the SmartClover team"
 excerpt: "The financing contract is signed. TealGuard now advances from SmartClover's publicly accessible CerviGuard TRL 6 prototype toward a clinically validated, interoperable and production-ready TRL 9 platform for gynecologic oncology."
+tldr_project_website: "https://tealguard.eu"
 cover_image: "cerviguard-trl6-dashboard.png"
 tags:
   - TealGuard
@@ -209,3 +211,5 @@ Official programme context:
 - [European cervical-cancer guidelines and quality assurance](https://cancer-screening-and-care.jrc.ec.europa.eu/en/ec-cvc/european-cervical-cancer-guidelines)
 
 > **Development-status notice:** CerviGuard is a TRL 6 research demonstrator and TealGuard is under research, development and validation. Neither is presented here as a currently certified medical device, and neither replaces professional medical advice, diagnosis, treatment or applicable clinical guidelines. Screenshots show pilot/demo information, while all numerical values described as targets are project commitments rather than completed outcomes.
+
+More information and project updates are available on the official TealGuard project website: [tealguard.eu](https://tealguard.eu).

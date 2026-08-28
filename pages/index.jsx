@@ -287,6 +287,10 @@ const Home = () => (
               <strong>CerviGuard repository</strong>
               <span>Public implementation context for the flagship workflow product.</span>
             </a>
+            <a href="https://tealguard.eu" target="_blank" rel="noopener noreferrer">
+              <strong>TealGuard project website</strong>
+              <span>Official project information, objectives, partners, evidence, and updates.</span>
+            </a>
           </div>
         </div>
       </div>

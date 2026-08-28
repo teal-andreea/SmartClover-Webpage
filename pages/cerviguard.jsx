@@ -247,8 +247,8 @@ const CerviGuard = () => (
       <div className="section-heading">
         <h2 id="cerviguard-directions-heading">How CerviGuard fits within the SmartClover portfolio</h2>
         <p>
-          CerviGuard is the primary clinical product line, while related SmartClover work extends into prevention
-          communication and research workflows.
+          CerviGuard is SmartClover&apos;s primary clinical product line and the working foundation for TealGuard, a
+          36-month research, engineering, clinical-validation, and production-readiness programme.
         </p>
       </div>
       <div className="feature-grid two-up">
@@ -258,6 +258,17 @@ const CerviGuard = () => (
             <p className="feature-description">{direction.description}</p>
           </article>
         ))}
+      </div>
+      <div className="cta-links">
+        <a href="https://tealguard.eu" className="button secondary" target="_blank" rel="noopener noreferrer">
+          Visit the TealGuard project website
+        </a>
+        <Link
+          href="/blog/tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology"
+          className="button tertiary"
+        >
+          Read the TealGuard announcement
+        </Link>
       </div>
     </section>
 
