@@ -161,14 +161,30 @@ test('getPostData adds heading ids, toc entries, image attributes, and related c
   }
 });
 
-test('TealGuard announcement preserves supplied metadata and renders its supplied visual set', dependencySkip, async () => {
+test('TealGuard announcement renders its approved evidence-backed visual set', dependencySkip, async () => {
   const { getPostData } = await loadPostsModule();
   const post = await getPostData('tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology');
   const exactExcerpt =
-    'The financing contract is signed. Over the next 36 months, the HIPERDIA–SmartClover consortium will mature TealGuard from TRL 6 to TRL 9, validate it in real clinical settings, and measure its contribution to better screening processes, patient navigation and continuity of care.';
+    'The TealGuard financing contract is signed. Over the next 36 months, HIPERDIA and SmartClover will develop and test a sovereign AI platform for gynecologic oncology, starting from the TRL 6 position recorded for CerviGuard in the project dossier. Integration, prospective validation and TRL 9 operation are programme targets, not achieved results.';
+  const evidenceImages = [
+    {
+      src: '/images/evidence/cerviguard/2026-08-28/cerviguard-structured-intake-demo_v1.png',
+      width: 1440,
+      height: 960
+    },
+    {
+      src: '/images/evidence/cerviguard/2026-08-28/cerviguard-clinician-review-demo_v1.png',
+      width: 1200,
+      height: 1257
+    }
+  ];
 
   assert.equal(post.topic, 'Project Announcement');
   assert.equal(post.excerpt, exactExcerpt);
+  assert.equal(post.date, '2026-08-26');
+  assert.equal(post.updated, '2026-08-28');
+  assert.equal(post.modifiedDate, '2026-08-28');
+  assert.equal(post.author, 'Andreea Damian and the SmartClover team');
   assert.equal(post.seoImage, '/images/og/tealguard-announcement_v1.png');
   assert.deepEqual(post.tags, [
     'TealGuard',
@@ -192,6 +208,32 @@ test('TealGuard announcement preserves supplied metadata and renders its supplie
   assert.ok(post.contentHtml.includes('src="/blog/tealguard-impact-roadmap.png"'));
   assert.ok(post.contentHtml.includes('href="/blog/tealguard-deep-tech-architecture.png"'));
   assert.ok(post.contentHtml.includes('href="/blog/tealguard-impact-roadmap.png"'));
+  assert.ok(post.contentHtml.includes('TRL6_CerviGuard.docx'));
+  assert.ok(post.contentHtml.includes('https://tealguard.eu/en/baseline'));
+  assert.ok(post.contentHtml.includes('https://tealguard.eu/evidence/cerviguard-baseline-manifest_v1.json'));
+  assert.ok(post.contentHtml.includes('https://cerviguard.link/login'));
+  assert.equal(post.contentHtml.includes('/blog/images/evidence/'), false);
+
+  for (const expected of evidenceImages) {
+    const matchingMetadata = post.images.filter((image) => image.src === expected.src);
+    assert.equal(matchingMetadata.length, 1, `expected one image metadata record for ${expected.src}`);
+    assert.equal(matchingMetadata[0].width, expected.width);
+    assert.equal(matchingMetadata[0].height, expected.height);
+    assert.equal(matchingMetadata[0].type, 'png');
+    assert.ok(matchingMetadata[0].alt, `expected meaningful alt text for ${expected.src}`);
+    assert.equal(post.contentHtml.split(`src="${expected.src}"`).length - 1, 1);
+    assert.ok(
+      post.contentHtml.includes(
+        `<a class="article-figure-link" href="${expected.src}" target="_blank" rel="noopener noreferrer"`
+      ),
+      `expected full-size image link for ${expected.src}`
+    );
+
+    const srcIndex = post.contentHtml.indexOf(`src="${expected.src}"`);
+    const imageTag = post.contentHtml.slice(post.contentHtml.lastIndexOf('<img', srcIndex), post.contentHtml.indexOf('>', srcIndex) + 1);
+    assert.ok(imageTag.includes('loading="lazy"'), `expected lazy loading for ${expected.src}`);
+    assert.ok(imageTag.includes('decoding="async"'), `expected async decoding for ${expected.src}`);
+  }
 
   for (const imagePath of [
     'public/blog/tealguard-platform-modules.png',
@@ -200,7 +242,9 @@ test('TealGuard announcement preserves supplied metadata and renders its supplie
     'public/images/tealguard/funding/eu-cofunded-ro.png',
     'public/images/tealguard/funding/guvernul-romaniei.png',
     'public/images/tealguard/funding/programul-sanatate.png',
-    'public/images/og/tealguard-announcement_v1.png'
+    'public/images/og/tealguard-announcement_v1.png',
+    'public/images/evidence/cerviguard/2026-08-28/cerviguard-structured-intake-demo_v1.png',
+    'public/images/evidence/cerviguard/2026-08-28/cerviguard-clinician-review-demo_v1.png'
   ]) {
     assert.equal(existsSync(imagePath), true, `expected TealGuard publication asset: ${imagePath}`);
   }
@@ -233,19 +277,21 @@ test('TealGuard announcement preserves supplied metadata and renders its supplie
   );
 
   const expectedHashes = new Map([
-    ['posts/tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology.md', 'a35ef3c45f13c695f7815af2564b0cb52c999c04e3c9adc6a38d28851e9886c1'],
+    ['posts/tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology.md', '9603837e2c44ddced0e70519867d052d4441ba6fc20afb178c115a46a9eeabd7'],
     ['public/blog/tealguard-platform-modules.png', 'd1d1c303b1d1af177e25550643e3992007ec3ecdf7a99dd9fd0358796503a6df'],
     ['public/blog/tealguard-deep-tech-architecture.png', '2325a92332959e2773182ff157e8f647a8fc961c05b8c603b0f7779fc3fbced6'],
     ['public/blog/tealguard-impact-roadmap.png', 'bccdccb8b0cdcfe4833099201f813c62c442607af623f0d75cd2372c5823f579'],
     ['public/images/tealguard/funding/eu-cofunded-ro.png', '93f8dd63d1bf7b6f6e2ed7ea137ff7484b10c76ed92ceb0ca76216000cf87320'],
     ['public/images/tealguard/funding/guvernul-romaniei.png', '86ea57e38b14642f75d5a9f9ee8d74d1e684cc89fb997875cb678bb53820ca42'],
     ['public/images/tealguard/funding/programul-sanatate.png', '52b9c70365dfba187fa9faeb06aa710f91fa0a08164abaf2025874b2ab3422d8'],
-    ['public/images/og/tealguard-announcement_v1.png', '74b6816465268c41331f69b230d8a9302e611f386f088f7f8b436df47e6c6a6f']
+    ['public/images/og/tealguard-announcement_v1.png', '74b6816465268c41331f69b230d8a9302e611f386f088f7f8b436df47e6c6a6f'],
+    ['public/images/evidence/cerviguard/2026-08-28/cerviguard-structured-intake-demo_v1.png', 'bc54263ff8847227e30feff84f6c2368ce711a8ed32e5062a5920b9c202a5d09'],
+    ['public/images/evidence/cerviguard/2026-08-28/cerviguard-clinician-review-demo_v1.png', '451a5f6adfb5f60a24cd651517dd45790de3bd0b56a9b40210c8fafb451e4155']
   ]);
 
   for (const [filePath, expectedHash] of expectedHashes) {
     const actualHash = createHash('sha256').update(readFileSync(filePath)).digest('hex');
-    assert.equal(actualHash, expectedHash, `expected verbatim TealGuard source asset: ${filePath}`);
+    assert.equal(actualHash, expectedHash, `expected approved TealGuard publication artifact: ${filePath}`);
   }
 });
 
