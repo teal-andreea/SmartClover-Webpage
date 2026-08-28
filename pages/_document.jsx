@@ -1,7 +1,7 @@
 import { Html, Head, Main, NextScript } from 'next/document';
 
-const Document = () => (
-  <Html lang="en">
+const Document = ({ __NEXT_DATA__ }) => (
+  <Html lang={__NEXT_DATA__?.props?.pageProps?.post?.language === 'ro' ? 'ro' : 'en'}>
     <Head>
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />

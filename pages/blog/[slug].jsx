@@ -8,7 +8,7 @@ const DEFAULT_ARTICLE_IMAGE = '/images/og/brand-card_v1.png';
 const DEFAULT_IMAGE_WIDTH = 1600;
 const DEFAULT_IMAGE_HEIGHT = 1000;
 const NIS2_COMPASS_URL = 'https://www.nis2compass.eu';
-const TEALGUARD_ANNOUNCEMENT_SLUG = 'tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology';
+const TEALGUARD_TRANSLATION_GROUP = 'tealguard-announcement';
 
 export const getStaticPaths = () => ({
   paths: getAllPostSlugs(),
@@ -27,7 +27,7 @@ export const getStaticProps = async ({ params }) => {
   };
 };
 
-const formatDate = (value) => {
+const formatDate = (value, language = 'en') => {
   if (!value) {
     return '';
   }
@@ -38,7 +38,11 @@ const formatDate = (value) => {
     return '';
   }
 
-  return new Intl.DateTimeFormat('en', { day: 'numeric', month: 'long', year: 'numeric' }).format(date);
+  return new Intl.DateTimeFormat(language === 'ro' ? 'ro-RO' : 'en-GB', {
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  }).format(date);
 };
 
 const normalizeList = (value) => {
@@ -210,9 +214,9 @@ const getSummaryPoints = (post) => {
   });
 };
 
-const getReadingTime = (post) => {
+const getReadingTime = (post, language = 'en') => {
   if (post.readingTime) {
-    return post.readingTime;
+    return language === 'ro' ? post.readingTime.replace(' min read', ' min de lectură') : post.readingTime;
   }
 
   const wordCount = getWordCount(post.contentHtml);
@@ -221,7 +225,8 @@ const getReadingTime = (post) => {
     return '';
   }
 
-  return `${Math.max(1, Math.ceil(wordCount / 220))} min read`;
+  const minutes = Math.max(1, Math.ceil(wordCount / 220));
+  return language === 'ro' ? `${minutes} min de lectură` : `${minutes} min read`;
 };
 
 const getPostImage = (post) => {
@@ -320,7 +325,7 @@ const getArticleJsonLd = (post) => {
     dateModified: post.updated || post.modifiedDate || post.date,
     image: normalizedImage,
     author:
-      post.slug === TEALGUARD_ANNOUNCEMENT_SLUG
+      post.translation_group === TEALGUARD_TRANSLATION_GROUP
         ? [
             {
               '@type': 'Person',
@@ -345,6 +350,7 @@ const getArticleJsonLd = (post) => {
       }
     },
     articleSection: getTopic(post),
+    inLanguage: post.language || 'en',
     keywords: tags.length > 0 ? tags.join(', ') : undefined
   };
 
@@ -379,7 +385,7 @@ const renderLinkedTitle = (title) => {
   });
 };
 
-const ArticleHeroImage = ({ image, title, zoomable = false }) => {
+const ArticleHeroImage = ({ image, title, zoomable = false, language = 'en' }) => {
   if (!image?.src) {
     return null;
   }
@@ -412,7 +418,11 @@ const ArticleHeroImage = ({ image, title, zoomable = false }) => {
           href={image.src}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label={`Open full-size ${title} visual in a new tab`}
+          aria-label={
+            language === 'ro'
+              ? `Deschide imaginea ${title} la dimensiune completă într-o filă nouă`
+              : `Open full-size ${title} visual in a new tab`
+          }
         >
           {imageElement}
         </a>
@@ -424,23 +434,41 @@ const ArticleHeroImage = ({ image, title, zoomable = false }) => {
   );
 };
 
-const ArticleMetaStrip = ({ post }) => {
+const ArticleMetaStrip = ({ post, language = 'en' }) => {
   const publishedDate = post.date || post.publishedDate;
   const updatedDate = post.updated || post.modifiedDate;
+  const labels =
+    language === 'ro'
+      ? {
+          author: 'Autor',
+          partner: 'Partener',
+          published: 'Publicat',
+          updated: 'Actualizat',
+          readingTime: 'Timp de lectură',
+          details: 'Detaliile articolului'
+        }
+      : {
+          author: 'Author',
+          partner: 'Partner',
+          published: 'Published',
+          updated: 'Updated',
+          readingTime: 'Read time',
+          details: 'Article details'
+        };
   const metaItems = [
-    { label: 'Author', value: post.author || 'SmartClover' },
-    { label: 'Partner', value: post.partner },
-    { label: 'Published', value: formatDate(publishedDate), dateTime: publishedDate },
+    { label: labels.author, value: post.author || 'SmartClover' },
+    { label: labels.partner, value: post.partner },
+    { label: labels.published, value: formatDate(publishedDate, language), dateTime: publishedDate },
     {
-      label: 'Updated',
-      value: updatedDate && updatedDate !== publishedDate ? formatDate(updatedDate) : '',
+      label: labels.updated,
+      value: updatedDate && updatedDate !== publishedDate ? formatDate(updatedDate, language) : '',
       dateTime: updatedDate
     },
-    { label: 'Read time', value: getReadingTime(post) }
+    { label: labels.readingTime, value: getReadingTime(post, language) }
   ].filter((item) => item.value);
 
   return (
-    <dl className="article-meta-strip" aria-label="Article details">
+    <dl className="article-meta-strip" aria-label={labels.details}>
       {metaItems.map((item) => (
         <div key={item.label}>
           <dt>{item.label}</dt>
@@ -457,9 +485,15 @@ const ArticleMetaStrip = ({ post }) => {
   );
 };
 
-const TealGuardFundingStrip = () => (
-  <aside className="article-funding-strip" aria-label="TealGuard project funding">
-    <div className="article-funding-logos" aria-label="Funding programme identities">
+const TealGuardFundingStrip = ({ language = 'en' }) => (
+  <aside
+    className="article-funding-strip"
+    aria-label={language === 'ro' ? 'Finanțarea proiectului TealGuard' : 'TealGuard project funding'}
+  >
+    <div
+      className="article-funding-logos"
+      aria-label={language === 'ro' ? 'Identitățile programului de finanțare' : 'Funding programme identities'}
+    >
       <Image
         className="funding-logo-eu"
         src="/images/tealguard/funding/eu-cofunded-ro.png"
@@ -489,15 +523,48 @@ const TealGuardFundingStrip = () => (
       />
     </div>
     <p>
-      The project is co-financed by the European Union through the European Regional Development Fund under
-      the Health Programme 2021–2027.
+      {language === 'ro'
+        ? 'Proiectul este cofinanțat de Uniunea Europeană prin Fondul European de Dezvoltare Regională, în cadrul Programului Sănătate 2021–2027.'
+        : 'The project is co-financed by the European Union through the European Regional Development Fund under the Health Programme 2021–2027.'}
     </p>
   </aside>
 );
 
+const ArticleLanguageSwitcher = ({ post, language }) => {
+  if (!post.translation_en_slug || !post.translation_ro_slug) {
+    return null;
+  }
+
+  const languages = [
+    { code: 'en', label: 'EN', slug: post.translation_en_slug },
+    { code: 'ro', label: 'RO', slug: post.translation_ro_slug }
+  ];
+
+  return (
+    <nav
+      className="article-language-switcher"
+      aria-label={language === 'ro' ? 'Limba articolului' : 'Article language'}
+    >
+      {languages.map((item) =>
+        item.code === language ? (
+          <span key={item.code} aria-current="page">
+            {item.label}
+          </span>
+        ) : (
+          <Link key={item.code} href={`/blog/${item.slug}`} hrefLang={item.code} lang={item.code}>
+            {item.label}
+          </Link>
+        )
+      )}
+    </nav>
+  );
+};
+
 const BlogPost = ({ post, relatedPosts }) => {
   const description = getDescription(post);
-  const seoTitle = `${post.title} | SmartClover Blog`;
+  const language = post.language === 'ro' ? 'ro' : 'en';
+  const isRomanian = language === 'ro';
+  const seoTitle = `${post.title} | ${isRomanian ? 'Blogul SmartClover' : 'SmartClover Blog'}`;
   const heroImage = getPostImage(post);
   const summaryPoints = getSummaryPoints(post);
   const generatedToc = buildTocFromHtml(post.contentHtml);
@@ -505,8 +572,34 @@ const BlogPost = ({ post, relatedPosts }) => {
   const tocItems = explicitToc.length > 0 ? explicitToc : generatedToc.toc;
   const contentHtml = explicitToc.length > 0 ? post.contentHtml : generatedToc.html;
   const shouldShowToc = tocItems.length >= 3 && getWordCount(post.contentHtml) >= 900;
-  const isTealGuardAnnouncement = post.slug === TEALGUARD_ANNOUNCEMENT_SLUG;
+  const isTealGuardAnnouncement = post.translation_group === TEALGUARD_TRANSLATION_GROUP;
+  const alternates = isTealGuardAnnouncement
+    ? [
+        { hrefLang: 'en', href: `/blog/${post.translation_en_slug}` },
+        { hrefLang: 'ro', href: `/blog/${post.translation_ro_slug}` },
+        { hrefLang: 'x-default', href: `/blog/${post.translation_en_slug}` }
+      ]
+    : [];
   const shouldShowSidebar = shouldShowToc || (!isTealGuardAnnouncement && summaryPoints.length > 0);
+  const labels = isRomanian
+    ? {
+        keyPoints: 'Idei principale',
+        summary: 'Pe scurt',
+        contents: 'Cuprins',
+        related: 'Lecturi conexe',
+        backHref: 'https://tealguard.eu/ro/news',
+        backLabel: 'Înapoi la noutățile TealGuard',
+        websiteIntro: 'Mai multe informații sunt disponibile pe site-ul oficial al proiectului TealGuard'
+      }
+    : {
+        keyPoints: 'Key points',
+        summary: 'Summary',
+        contents: 'Contents',
+        related: 'Related reading',
+        backHref: '/blog',
+        backLabel: 'Back to all posts',
+        websiteIntro: 'More information can be found on the official TealGuard project website'
+      };
 
   return (
     <>
@@ -522,27 +615,30 @@ const BlogPost = ({ post, relatedPosts }) => {
         modifiedTime={post.updated || post.modifiedDate || post.date}
         section={getTopic(post)}
         tags={post.tags || []}
+        language={language}
+        alternates={alternates}
         jsonLd={getArticleJsonLd(post)}
       />
 
-      <article className={isTealGuardAnnouncement ? 'article-shell tealguard-article' : 'article-shell'}>
-        {isTealGuardAnnouncement && <TealGuardFundingStrip />}
+      <article lang={language} className={isTealGuardAnnouncement ? 'article-shell tealguard-article' : 'article-shell'}>
+        {isTealGuardAnnouncement && <TealGuardFundingStrip language={language} />}
         <header className="article-hero">
           <div className={heroImage ? 'article-hero-grid' : 'article-hero-copy'}>
             <div className="article-hero-copy">
               <span className="blog-topic">{getTopic(post)}</span>
               <h1>{renderLinkedTitle(post.title)}</h1>
               {description && !isTealGuardAnnouncement && <p className="article-dek">{description}</p>}
-              <ArticleMetaStrip post={post} />
+              <ArticleMetaStrip post={post} language={language} />
+              <ArticleLanguageSwitcher post={post} language={language} />
               {normalizeList(post.tags).length > 0 && (
-                <ul className="article-tag-list" aria-label="Article tags">
+                <ul className="article-tag-list" aria-label={isRomanian ? 'Etichetele articolului' : 'Article tags'}>
                   {normalizeList(post.tags).map((tag) => (
                     <li key={`${post.slug}-${tag}`}>{tag}</li>
                   ))}
                 </ul>
               )}
             </div>
-            <ArticleHeroImage image={heroImage} title={post.title} zoomable={isTealGuardAnnouncement} />
+            <ArticleHeroImage image={heroImage} title={post.title} zoomable={isTealGuardAnnouncement} language={language} />
           </div>
         </header>
 
@@ -551,7 +647,7 @@ const BlogPost = ({ post, relatedPosts }) => {
             <aside className="article-sidebar">
               {!isTealGuardAnnouncement && summaryPoints.length > 0 && (
                 <section className="article-summary" aria-labelledby="article-summary-heading">
-                  <h2 id="article-summary-heading">{summaryPoints.length > 1 ? 'Key points' : 'Summary'}</h2>
+                  <h2 id="article-summary-heading">{summaryPoints.length > 1 ? labels.keyPoints : labels.summary}</h2>
                   <ul>
                     {summaryPoints.map((item) => (
                       <li key={item}>{item}</li>
@@ -562,7 +658,7 @@ const BlogPost = ({ post, relatedPosts }) => {
 
               {shouldShowToc && (
                 <nav className="article-toc" aria-labelledby="article-toc-heading">
-                  <h2 id="article-toc-heading">Contents</h2>
+                  <h2 id="article-toc-heading">{labels.contents}</h2>
                   <ol>
                     {tocItems.map((item) => (
                       <li key={item.id} className={item.level > 2 ? 'toc-level-3' : undefined}>
@@ -590,7 +686,7 @@ const BlogPost = ({ post, relatedPosts }) => {
                 )}
                 {post.tldr_project_website && (
                   <p>
-                    More information can be found on the official TealGuard project website:{' '}
+                    {labels.websiteIntro}:{' '}
                     <a href={post.tldr_project_website}>tealguard.eu</a>.
                   </p>
                 )}
@@ -599,7 +695,7 @@ const BlogPost = ({ post, relatedPosts }) => {
 
             {shouldShowToc && (
               <details className="article-mobile-toc">
-                <summary>Contents</summary>
+                <summary>{labels.contents}</summary>
                 <ol>
                   {tocItems.map((item) => (
                     <li key={`mobile-${item.id}`} className={item.level > 2 ? 'toc-level-3' : undefined}>
@@ -617,9 +713,9 @@ const BlogPost = ({ post, relatedPosts }) => {
               }}
             />
 
-            {relatedPosts.length > 0 && (
+            {post.hide_related !== true && relatedPosts.length > 0 && (
               <section className="article-related" aria-labelledby="article-related-heading">
-                <h2 id="article-related-heading">Related reading</h2>
+                <h2 id="article-related-heading">{labels.related}</h2>
                 <div className="article-related-grid">
                   {relatedPosts.map((relatedPost) => (
                     <article key={relatedPost.href || relatedPost.slug}>
@@ -635,7 +731,11 @@ const BlogPost = ({ post, relatedPosts }) => {
             )}
 
             <div className="article-related">
-              <Link href="/blog">Back to all posts</Link>
+              {isRomanian ? (
+                <a href={labels.backHref}>{labels.backLabel}</a>
+              ) : (
+                <Link href={labels.backHref}>{labels.backLabel}</Link>
+              )}
             </div>
           </div>
         </div>

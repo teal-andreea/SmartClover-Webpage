@@ -108,8 +108,12 @@ test('getSortedPostsData returns normalized listing-safe metadata', dependencySk
   }
 
   const nis2Post = posts.find((post) => post.slug === 'nis2compass-verifiable-cybersecurity-proof');
+  const romanianTealGuardPost = posts.find(
+    (post) => post.slug === 'tealguard-intra-oficial-in-implementare-inteligenta-artificiala-suverana-oncologie-ginecologica'
+  );
 
   assert.ok(nis2Post, 'expected NIS2COMPASS post metadata');
+  assert.equal(romanianTealGuardPost, undefined, 'the Romanian translation should not be mixed into the English blog index');
   assert.equal(nis2Post.partner, 'AI STM Learning SRL');
   assert.equal(nis2Post.heroImage, '/blog/images/nis2compass-blog-hero-auditor-evidence-variant-3.png');
   assert.equal(nis2Post.heroImageWidth, 1600);
@@ -192,6 +196,13 @@ test('TealGuard announcement renders the operator-approved article, project link
   assert.equal(post.date, '2026-08-26');
   assert.equal(post.updated, '2026-08-28');
   assert.equal(post.modifiedDate, '2026-08-28');
+  assert.equal(post.language, 'en');
+  assert.equal(post.translation_group, 'tealguard-announcement');
+  assert.equal(post.translation_en_slug, 'tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology');
+  assert.equal(
+    post.translation_ro_slug,
+    'tealguard-intra-oficial-in-implementare-inteligenta-artificiala-suverana-oncologie-ginecologica'
+  );
   assert.equal(post.author, 'Andreea Damian and the SmartClover team');
   assert.equal(post.tldr_project_website, 'https://tealguard.eu');
   assert.equal(post.seoImage, '/images/og/tealguard-announcement_v1.png');
@@ -272,13 +283,16 @@ test('TealGuard announcement renders the operator-approved article, project link
   }
 
   const articlePageSource = readFileSync('pages/blog/[slug].jsx', 'utf8');
-  assert.ok(articlePageSource.includes('TEALGUARD_ANNOUNCEMENT_SLUG'));
-  assert.ok(articlePageSource.includes('<TealGuardFundingStrip />'));
+  assert.ok(articlePageSource.includes('TEALGUARD_TRANSLATION_GROUP'));
+  assert.ok(articlePageSource.includes('<TealGuardFundingStrip language={language} />'));
   assert.ok(articlePageSource.includes('className="article-mobile-toc"'));
   assert.ok(articlePageSource.includes('className="article-summary article-summary--main"'));
   assert.ok(articlePageSource.includes('id="article-tldr-heading">TL;DR</h2>'));
   assert.ok(articlePageSource.includes('post.tldr_project_website'));
   assert.ok(articlePageSource.includes('More information can be found on the official TealGuard project website'));
+  assert.ok(articlePageSource.includes('Mai multe informații sunt disponibile pe site-ul oficial al proiectului TealGuard'));
+  assert.ok(articlePageSource.includes('className="article-language-switcher"'));
+  assert.ok(articlePageSource.includes('hrefLang={item.code}'));
   assert.ok(articlePageSource.includes('!isTealGuardAnnouncement && summaryPoints.length > 0'));
   assert.ok(articlePageSource.includes('description && !isTealGuardAnnouncement'));
   assert.ok(
@@ -310,7 +324,7 @@ test('TealGuard announcement renders the operator-approved article, project link
   );
 
   const expectedHashes = new Map([
-    ['posts/tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology.md', 'cfd1445ec11fc535819da14e0e85a9fcc1f08b431c8e8fb1c3e941f11d18c828'],
+    ['posts/tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology.md', '24f478c0cc97d3e493bfd37fd73ba5e064fd7cbe8b468a10de449802d6fffe5b'],
     ['public/blog/cerviguard-trl6-dashboard.png', 'bd4bd260e505b569af7fdcc97d38971fdd3e8cb281968b159c9fff85a94ddfa3'],
     ['public/blog/cerviguard-trl6-workflow.png', '2760f734f6177f13f2698773ca1e22029f11b65f3be893d3d01bea56a9e422f7'],
     ['public/blog/tealguard-platform-modules.png', 'd1d1c303b1d1af177e25550643e3992007ec3ecdf7a99dd9fd0358796503a6df'],
@@ -326,6 +340,90 @@ test('TealGuard announcement renders the operator-approved article, project link
     const actualHash = createHash('sha256').update(readFileSync(filePath)).digest('hex');
     assert.equal(actualHash, expectedHash, `expected approved TealGuard publication artifact: ${filePath}`);
   }
+});
+
+test('Romanian TealGuard announcement is complete, localized, and paired with the English article', dependencySkip, async () => {
+  const { getAllPostSlugs, getPostData } = await loadPostsModule();
+  const slug = 'tealguard-intra-oficial-in-implementare-inteligenta-artificiala-suverana-oncologie-ginecologica';
+  const post = await getPostData(slug);
+  const exactExcerpt =
+    'Contractul de finanțare a fost semnat. TealGuard trece de la prototipul CerviGuard TRL 6, disponibil public, către o platformă TRL 9 pentru oncologie ginecologică, validată clinic, interoperabilă și pregătită pentru operare în producție.';
+
+  assert.equal(post.title, 'TealGuard intră oficial în implementare: construim inteligență artificială suverană pentru oncologie ginecologică');
+  assert.equal(post.language, 'ro');
+  assert.equal(post.translation_group, 'tealguard-announcement');
+  assert.equal(post.translation_en_slug, 'tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology');
+  assert.equal(post.translation_ro_slug, slug);
+  assert.equal(post.exclude_from_index, true);
+  assert.equal(post.hide_related, true);
+  assert.equal(post.topic, 'Anunț de proiect');
+  assert.equal(post.author, 'Andreea Damian și echipa SmartClover');
+  assert.equal(post.excerpt, exactExcerpt);
+  assert.equal(post.date, '2026-08-26');
+  assert.equal(post.updated, '2026-08-28');
+  assert.equal(post.tldr_project_website, 'https://tealguard.eu');
+  assert.ok(getAllPostSlugs().some((item) => item.params.slug === slug), 'the Romanian article route should be statically generated');
+
+  assert.ok(post.contentHtml.startsWith('<p>La 19 august 2026'));
+  assert.equal(post.contentHtml.includes('<h1'), false, 'the translated source title should render only through the page template');
+  assert.ok(post.contentHtml.includes('TealGuard — Intelligent platform for personalised management in gynecologic oncology'));
+  assert.ok(post.contentHtml.includes('HIPERDIA SA'));
+  assert.ok(post.contentHtml.includes('SmartClover SRL'));
+  assert.ok(post.contentHtml.includes('108809/19.08.2026'));
+  assert.ok(post.contentHtml.includes('358561'));
+  assert.ok(post.contentHtml.includes('17.618.140,27 RON'));
+  assert.ok(post.contentHtml.includes('17.355.115,27 RON'));
+  assert.ok(post.contentHtml.includes('11.297.237,07 RON'));
+  assert.ok(post.contentHtml.includes('<strong>100–200 de femei</strong>'));
+  assert.ok(post.contentHtml.includes('<strong>1.000 de femei asistate</strong>'));
+  assert.ok(post.contentHtml.includes('<strong>patru aplicații edge</strong>'));
+  assert.ok(post.contentHtml.includes('<strong>10 locuri de muncă echivalent normă întreagă</strong>'));
+  assert.ok(post.contentHtml.includes('două seturi de date publice, două modele cu ponderi deschise și două publicații cu acces liber'));
+  assert.ok(post.contentHtml.includes('Niciunul nu este prezentat aici ca dispozitiv medical certificat'));
+  assert.ok(post.contentHtml.includes('nu înlocuiește sfatul medical profesionist'));
+  assert.ok(post.contentHtml.includes('https://www.who.int/initiatives/cervical-cancer-elimination-initiative'));
+  assert.ok(post.contentHtml.includes('href="https://tealguard.eu"'));
+
+  for (const imagePath of [
+    '/blog/cerviguard-trl6-dashboard.png',
+    '/blog/cerviguard-trl6-workflow.png',
+    '/blog/tealguard-deep-tech-architecture.png'
+  ]) {
+    assert.equal(post.images.filter((image) => image.src === imagePath).length, 1, `expected translated image metadata for ${imagePath}`);
+  }
+
+  assert.equal(post.contentHtml.includes('src="/blog/cerviguard-trl6-dashboard.png"'), false);
+  assert.ok(post.contentHtml.includes('href="/blog/cerviguard-trl6-workflow.png"'));
+  assert.ok(post.contentHtml.includes('href="/blog/tealguard-deep-tech-architecture.png"'));
+  assert.ok(post.toc.some((item) => item.text === 'De ce există TealGuard'));
+  assert.ok(post.toc.some((item) => item.text === 'Informații despre proiect și finanțare'));
+
+  const pageSource = readFileSync('pages/blog/[slug].jsx', 'utf8');
+  const seoSource = readFileSync('components/PageSeo.jsx', 'utf8');
+  const documentSource = readFileSync('pages/_document.jsx', 'utf8');
+
+  for (const localizedLabel of [
+    'Blogul SmartClover',
+    'Autor',
+    'Publicat',
+    'Actualizat',
+    'Timp de lectură',
+    'Cuprins',
+    'Înapoi la noutățile TealGuard'
+  ]) {
+    assert.ok(pageSource.includes(localizedLabel), `expected Romanian article chrome: ${localizedLabel}`);
+  }
+
+  assert.ok(pageSource.includes("{ hrefLang: 'x-default', href: `/blog/${post.translation_en_slug}` }"));
+  assert.ok(pageSource.includes('post.hide_related !== true'));
+  assert.ok(seoSource.includes('og:locale'));
+  assert.ok(seoSource.includes('hrefLang={alternate.hrefLang}'));
+  assert.ok(documentSource.includes("post?.language === 'ro' ? 'ro' : 'en'"));
+
+  const translationHash = createHash('sha256')
+    .update(readFileSync(`posts/${slug}.md`))
+    .digest('hex');
+  assert.equal(translationHash, 'd0452aa9abb909a1900c729ab0fbc89ec2783a427b63d9e07bf7eed69debefe5');
 });
 
 test('resolveArticleImagePath keeps local image paths explicit and rejects unsafe destinations', dependencySkip, async () => {

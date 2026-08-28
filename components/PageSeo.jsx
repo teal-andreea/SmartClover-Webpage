@@ -41,6 +41,8 @@ const PageSeo = ({
   modifiedTime,
   section,
   tags = [],
+  language = 'en',
+  alternates = [],
   jsonLd = []
 }) => {
   const normalizedPath = normalizePath(path);
@@ -48,6 +50,10 @@ const PageSeo = ({
   const imageUrl = normalizeUrl(image);
   const scripts = Array.isArray(jsonLd) ? jsonLd : [jsonLd];
   const tagList = Array.isArray(tags) ? tags : [tags];
+  const ogLocale = language === 'ro' ? 'ro_RO' : 'en_GB';
+  const alternateOgLocales = alternates
+    .filter((alternate) => alternate.hrefLang && alternate.hrefLang !== language && alternate.hrefLang !== 'x-default')
+    .map((alternate) => (alternate.hrefLang === 'ro' ? 'ro_RO' : 'en_GB'));
 
   return (
     <Head>
@@ -59,6 +65,10 @@ const PageSeo = ({
       <meta name="theme-color" content="#0f766e" />
       <link rel="canonical" href={canonicalUrl} />
       <meta property="og:site_name" content="SmartClover" />
+      <meta property="og:locale" content={ogLocale} />
+      {[...new Set(alternateOgLocales)].map((locale) => (
+        <meta key={`${title}-og-locale-${locale}`} property="og:locale:alternate" content={locale} />
+      ))}
       <meta property="og:type" content={type} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
@@ -77,6 +87,14 @@ const PageSeo = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
       {imageAlt && <meta name="twitter:image:alt" content={imageAlt} />}
+      {alternates.map((alternate) => (
+        <link
+          key={`${title}-alternate-${alternate.hrefLang}`}
+          rel="alternate"
+          hrefLang={alternate.hrefLang}
+          href={normalizeUrl(alternate.href)}
+        />
+      ))}
       {scripts.filter(Boolean).map((item, index) => (
         <script key={`${title}-jsonld-${index}`} type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(item) }} />
       ))}
