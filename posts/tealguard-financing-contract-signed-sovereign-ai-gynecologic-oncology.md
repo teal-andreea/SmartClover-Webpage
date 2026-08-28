@@ -27,13 +27,12 @@ Keep the three publication assets — cerviguard-trl6-dashboard.png, cerviguard-
 
 On 19 August 2026, Financing Contract no. **108809/19.08.2026** was signed for **TealGuard — Intelligent platform for personalised management in gynecologic oncology**. The signature turns a technically ambitious proposal into a 36-month research, engineering, clinical-validation and production-readiness programme.
 
-The project is implemented by a consortium led by **HIPERDIA**, with **SmartClover** as the artificial-intelligence and deep-tech partner. Its total value is **RON 17,618,140.27**, of which **RON 17,355,115.27** is eligible expenditure and up to **RON 11,297,237.07** represents non-refundable funding through the European Regional Development Fund.
+The project is implemented by a consortium led by **HIPERDIA**, a major EU leader in healthcare services providing - part of the AFFIDEA group, with **SmartClover** as the artificial-intelligence and deep-tech partner. Its total value is **RON 17,618,140.27**, of which **RON 17,355,115.27** is eligible expenditure and up to **RON 11,297,237.07** represents non-refundable funding through the European Regional Development Fund.
 
-For me and for our team, this is not a finish line. It is the point at which every technical claim must become an auditable result.
+For our team, this is not a finish line but rather it is the point at which every technical claim must become an auditable result.
 
 > Signing the contract does not prove that TealGuard works. It gives us the mandate, resources and accountability to prove it — clinically, technically and operationally.
->
-> — **Andreea Damian**, founder and CEO, SmartClover
+
 
 ## Why TealGuard exists
 
