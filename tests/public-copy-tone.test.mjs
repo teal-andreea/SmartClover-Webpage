@@ -8,6 +8,7 @@ const normalizeCopy = (value) =>
   value
     .replace(/&apos;|&#39;/g, "'")
     .replace(/&quot;/g, '"')
+    .replace(/&amp;/g, '&')
     .replace(/\\'/g, "'")
     .replace(/\s+/g, ' ')
     .trim();
@@ -123,7 +124,7 @@ const bannedCopyByFile = {
     '"live data factory" services provider'
   ],
   'pages/cerviguard.jsx': ['our broader two-direction healthcare AI product strategy', 'generative SaaS systems'],
-  'pages/services.jsx': ['primary CerviGuard wedge', 'Primary wedge (active)'],
+  'pages/research.jsx': ['primary CerviGuard wedge', 'Primary wedge (active)'],
   'pages/cloud-architecture.jsx': ['GCP alignment rationale'],
   'pages/decentralized.jsx': ['public ledger for delivery traces', 'independently verify compliance'],
   'pages/proof.jsx': [
@@ -327,7 +328,7 @@ test('public source surfaces block evaluator-language and redaction regressions'
   }
 });
 
-test('homepage hero speaks in client-facing product and workflow language', () => {
+test('homepage hero presents the research-driven product company and both live products', () => {
   const source = readFileSync('pages/index.jsx', 'utf8');
   const heroCopy = extractHomeHeroCopy(source);
   const layoutCopy = normalizeCopy(readFileSync('components/Layout.jsx', 'utf8'));
@@ -340,19 +341,19 @@ test('homepage hero speaks in client-facing product and workflow language', () =
 
   assert.equal(
     heroCopy.includes(
-      'SmartClover builds healthcare AI where clinical work actually happens. CerviGuard helps cervical-screening teams structure intake, review cases with AI support, coordinate triage, and manage clinician-led follow-up.'
+      'SmartClover is a research-driven, digital-native healthtech company that develops and owns CerviGuard and DataGems. CerviGuard is a live product for structured cervical-screening intake, AI-assisted review, triage coordination, and clinician-led follow-up; DataGems is a live product for synthetic-data research workflows.'
     ),
     true,
-    'homepage hero should use the Stage 3 CerviGuard-first elevator pitch'
+    'homepage hero should use the approved research-driven company elevator pitch'
   );
 
   assert.equal(
     heroCopy.includes('DataGems'),
-    false,
-    'homepage first-screen hero should not give DataGems equal visual weight with CerviGuard'
+    true,
+    'homepage first-screen hero should identify both proprietary live products'
   );
 
-  for (const requiredFragment of ['CerviGuard', 'cervical-screening teams', 'clinician-led', 'workflow']) {
+  for (const requiredFragment of ['CerviGuard', 'structured cervical-screening intake', 'clinician-led', 'workflow']) {
     assert.equal(
       heroCopy.includes(requiredFragment),
       true,
@@ -361,7 +362,7 @@ test('homepage hero speaks in client-facing product and workflow language', () =
   }
 });
 
-test('about first screen uses founder, product, audience, and workflow language', () => {
+test('about first screen states identity, leadership, products, research, and business model', () => {
   const source = readFileSync('pages/about.jsx', 'utf8');
   const match = source.match(/<header className="page-header">([\s\S]*?)<\/header>/);
 
@@ -369,7 +370,14 @@ test('about first screen uses founder, product, audience, and workflow language'
 
   const headerCopy = normalizeCopy(match[1]);
 
-  for (const requiredFragment of ['Dr. Andreea Damian', 'CerviGuard', 'cervical-screening workflows', 'clinics']) {
+  for (const requiredFragment of [
+    'SMARTCLOVER S.R.L.',
+    'founded in July 2024',
+    'Dr. Andreea Damian',
+    'Prof. Dr. Andrei Ionut Damian',
+    'CerviGuard and DataGems',
+    'B2B software subscriptions and licensing'
+  ]) {
     assert.equal(
       headerCopy.includes(requiredFragment),
       true,
@@ -378,11 +386,12 @@ test('about first screen uses founder, product, audience, and workflow language'
   }
 });
 
-test('CerviGuard page uses product-first and draft-qualified regulatory language', () => {
+test('CerviGuard page uses maturity-qualified product and regulatory language', () => {
   const source = normalizeCopy(readFileSync('pages/cerviguard.jsx', 'utf8'));
 
   for (const requiredFragment of [
-    'live product',
+    'live MVP/private beta',
+    'documented TRL 6 starting point',
     'cervical-screening',
     'clinician-led',
     'workflow',
@@ -396,7 +405,7 @@ test('CerviGuard page uses product-first and draft-qualified regulatory language
   }
 });
 
-test('products page keeps CerviGuard first and DataGems as a research pilot', () => {
+test('products page keeps CerviGuard first and presents DataGems as a live product', () => {
   const source = normalizeCopy(readFileSync('pages/products.jsx', 'utf8'));
   const cerviGuardIndex = source.indexOf('CerviGuard');
   const dataGemsIndex = source.indexOf('DataGems');
@@ -404,7 +413,7 @@ test('products page keeps CerviGuard first and DataGems as a research pilot', ()
   assert.notEqual(cerviGuardIndex, -1, 'products page should mention CerviGuard');
   assert.notEqual(dataGemsIndex, -1, 'products page should mention DataGems');
   assert.equal(cerviGuardIndex < dataGemsIndex, true, 'CerviGuard should appear before DataGems');
-  assert.equal(source.includes('Live research pilot'), true, 'DataGems should remain a live research pilot');
+  assert.equal(source.includes('Live product'), true, 'DataGems should be presented as a live product');
   assert.equal(
     source.indexOf('CerviGuard leads the product portfolio') < source.indexOf('DataGems research track in practice'),
     true,
@@ -921,7 +930,7 @@ test('contact and API docs keep email fallbacks Cloudflare-safe and announced ac
   );
 });
 
-test('Stage 4 trust center acts as the diligence center for proof, regulatory, security, and services review', () => {
+test('Stage 4 trust center acts as the diligence center for proof, regulatory, security, and research review', () => {
   const trust = normalizeCopy(readFileSync('pages/trust/index.jsx', 'utf8'));
   const css = normalizeCopy(readFileSync('styles/refactor.css', 'utf8'));
 
@@ -933,7 +942,7 @@ test('Stage 4 trust center acts as the diligence center for proof, regulatory, s
     'incident response',
     'permissioned cloud-on-edge architecture',
     'healthcare cybersecurity and resilience',
-    'Services and RFQ path',
+    'Research and product-deployment path',
     'One-page review brief',
     'Download review brief',
     'Page reviewed: 2026-07-01',
@@ -951,7 +960,7 @@ test('Stage 4 trust center acts as the diligence center for proof, regulatory, s
     '/trust/incident-response',
     '/cloud-architecture',
     '/cybersecurity',
-    '/services',
+    '/research',
     '/docs/SmartClover_1pagepitchdeck.pdf',
     '/contact'
   ]) {
@@ -1281,8 +1290,8 @@ test('proof page separates public evidence from pending metrics', () => {
   const source = normalizeCopy(readFileSync('pages/proof.jsx', 'utf8'));
 
   for (const requiredFragment of [
-    'Evidence baseline for product review',
-    'current public evidence set',
+    'Company, product, and research evidence',
+    'public evidence required to review SmartClover as a research-driven, digital-native product company',
     'Verified public evidence',
     'Qualified public evidence',
     'Evidence gaps',
@@ -1321,27 +1330,75 @@ test('pricing and buying pages explain RFQ scope and next steps', () => {
   }
 });
 
-test('service capability pages preserve SmartClover product and service hierarchy', () => {
-  const services = normalizeCopy(readFileSync('pages/services.jsx', 'utf8'));
+test('operator-approved company, product, research, proof, and pricing positioning is preserved exactly', () => {
+  const expectedByFile = {
+    'pages/index.jsx': [
+      'Research-driven, digital-native healthcare AI products for cervical screening and clinical research.',
+      'SmartClover is a research-driven, digital-native healthtech company that develops and owns CerviGuard and DataGems. CerviGuard is a live product for structured cervical-screening intake, AI-assisted review, triage coordination, and clinician-led follow-up; DataGems is a live product for synthetic-data research workflows.',
+      'Research and product tracks around the flagship product',
+      "CerviGuard is the flagship live product. DataGems is the live synthetic-data research product; TealGuard, led by HIPERDIA/Affidea, and NIS2COMPASS are approved consortium R&D programmes extending SmartClover's products, research, and future product roadmap."
+    ],
+    'pages/products.jsx': [
+      'SmartClover develops and owns CerviGuard and DataGems as proprietary software products. Its applied research programme advances these and future products through TealGuard, NIS2COMPASS, clinical AI, synthetic-data methods, privacy-preserving edge deployment, and healthcare cybersecurity.',
+      'Products, research programmes, and platform capabilities'
+    ],
+    'pages/research.jsx': [
+      'Healthcare AI products and applied research',
+      'SmartClover develops CerviGuard and DataGems and advances current and future products through applied research, permissioned cloud-on-edge infrastructure, and cybersecurity and resilience R&D for regulated healthcare deployments.',
+      'Scope, evidence, and next steps for a research or product-deployment programme.'
+    ],
+    'pages/about.jsx': [
+      'SMARTCLOVER S.R.L. is a research-driven, digital-native healthcare AI company founded in July 2024. Dr. Andreea Damian leads healthcare research, consortium programmes, and product adoption; Prof. Dr. Andrei Ionut Damian leads AI, software, and technical R&D. SmartClover develops and owns CerviGuard and DataGems and advances future products through applied research. Its business model is B2B software subscriptions and licensing, private SaaS/PaaS deployments, API access, and product-specific onboarding and integration.',
+      'SmartClover uses product surfaces, public repositories, defined operating boundaries, and applied research programmes to develop and commercialize proprietary software products.'
+    ],
+    'pages/cerviguard.jsx': [
+      "CerviGuard is SmartClover's live MVP/private beta for cervical-screening teams, with a documented TRL 6 starting point and public screenshots, feature descriptions, repository, and draft MDR Class I self-assessment. It supports structured intake, AI-assisted analysis, and clinician-led follow-up; it is not an autonomous diagnostic system.",
+      'CerviGuard is the primary clinical product and the documented TRL 6 starting point for TealGuard, the approved R&D programme developing ColVisionAI, NavigatorAI, Follow-upAI, and EcoAI toward multi-site validation and TRL 9. Related SmartClover research covers prevention communication, synthetic data, privacy-preserving AI, and future healthcare products.'
+    ],
+    'pages/proof.jsx': [
+      'Company, product, and research evidence',
+      '2025-2026',
+      'Public product evidence and approved R&D financing expanded',
+      'This page provides the public evidence required to review SmartClover as a research-driven, digital-native product company: legal identity, leadership, business model, live products, screenshots, features, development stages, public repositories, and approved consortium R&D programmes. Numeric clinical KPIs remain gated until cohort definitions and reporting windows are finalized.',
+      'SmartClover expanded public product evidence through live CerviGuard and DataGems routes, screenshots, repositories, and trust material. In 2026, SmartClover secured approximately EUR 1 million in approved non-dilutive consortium financing for its TealGuard work package and approximately EUR 100,000 for its NIS2COMPASS participation.'
+    ],
+    'pages/pricing.jsx': [
+      'Commercial fees are provided through a Request for Quotation (RFQ) process after scope definition. Each quotation is tied to a SmartClover software subscription or licence and may include product-specific onboarding, integration, deployment, and optional modules.',
+      'Unscoped work outside a defined product or research programme'
+    ]
+  };
+
+  for (const [filePath, expectedFragments] of Object.entries(expectedByFile)) {
+    const source = normalizeCopy(readFileSync(filePath, 'utf8'));
+
+    for (const expectedFragment of expectedFragments) {
+      assert.equal(source.includes(expectedFragment), true, `${filePath} should preserve approved copy: ${expectedFragment}`);
+    }
+  }
+});
+
+test('research and platform pages preserve SmartClover product and applied-research hierarchy', () => {
+  const research = normalizeCopy(readFileSync('pages/research.jsx', 'utf8'));
+  const platformCapabilities = normalizeCopy(extractArrayDeclaration(readFileSync('pages/research.jsx', 'utf8'), 'platformCapabilities'));
   const cloud = normalizeCopy(readFileSync('pages/cloud-architecture.jsx', 'utf8'));
   const cybersecurity = normalizeCopy(readFileSync('pages/cybersecurity.jsx', 'utf8'));
   const decentralized = normalizeCopy(readFileSync('pages/decentralized.jsx', 'utf8'));
 
-  const cerviGuardIndex = services.indexOf('CerviGuard');
-  const dataGemsIndex = services.indexOf('DataGems');
-  const cloudOnEdgeIndex = services.indexOf('permissioned cloud-on-edge');
-  const cybersecurityIndex = services.indexOf('cybersecurity/resilience');
+  const cerviGuardIndex = platformCapabilities.indexOf('CerviGuard');
+  const dataGemsIndex = platformCapabilities.indexOf('DataGems');
+  const cloudOnEdgeIndex = platformCapabilities.indexOf('Permissioned cloud-on-edge');
+  const cybersecurityIndex = platformCapabilities.indexOf('Cybersecurity and resilience R&D');
 
-  assert.notEqual(cerviGuardIndex, -1, 'services page should mention CerviGuard');
-  assert.notEqual(dataGemsIndex, -1, 'services page should mention DataGems');
-  assert.notEqual(cloudOnEdgeIndex, -1, 'services page should mention permissioned cloud-on-edge');
-  assert.notEqual(cybersecurityIndex, -1, 'services page should mention cybersecurity/resilience services');
-  assert.equal(cerviGuardIndex < dataGemsIndex, true, 'services page should keep CerviGuard before DataGems');
-  assert.equal(dataGemsIndex < cloudOnEdgeIndex, true, 'services page should keep DataGems before cloud-on-edge services');
+  assert.notEqual(cerviGuardIndex, -1, 'research page should mention CerviGuard');
+  assert.notEqual(dataGemsIndex, -1, 'research page should mention DataGems');
+  assert.notEqual(cloudOnEdgeIndex, -1, 'research page should mention permissioned cloud-on-edge');
+  assert.notEqual(cybersecurityIndex, -1, 'research page should mention cybersecurity and resilience R&D');
+  assert.equal(cerviGuardIndex < dataGemsIndex, true, 'research page should keep CerviGuard before DataGems');
+  assert.equal(dataGemsIndex < cloudOnEdgeIndex, true, 'research page should keep DataGems before cloud-on-edge capabilities');
   assert.equal(
     cloudOnEdgeIndex < cybersecurityIndex,
     true,
-    'services page should keep cloud-on-edge services before cybersecurity/resilience services'
+    'research page should keep cloud-on-edge infrastructure before cybersecurity and resilience R&D'
   );
 
   for (const requiredFragment of [
@@ -1354,7 +1411,7 @@ test('service capability pages preserve SmartClover product and service hierarch
   }
 
   for (const requiredFragment of [
-    'Cybersecurity and resilience services for healthcare organizations',
+    'Cybersecurity and resilience R&D for healthcare organizations',
     'Document status: Draft for security/service review',
     'Service baseline updated: 2026-07-01',
     'Page reviewed: 2026-07-01',
@@ -1372,12 +1429,18 @@ test('service capability pages preserve SmartClover product and service hierarch
   );
 });
 
-test('services route remains publicly reachable', () => {
-  const nextConfig = readFileSync('next.config.js', 'utf8');
+test('research route is public and replaces the former service route in current surfaces', () => {
+  const layout = readFileSync('components/Layout.jsx', 'utf8');
+  const sitemapSource = readFileSync('scripts/generate-sitemap.mjs', 'utf8');
+  const sitemap = readFileSync('public/sitemap.xml', 'utf8');
+  const trust = readFileSync('pages/trust/index.jsx', 'utf8');
+  const retiredRoute = ['', 'services'].join('/');
 
-  assert.equal(
-    nextConfig.includes("source: '/services'"),
-    false,
-    'next.config.js should not redirect /services away from the service-capability page'
-  );
+  assert.equal(existsSync('pages/research.jsx'), true, 'research page should exist');
+  assert.equal(existsSync(`pages/${retiredRoute.slice(1)}.jsx`), false, 'former service page should be retired');
+
+  for (const source of [layout, sitemapSource, sitemap, trust]) {
+    assert.equal(source.includes('/research'), true, 'current route surfaces should link to /research');
+    assert.equal(source.includes(retiredRoute), false, 'current route surfaces should not link to the retired route');
+  }
 });

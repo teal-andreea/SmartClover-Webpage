@@ -84,11 +84,11 @@ const reviewAreas = [
       'Healthcare-focused security assessment, partner-product context, and engineering workflows under authorized oversight.'
   },
   {
-    href: '/services',
-    title: 'Services and RFQ path',
-    cta: 'Review services',
+    href: '/research',
+    title: 'Research and product-deployment path',
+    cta: 'Review research',
     description:
-      'CerviGuard product context, DataGems research workflow scope, cloud/cybersecurity services, and qualification next steps.'
+      'CerviGuard and DataGems product context, applied research, platform capabilities, and qualification next steps.'
   }
 ];
 

@@ -13,7 +13,7 @@ const Cybersecurity = () => (
 
     <header className="page-header">
       <span className="tagline">Healthcare Cybersecurity</span>
-      <h1>Cybersecurity and resilience services for healthcare organizations</h1>
+      <h1>Cybersecurity and resilience R&amp;D for healthcare organizations</h1>
       <p>
         SmartClover supports healthcare teams that need security assessment, deployment hardening, resilience planning,
         and operational follow-through around AI-enabled workflows. Scoped engagements can involve authorized/certified

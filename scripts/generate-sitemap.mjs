@@ -9,7 +9,7 @@ export const staticRoutes = [
   '/about',
   '/cerviguard',
   '/products',
-  '/services',
+  '/research',
   '/pricing',
   '/how-to-buy',
   '/proof',

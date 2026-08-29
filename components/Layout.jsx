@@ -10,6 +10,7 @@ const navLinks = [
   { label: 'About', href: '/about' },
   { label: 'CerviGuard', href: '/cerviguard' },
   { label: 'Products', href: '/products' },
+  { label: 'Research', href: '/research' },
   { label: 'Trust', href: '/trust' },
   { label: 'Blog', href: '/blog' }
 ];
@@ -22,6 +23,7 @@ const footerGroups = [
       { label: 'About', href: '/about' },
       { label: 'CerviGuard', href: '/cerviguard' },
       { label: 'Products', href: '/products' },
+      { label: 'Research', href: '/research' },
       { label: 'Blog', href: '/blog' }
     ]
   },
@@ -52,7 +54,8 @@ const footerGroups = [
 const Layout = ({ children, hostId = 'unknown' }) => {
   const router = useRouter();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const productsRoutes = ['/products', '/pricing', '/how-to-buy', '/services', '/cloud-architecture', '/decentralized', '/cybersecurity'];
+  const productsRoutes = ['/products', '/pricing', '/how-to-buy'];
+  const researchRoutes = ['/research', '/cloud-architecture', '/decentralized', '/cybersecurity'];
   const aboutRoutes = ['/about', '/values'];
   const trustRoutes = ['/trust', '/proof', '/regulatory'];
 
@@ -67,6 +70,10 @@ const Layout = ({ children, hostId = 'unknown' }) => {
 
     if (href === '/products') {
       return productsRoutes.some((route) => router.pathname === route || router.pathname.startsWith(`${route}/`));
+    }
+
+    if (href === '/research') {
+      return researchRoutes.some((route) => router.pathname === route || router.pathname.startsWith(`${route}/`));
     }
 
     if (href === '/trust') {

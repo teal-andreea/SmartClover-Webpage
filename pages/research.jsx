@@ -3,7 +3,7 @@ import Link from 'next/link';
 import DiligenceLinksSection from '../components/DiligenceLinksSection';
 import PageSeo from '../components/PageSeo';
 
-const servicePrinciples = [
+const researchPrinciples = [
   {
     title: 'CerviGuard-led product work',
     description:
@@ -34,7 +34,7 @@ const productTracks = [
   }
 ];
 
-const serviceCapabilities = [
+const platformCapabilities = [
   {
     status: 'Flagship product',
     title: 'CerviGuard for cervical-screening teams',
@@ -45,7 +45,7 @@ const serviceCapabilities = [
     ]
   },
   {
-    status: 'Live research pilot',
+    status: 'Live product',
     title: 'DataGems synthetic-data research',
     points: [
       'Controlled synthetic-data workflows for research planning',
@@ -54,7 +54,7 @@ const serviceCapabilities = [
     ]
   },
   {
-    status: 'Service capability',
+    status: 'Platform capability',
     title: 'Permissioned cloud-on-edge deployment',
     points: [
       'Cloud-on-edge and on-prem execution options for healthcare AI workloads',
@@ -63,8 +63,8 @@ const serviceCapabilities = [
     ]
   },
   {
-    status: 'Service capability',
-    title: 'Cybersecurity and resilience services',
+    status: 'Platform capability',
+    title: 'Cybersecurity and resilience R&D',
     points: [
       'Healthcare-focused assessment, hardening, and resilience planning',
       'Delivery with authorized/certified personnel and partner security products within approved scopes',
@@ -73,20 +73,21 @@ const serviceCapabilities = [
   }
 ];
 
-const Services = () => (
+const Research = () => (
   <>
     <PageSeo
-      title="Services | SmartClover"
-      description="SmartClover services covering CerviGuard, DataGems research, permissioned cloud-on-edge deployment, and healthcare cybersecurity/resilience."
-      path="/services"
+      title="Research | SmartClover"
+      description="SmartClover applied research across CerviGuard, DataGems, permissioned cloud-on-edge infrastructure, and healthcare cybersecurity and resilience."
+      path="/research"
     />
 
     <header className="page-header">
-      <span className="tagline">Services</span>
-      <h1>Healthcare AI products and service capabilities</h1>
+      <span className="tagline">Research</span>
+      <h1>Healthcare AI products and applied research</h1>
       <p>
-        SmartClover leads with CerviGuard for cervical-screening workflows. We also support DataGems research,
-        permissioned cloud-on-edge deployment, and cybersecurity/resilience services for healthcare organizations.
+        SmartClover develops CerviGuard and DataGems and advances current and future products through applied research,
+        permissioned cloud-on-edge infrastructure, and cybersecurity and resilience R&amp;D for regulated healthcare
+        deployments.
       </p>
       <div className="cta-links">
         <Link href="/cerviguard" className="button primary">
@@ -149,7 +150,7 @@ const Services = () => (
         <h2 id="services-principles-heading">Operating principles</h2>
       </div>
       <div className="feature-grid three-up">
-        {servicePrinciples.map((item) => (
+        {researchPrinciples.map((item) => (
           <article key={item.title} className="feature">
             <h3 className="feature-title">{item.title}</h3>
             <p className="feature-description">{item.description}</p>
@@ -163,7 +164,7 @@ const Services = () => (
         <h2 id="services-modules-heading">What you can engage today</h2>
       </div>
       <div className="service-programs">
-        {serviceCapabilities.map((capability) => (
+        {platformCapabilities.map((capability) => (
           <article key={capability.title} className="service-program">
             <p className="kicker">{capability.status}</p>
             <h3>{capability.title}</h3>
@@ -206,9 +207,9 @@ const Services = () => (
 
     <DiligenceLinksSection
       headingId="services-diligence-links"
-      description="Scope, evidence, and next steps for a services engagement."
+      description="Scope, evidence, and next steps for a research or product-deployment programme."
     />
   </>
 );
 
-export default Services;
+export default Research;

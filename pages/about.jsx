@@ -47,7 +47,7 @@ const operatingPrinciples = [
     kicker: 'Product ownership',
     title: 'Build products with defined scope.',
     description:
-      'SmartClover uses product surfaces, public repositories, and defined operating boundaries instead of presenting itself as a broad, unscoped AI consultancy.'
+      'SmartClover uses product surfaces, public repositories, defined operating boundaries, and applied research programmes to develop and commercialize proprietary software products.'
   },
   {
     kicker: 'Evidence before claims',
@@ -116,7 +116,7 @@ const About = () => (
   <>
     <PageSeo
       title="About SmartClover | Healthcare AI For Cervical Screening"
-      description="SmartClover is a founder-led healthcare AI company from Cluj-Napoca building CerviGuard for cervical-screening workflows, with DataGems supporting synthetic-data research workflows."
+      description="SmartClover is a research-driven, digital-native healthcare AI company developing CerviGuard and DataGems through product ownership and applied research."
       path="/about"
       jsonLd={aboutSchema}
     />
@@ -125,9 +125,11 @@ const About = () => (
       <span className="tagline">About SmartClover</span>
       <h1>A founder-led healthcare AI company building CerviGuard.</h1>
       <p>
-        SmartClover is led by Dr. Andreea Damian in Cluj-Napoca, Romania. The company builds CerviGuard for
-        cervical-screening workflows and keeps product, trust, pricing, and buying information available for clinics,
-        research teams, procurement reviewers, and investors.
+        SMARTCLOVER S.R.L. is a research-driven, digital-native healthcare AI company founded in July 2024. Dr. Andreea
+        Damian leads healthcare research, consortium programmes, and product adoption; Prof. Dr. Andrei Ionut Damian leads
+        AI, software, and technical R&amp;D. SmartClover develops and owns CerviGuard and DataGems and advances future
+        products through applied research. Its business model is B2B software subscriptions and licensing, private
+        SaaS/PaaS deployments, API access, and product-specific onboarding and integration.
       </p>
     </header>
 

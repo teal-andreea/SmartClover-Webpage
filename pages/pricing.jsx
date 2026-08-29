@@ -37,7 +37,7 @@ const packages = [
       'Optional module planning for roadmap-aligned expansion'
     ],
     excludes: [
-      'Open-ended consulting engagements without package scope',
+      'Unscoped work outside a defined product or research programme',
       'Public list pricing or unscoped commitments'
     ]
   }
@@ -65,8 +65,9 @@ const Pricing = () => (
         <h2 id="pricing-model-heading">Commercial model summary</h2>
       </div>
       <p>
-        Commercial fees are provided through a Request for Quotation (RFQ) process after scope definition. This can
-        include subscription, onboarding, integration, and optional module fees.
+        Commercial fees are provided through a Request for Quotation (RFQ) process after scope definition. Each quotation
+        is tied to a SmartClover software subscription or licence and may include product-specific onboarding, integration,
+        deployment, and optional modules.
       </p>
       <p>
         SmartClover does not publish numeric list prices. Quotations are issued after the team confirms scope,

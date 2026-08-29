@@ -32,10 +32,10 @@ const portfolioCards = [
       'A live product for structured cervical screening workflows, AI-assisted review, and clinician-led follow-up.'
   },
   {
-    kicker: 'Live research pilot',
+    kicker: 'Live product',
     title: 'DataGems',
     description:
-      'A live research pilot for synthetic-data workflows, schema drafting, configured generation jobs, and reviewable exports.'
+      'A live product for synthetic-data workflows, schema drafting, configured generation jobs, and reviewable exports.'
   },
   {
     kicker: 'Public research directions',
@@ -96,7 +96,7 @@ const organizationSchema = {
   name: 'SmartClover',
   url: siteUrl,
   description:
-    'Healthcare AI company building CerviGuard for cervical-screening workflows, with DataGems supporting synthetic-data research.',
+    'Research-driven, digital-native healthcare AI company developing CerviGuard and DataGems for cervical screening and synthetic-data research workflows.',
   logo: `${siteUrl}/smartclover-logo_v2.png`,
   sameAs: ['https://www.linkedin.com/company/smartclover'],
   founder: {
@@ -121,8 +121,8 @@ const organizationSchema = {
 const Home = () => (
   <>
     <PageSeo
-      title="SmartClover | Healthcare AI With Live Product Proof"
-      description="SmartClover builds healthcare AI led by CerviGuard for cervical-screening teams, with DataGems for synthetic-data research."
+      title="SmartClover | Research-Driven Healthcare AI Products"
+      description="SmartClover develops CerviGuard and DataGems as healthcare AI products for cervical screening and synthetic-data research workflows."
       path="/"
       image="/images/og/brand-card_v1.png"
       jsonLd={organizationSchema}
@@ -140,12 +140,12 @@ const Home = () => (
 
           <div className="hero-copy">
             <h1 id="home-hero-title" className="hero-title">
-              Clinician-led AI workflow software for cervical screening.
+              Research-driven, digital-native healthcare AI products for cervical screening and clinical research.
             </h1>
             <p>
-              SmartClover builds healthcare AI where clinical work actually happens. CerviGuard helps
-              cervical-screening teams structure intake, review cases with AI support, coordinate triage, and manage
-              clinician-led follow-up.
+              SmartClover is a research-driven, digital-native healthtech company that develops and owns CerviGuard and
+              DataGems. CerviGuard is a live product for structured cervical-screening intake, AI-assisted review, triage
+              coordination, and clinician-led follow-up; DataGems is a live product for synthetic-data research workflows.
             </p>
           </div>
 
@@ -221,10 +221,11 @@ const Home = () => (
 
     <section className="surface-card" aria-labelledby="home-portfolio-heading">
       <div className="section-heading">
-        <h2 id="home-portfolio-heading">Research and service tracks around the flagship product</h2>
+        <h2 id="home-portfolio-heading">Research and product tracks around the flagship product</h2>
         <p>
-          CerviGuard is the product teams review first. DataGems and the deployment services are the research and
-          infrastructure conversations that follow.
+          CerviGuard is the flagship live product. DataGems is the live synthetic-data research product; TealGuard, led by
+          HIPERDIA/Affidea, and NIS2COMPASS are approved consortium R&amp;D programmes extending SmartClover&apos;s products,
+          research, and future product roadmap.
         </p>
       </div>
       <div className="story-grid">

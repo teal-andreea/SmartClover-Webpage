@@ -9,8 +9,8 @@ Prepared: 2026-05-11
 | `/` | `pages/index.jsx` | clinics, researchers, investors, procurement reviewers | Explain SmartClover, CerviGuard, DataGems, trust routes, and next action | High |
 | `/about` | `pages/about.jsx` | partners, investors, clinics, public reviewers | Explain leadership, domain focus, research context, and company principles | High |
 | `/cerviguard` | `pages/cerviguard.jsx` | cervical-screening teams, clinical/programme leads | Explain the flagship workflow product and evidence boundaries | High |
-| `/products` | `pages/products.jsx` | buyers, research partners, investors | Present CerviGuard first, DataGems research second, and service capabilities clearly | High |
-| `/services` | `pages/services.jsx` | healthcare operators, IT/security teams, procurement | Explain product-led services without hiding cloud-on-edge or cybersecurity/resilience | High |
+| `/products` | `pages/products.jsx` | buyers, research partners, investors | Present CerviGuard first, DataGems as a live product, and platform capabilities clearly | High |
+| `/research` | `pages/research.jsx` | healthcare operators, research partners, IT/security teams, procurement | Explain applied research, product-development programmes, cloud-on-edge infrastructure, and cybersecurity/resilience R&D | High |
 | `/cloud-architecture` | `pages/cloud-architecture.jsx` | healthcare IT/security leads | Explain permissioned cloud-on-edge deployment boundaries and records | High |
 | `/cybersecurity` | `pages/cybersecurity.jsx` | healthcare IT/security leads | Explain cybersecurity/resilience services with scoped claims | High |
 | `/decentralized` | `pages/decentralized.jsx` | technical buyers | Explain provider-neutral cloud-on-edge execution and traceability | Medium |

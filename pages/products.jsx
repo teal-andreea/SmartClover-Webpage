@@ -11,19 +11,19 @@ const portfolioTracks = [
       'Cervical-screening workflow product with draft MDR Class I self-assessment material and clinician-reviewed AI outputs.'
   },
   {
-    status: 'Live research pilot',
+    status: 'Live product',
     title: 'DataGems synthetic-data workspace',
     description:
       'Synthetic-data research workspace for schema drafting, configured generation jobs, peer-level status, and JSON/CSV exports.'
   },
   {
-    status: 'Service capability',
+    status: 'Platform capability',
     title: 'Permissioned cloud-on-edge deployment',
     description:
       'Deployment support for healthcare AI workloads that need tenant boundaries, encryption controls, edge/on-prem execution, and traceable release records.'
   },
   {
-    status: 'Service capability',
+    status: 'Platform capability',
     title: 'Healthcare cybersecurity and resilience',
     description:
       'Security/resilience services for healthcare organizations that can involve authorized/certified personnel, partner security products, and scoped engineering support.'
@@ -129,7 +129,7 @@ const Products = () => (
   <>
     <PageSeo
       title="Products | SmartClover"
-      description="SmartClover product and service portfolio covering CerviGuard, DataGems research, permissioned cloud-on-edge deployment, and healthcare cybersecurity/resilience."
+      description="SmartClover products and applied research across CerviGuard, DataGems, permissioned cloud-on-edge deployment, and healthcare cybersecurity and resilience."
       path="/products"
       image="/images/cerviguard/cerviguard-dashboard-live_v1.png"
     />
@@ -138,8 +138,9 @@ const Products = () => (
       <span className="tagline">Products</span>
       <h1>Product portfolio led by CerviGuard</h1>
       <p>
-        SmartClover&apos;s product portfolio is led by CerviGuard. DataGems supports synthetic-data research workflows,
-        while service capabilities cover permissioned cloud-on-edge deployment and healthcare cybersecurity/resilience.
+        SmartClover develops and owns CerviGuard and DataGems as proprietary software products. Its applied research
+        programme advances these and future products through TealGuard, NIS2COMPASS, clinical AI, synthetic-data methods,
+        privacy-preserving edge deployment, and healthcare cybersecurity.
       </p>
       <div className="cta-links">
         <Link href="/cerviguard" className="button primary">
@@ -233,7 +234,7 @@ const Products = () => (
     <section className="surface-card flagship-highlight" aria-labelledby="products-portfolio-heading">
       <div className="section-heading">
         <span className="flagship-kicker">Offer map</span>
-        <h2 id="products-portfolio-heading">Product, research, and service capabilities around CerviGuard</h2>
+        <h2 id="products-portfolio-heading">Products, research programmes, and platform capabilities</h2>
       </div>
       <div className="service-programs">
         {portfolioTracks.map((track) => (
@@ -248,7 +249,7 @@ const Products = () => (
 
     <section className="surface-card datagems-spotlight" aria-labelledby="products-datagems-heading">
       <div className="section-heading">
-        <span className="flagship-kicker">Live research pilot</span>
+        <span className="flagship-kicker">Live product</span>
         <h2 id="products-datagems-heading">DataGems research track in practice</h2>
         <p>
           DataGems helps research and data teams shape synthetic-data workflows, test schemas, track generation jobs,

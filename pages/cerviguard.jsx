@@ -159,9 +159,9 @@ const CerviGuard = () => (
       <span className="tagline">CerviGuard</span>
       <h1>CerviGuard: AI-supported cervical screening for clinical teams</h1>
       <p>
-        CerviGuard is SmartClover&apos;s live product for cervical-screening teams that need structured intake,
-        AI-assisted analysis, and clinician-led follow-up. The public regulatory material is a draft MDR Class I
-        self-assessment, not a final approval claim.
+        CerviGuard is SmartClover&apos;s live MVP/private beta for cervical-screening teams, with a documented TRL 6 starting
+        point and public screenshots, feature descriptions, repository, and draft MDR Class I self-assessment. It supports
+        structured intake, AI-assisted analysis, and clinician-led follow-up; it is not an autonomous diagnostic system.
       </p>
     </header>
 
@@ -247,8 +247,10 @@ const CerviGuard = () => (
       <div className="section-heading">
         <h2 id="cerviguard-directions-heading">How CerviGuard fits within the SmartClover portfolio</h2>
         <p>
-          CerviGuard is SmartClover&apos;s primary clinical product line and the working foundation for TealGuard, a
-          36-month research, engineering, clinical-validation, and production-readiness programme.
+          CerviGuard is the primary clinical product and the documented TRL 6 starting point for TealGuard, the approved
+          R&amp;D programme developing ColVisionAI, NavigatorAI, Follow-upAI, and EcoAI toward multi-site validation and TRL
+          9. Related SmartClover research covers prevention communication, synthetic data, privacy-preserving AI, and
+          future healthcare products.
         </p>
       </div>
       <div className="feature-grid two-up">
