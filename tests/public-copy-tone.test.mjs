@@ -341,7 +341,7 @@ test('homepage hero presents the research-driven product company and both live p
 
   assert.equal(
     heroCopy.includes(
-      'SmartClover is a research-driven, digital-native healthtech company that develops and owns CerviGuard and DataGems. CerviGuard is a live product for structured cervical-screening intake, AI-assisted review, triage coordination, and clinician-led follow-up; DataGems is a live product for synthetic-data research workflows.'
+      "SmartClover is a digital-native healthcare AI product company that develops and owns CerviGuard and DataGems. Both have live public product surfaces; TealGuard and NIS2COMPASS are approved consortium R&D programmes advancing SmartClover's current and future products."
     ),
     true,
     'homepage hero should use the approved research-driven company elevator pitch'
@@ -353,7 +353,7 @@ test('homepage hero presents the research-driven product company and both live p
     'homepage first-screen hero should identify both proprietary live products'
   );
 
-  for (const requiredFragment of ['CerviGuard', 'structured cervical-screening intake', 'clinician-led', 'workflow']) {
+  for (const requiredFragment of ['CerviGuard', 'DataGems', 'live public product surfaces', 'approved consortium R&D programmes']) {
     assert.equal(
       heroCopy.includes(requiredFragment),
       true,
@@ -376,7 +376,7 @@ test('about first screen states identity, leadership, products, research, and bu
     'Dr. Andreea Damian',
     'Prof. Dr. Andrei Ionut Damian',
     'CerviGuard and DataGems',
-    'B2B software subscriptions and licensing'
+    'B2B software subscriptions, licensing'
   ]) {
     assert.equal(
       headerCopy.includes(requiredFragment),
@@ -942,7 +942,7 @@ test('Stage 4 trust center acts as the diligence center for proof, regulatory, s
     'incident response',
     'permissioned cloud-on-edge architecture',
     'healthcare cybersecurity and resilience',
-    'Research and product-deployment path',
+    'Product and R&D path',
     'One-page review brief',
     'Download review brief',
     'Page reviewed: 2026-07-01',
@@ -960,7 +960,7 @@ test('Stage 4 trust center acts as the diligence center for proof, regulatory, s
     '/trust/incident-response',
     '/cloud-architecture',
     '/cybersecurity',
-    '/research',
+    '/products',
     '/docs/SmartClover_1pagepitchdeck.pdf',
     '/contact'
   ]) {
@@ -1291,7 +1291,7 @@ test('proof page separates public evidence from pending metrics', () => {
 
   for (const requiredFragment of [
     'Company, product, and research evidence',
-    'public evidence required to review SmartClover as a research-driven, digital-native product company',
+    "public evidence of SmartClover's legal identity, team, business model, live products",
     'Verified public evidence',
     'Qualified public evidence',
     'Evidence gaps',
@@ -1333,14 +1333,20 @@ test('pricing and buying pages explain RFQ scope and next steps', () => {
 test('operator-approved company, product, research, proof, and pricing positioning is preserved exactly', () => {
   const expectedByFile = {
     'pages/index.jsx': [
-      'Research-driven, digital-native healthcare AI products for cervical screening and clinical research.',
-      'SmartClover is a research-driven, digital-native healthtech company that develops and owns CerviGuard and DataGems. CerviGuard is a live product for structured cervical-screening intake, AI-assisted review, triage coordination, and clinician-led follow-up; DataGems is a live product for synthetic-data research workflows.',
-      'Research and product tracks around the flagship product',
-      "CerviGuard is the flagship live product. DataGems is the live synthetic-data research product; TealGuard, led by HIPERDIA/Affidea, and NIS2COMPASS are approved consortium R&D programmes extending SmartClover's products, research, and future product roadmap."
+      'Research-driven healthcare AI products with live clinical software.',
+      "SmartClover is a digital-native healthcare AI product company that develops and owns CerviGuard and DataGems. Both have live public product surfaces; TealGuard and NIS2COMPASS are approved consortium R&D programmes advancing SmartClover's current and future products.",
+      'Products and applied research',
+      "CerviGuard is the flagship live product. DataGems is the live synthetic-data research product. TealGuard and NIS2COMPASS extend SmartClover's product and research roadmap through approved consortium R&D."
     ],
     'pages/products.jsx': [
-      'SmartClover develops and owns CerviGuard and DataGems as proprietary software products. Its applied research programme advances these and future products through TealGuard, NIS2COMPASS, clinical AI, synthetic-data methods, privacy-preserving edge deployment, and healthcare cybersecurity.',
-      'Products, research programmes, and platform capabilities'
+      'SmartClover develops and owns two proprietary software products: CerviGuard and DataGems. Applied research through TealGuard and NIS2COMPASS advances clinical AI, synthetic data, privacy-preserving deployment, cybersecurity, and future products.',
+      'Products and applied R&D programmes',
+      'Platform capability',
+      'Privacy-preserving cloud-on-edge deployment',
+      'Product deployments support tenant boundaries, encryption controls, edge/on-premise execution, and traceable release records.',
+      'Approved R&D programme',
+      'TealGuard: CerviGuard from TRL 6 toward TRL 9',
+      'Led by HIPERDIA/Affidea with SmartClover as the AI and software R&D partner, TealGuard develops ColVisionAI, NavigatorAI, Follow-upAI, and EcoAI for multi-site validation and productization.'
     ],
     'pages/research.jsx': [
       'Healthcare AI products and applied research',
@@ -1348,23 +1354,34 @@ test('operator-approved company, product, research, proof, and pricing positioni
       'Scope, evidence, and next steps for a research or product-deployment programme.'
     ],
     'pages/about.jsx': [
-      'SMARTCLOVER S.R.L. is a research-driven, digital-native healthcare AI company founded in July 2024. Dr. Andreea Damian leads healthcare research, consortium programmes, and product adoption; Prof. Dr. Andrei Ionut Damian leads AI, software, and technical R&D. SmartClover develops and owns CerviGuard and DataGems and advances future products through applied research. Its business model is B2B software subscriptions and licensing, private SaaS/PaaS deployments, API access, and product-specific onboarding and integration.',
-      'SmartClover uses product surfaces, public repositories, defined operating boundaries, and applied research programmes to develop and commercialize proprietary software products.'
+      'A research-driven healthcare AI product company.',
+      'SMARTCLOVER S.R.L. was founded in July 2024. Dr. Andreea Damian leads healthcare research, consortium programmes, and product adoption; Prof. Dr. Andrei Ionut Damian leads AI, software, and technical R&D. SmartClover develops and owns CerviGuard and DataGems and commercializes them through B2B software subscriptions, licensing, private SaaS/PaaS deployments, API access, and product-specific integration.',
+      'SmartClover uses product surfaces, public repositories, defined operating boundaries, and applied R&D programmes to develop and commercialize proprietary software products.'
     ],
     'pages/cerviguard.jsx': [
-      "CerviGuard is SmartClover's live MVP/private beta for cervical-screening teams, with a documented TRL 6 starting point and public screenshots, feature descriptions, repository, and draft MDR Class I self-assessment. It supports structured intake, AI-assisted analysis, and clinician-led follow-up; it is not an autonomous diagnostic system.",
-      'CerviGuard is the primary clinical product and the documented TRL 6 starting point for TealGuard, the approved R&D programme developing ColVisionAI, NavigatorAI, Follow-upAI, and EcoAI toward multi-site validation and TRL 9. Related SmartClover research covers prevention communication, synthetic data, privacy-preserving AI, and future healthcare products.'
+      "CerviGuard is SmartClover's live MVP/private beta and documented TRL 6 starting point for cervical-screening workflows. It provides structured intake, AI-assisted analysis, and clinician-led follow-up. The public MDR Class I self-assessment is a draft, not a final approval claim.",
+      "CerviGuard is the primary clinical product and the documented TRL 6 starting point for TealGuard, the approved R&D programme developing ColVisionAI, NavigatorAI, Follow-upAI, and EcoAI toward multi-site validation and TRL 9. SmartClover's related research covers prevention communication, synthetic data, privacy-preserving AI, and future healthcare products."
     ],
     'pages/proof.jsx': [
       'Company, product, and research evidence',
       '2025-2026',
-      'Public product evidence and approved R&D financing expanded',
-      'This page provides the public evidence required to review SmartClover as a research-driven, digital-native product company: legal identity, leadership, business model, live products, screenshots, features, development stages, public repositories, and approved consortium R&D programmes. Numeric clinical KPIs remain gated until cohort definitions and reporting windows are finalized.',
-      'SmartClover expanded public product evidence through live CerviGuard and DataGems routes, screenshots, repositories, and trust material. In 2026, SmartClover secured approximately EUR 1 million in approved non-dilutive consortium financing for its TealGuard work package and approximately EUR 100,000 for its NIS2COMPASS participation.'
+      'Live products and funded R&D expanded',
+      "This page provides public evidence of SmartClover's legal identity, team, business model, live products, screenshots, product stages, repositories, and approved TealGuard and NIS2COMPASS consortium R&D programmes. Numeric clinical KPIs remain gated until cohort definitions and reporting windows are finalized.",
+      'SmartClover launched public CerviGuard and DataGems product surfaces and secured approved non-dilutive consortium R&D financing through TealGuard and NIS2COMPASS.'
     ],
     'pages/pricing.jsx': [
       'Commercial fees are provided through a Request for Quotation (RFQ) process after scope definition. Each quotation is tied to a SmartClover software subscription or licence and may include product-specific onboarding, integration, deployment, and optional modules.',
-      'Unscoped work outside a defined product or research programme'
+      'Each package is scoped by product functionality, deployment complexity, and governance obligations.',
+      'Unscoped work outside a defined product or R&D programme'
+    ],
+    'pages/trust/index.jsx': [
+      'Product and R&D path',
+      'CerviGuard and DataGems product context, TealGuard and NIS2COMPASS R&D scope, deployment architecture, and qualification next steps.',
+      'Review products and R&D'
+    ],
+    'pages/cloud-architecture.jsx': [
+      'Permissioned cloud-on-edge deployment for healthcare AI products',
+      'SmartClover product deployments support tenant-designated edge and on-premise execution with hybrid cloud coordination. The model keeps healthcare data boundaries explicit while cloud components support orchestration, observability, and release control.'
     ]
   };
 
@@ -1402,7 +1419,7 @@ test('research and platform pages preserve SmartClover product and applied-resea
   );
 
   for (const requiredFragment of [
-    'Permissioned cloud-on-edge services for healthcare AI workloads',
+    'Permissioned cloud-on-edge deployment for healthcare AI products',
     'deployment-specific encryption controls',
     'designed to limit unnecessary centralization',
     'deployment records remain traceable'
@@ -1429,8 +1446,9 @@ test('research and platform pages preserve SmartClover product and applied-resea
   );
 });
 
-test('research route is public and replaces the former service route in current surfaces', () => {
+test('research remains public while the former service route redirects to products', () => {
   const layout = readFileSync('components/Layout.jsx', 'utf8');
+  const nextConfig = readFileSync('next.config.js', 'utf8');
   const sitemapSource = readFileSync('scripts/generate-sitemap.mjs', 'utf8');
   const sitemap = readFileSync('public/sitemap.xml', 'utf8');
   const trust = readFileSync('pages/trust/index.jsx', 'utf8');
@@ -1439,8 +1457,14 @@ test('research route is public and replaces the former service route in current 
   assert.equal(existsSync('pages/research.jsx'), true, 'research page should exist');
   assert.equal(existsSync(`pages/${retiredRoute.slice(1)}.jsx`), false, 'former service page should be retired');
 
-  for (const source of [layout, sitemapSource, sitemap, trust]) {
+  for (const source of [layout, sitemapSource, sitemap]) {
     assert.equal(source.includes('/research'), true, 'current route surfaces should link to /research');
     assert.equal(source.includes(retiredRoute), false, 'current route surfaces should not link to the retired route');
   }
+
+  assert.equal(trust.includes("href: '/products'"), true, 'trust product and R&D path should link to products');
+  assert.equal(trust.includes(retiredRoute), false, 'trust should not link to the retired route');
+  assert.equal(nextConfig.includes(`source: '${retiredRoute}'`), true, 'Next.js should configure the retired route');
+  assert.equal(nextConfig.includes("destination: '/products'"), true, 'retired route should redirect to products');
+  assert.equal(nextConfig.includes('statusCode: 301'), true, 'retired route should return HTTP 301');
 });

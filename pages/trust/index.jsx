@@ -84,11 +84,11 @@ const reviewAreas = [
       'Healthcare-focused security assessment, partner-product context, and engineering workflows under authorized oversight.'
   },
   {
-    href: '/research',
-    title: 'Research and product-deployment path',
-    cta: 'Review research',
+    href: '/products',
+    title: 'Product and R&D path',
+    cta: 'Review products and R&D',
     description:
-      'CerviGuard and DataGems product context, applied research, platform capabilities, and qualification next steps.'
+      'CerviGuard and DataGems product context, TealGuard and NIS2COMPASS R&D scope, deployment architecture, and qualification next steps.'
   }
 ];
 

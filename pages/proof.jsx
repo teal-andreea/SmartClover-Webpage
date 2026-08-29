@@ -21,9 +21,9 @@ const timeline = [
   },
   {
     period: '2025-2026',
-    event: 'Public product evidence and approved R&D financing expanded',
+    event: 'Live products and funded R&D expanded',
     evidence:
-      'SmartClover expanded public product evidence through live CerviGuard and DataGems routes, screenshots, repositories, and trust material. In 2026, SmartClover secured approximately EUR 1 million in approved non-dilutive consortium financing for its TealGuard work package and approximately EUR 100,000 for its NIS2COMPASS participation.'
+      'SmartClover launched public CerviGuard and DataGems product surfaces and secured approved non-dilutive consortium R&D financing through TealGuard and NIS2COMPASS.'
   }
 ];
 
@@ -118,7 +118,7 @@ const Proof = () => (
   <>
     <PageSeo
       title="Proof | SmartClover"
-      description="SmartClover company, product, and research evidence covering identity, leadership, business model, live products, repositories, and approved consortium programmes."
+      description="SmartClover company, product, and research evidence covering legal identity, team, business model, live products, repositories, and approved TealGuard and NIS2COMPASS programmes."
       path="/proof"
       image="/images/cerviguard/cerviguard-dashboard-live_v1.png"
     />
@@ -127,10 +127,9 @@ const Proof = () => (
       <span className="tagline">Proof</span>
       <h1>Company, product, and research evidence</h1>
       <p>
-        This page provides the public evidence required to review SmartClover as a research-driven, digital-native product
-        company: legal identity, leadership, business model, live products, screenshots, features, development stages,
-        public repositories, and approved consortium R&amp;D programmes. Numeric clinical KPIs remain gated until cohort
-        definitions and reporting windows are finalized.
+        This page provides public evidence of SmartClover&apos;s legal identity, team, business model, live products,
+        screenshots, product stages, repositories, and approved TealGuard and NIS2COMPASS consortium R&amp;D programmes.
+        Numeric clinical KPIs remain gated until cohort definitions and reporting windows are finalized.
       </p>
     </header>
 

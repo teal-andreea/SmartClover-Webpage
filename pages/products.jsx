@@ -18,15 +18,15 @@ const portfolioTracks = [
   },
   {
     status: 'Platform capability',
-    title: 'Permissioned cloud-on-edge deployment',
+    title: 'Privacy-preserving cloud-on-edge deployment',
     description:
-      'Deployment support for healthcare AI workloads that need tenant boundaries, encryption controls, edge/on-prem execution, and traceable release records.'
+      'Product deployments support tenant boundaries, encryption controls, edge/on-premise execution, and traceable release records.'
   },
   {
-    status: 'Platform capability',
-    title: 'Healthcare cybersecurity and resilience',
+    status: 'Approved R&D programme',
+    title: 'TealGuard: CerviGuard from TRL 6 toward TRL 9',
     description:
-      'Security/resilience services for healthcare organizations that can involve authorized/certified personnel, partner security products, and scoped engineering support.'
+      'Led by HIPERDIA/Affidea with SmartClover as the AI and software R&D partner, TealGuard develops ColVisionAI, NavigatorAI, Follow-upAI, and EcoAI for multi-site validation and productization.'
   }
 ];
 
@@ -129,7 +129,7 @@ const Products = () => (
   <>
     <PageSeo
       title="Products | SmartClover"
-      description="SmartClover products and applied research across CerviGuard, DataGems, permissioned cloud-on-edge deployment, and healthcare cybersecurity and resilience."
+      description="SmartClover develops CerviGuard and DataGems, with TealGuard and NIS2COMPASS advancing clinical AI, synthetic data, privacy-preserving deployment, cybersecurity, and future products."
       path="/products"
       image="/images/cerviguard/cerviguard-dashboard-live_v1.png"
     />
@@ -138,9 +138,9 @@ const Products = () => (
       <span className="tagline">Products</span>
       <h1>Product portfolio led by CerviGuard</h1>
       <p>
-        SmartClover develops and owns CerviGuard and DataGems as proprietary software products. Its applied research
-        programme advances these and future products through TealGuard, NIS2COMPASS, clinical AI, synthetic-data methods,
-        privacy-preserving edge deployment, and healthcare cybersecurity.
+        SmartClover develops and owns two proprietary software products: CerviGuard and DataGems. Applied research through
+        TealGuard and NIS2COMPASS advances clinical AI, synthetic data, privacy-preserving deployment, cybersecurity, and
+        future products.
       </p>
       <div className="cta-links">
         <Link href="/cerviguard" className="button primary">
@@ -234,7 +234,7 @@ const Products = () => (
     <section className="surface-card flagship-highlight" aria-labelledby="products-portfolio-heading">
       <div className="section-heading">
         <span className="flagship-kicker">Offer map</span>
-        <h2 id="products-portfolio-heading">Products, research programmes, and platform capabilities</h2>
+        <h2 id="products-portfolio-heading">Products and applied R&amp;D programmes</h2>
       </div>
       <div className="service-programs">
         {portfolioTracks.map((track) => (

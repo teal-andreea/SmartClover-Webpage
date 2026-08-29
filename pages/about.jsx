@@ -47,7 +47,7 @@ const operatingPrinciples = [
     kicker: 'Product ownership',
     title: 'Build products with defined scope.',
     description:
-      'SmartClover uses product surfaces, public repositories, defined operating boundaries, and applied research programmes to develop and commercialize proprietary software products.'
+      'SmartClover uses product surfaces, public repositories, defined operating boundaries, and applied R&D programmes to develop and commercialize proprietary software products.'
   },
   {
     kicker: 'Evidence before claims',
@@ -116,20 +116,19 @@ const About = () => (
   <>
     <PageSeo
       title="About SmartClover | Healthcare AI For Cervical Screening"
-      description="SmartClover is a research-driven, digital-native healthcare AI company developing CerviGuard and DataGems through product ownership and applied research."
+      description="SmartClover is a research-driven healthcare AI product company developing CerviGuard and DataGems through product ownership and applied R&D."
       path="/about"
       jsonLd={aboutSchema}
     />
 
     <header className="page-header">
       <span className="tagline">About SmartClover</span>
-      <h1>A founder-led healthcare AI company building CerviGuard.</h1>
+      <h1>A research-driven healthcare AI product company.</h1>
       <p>
-        SMARTCLOVER S.R.L. is a research-driven, digital-native healthcare AI company founded in July 2024. Dr. Andreea
-        Damian leads healthcare research, consortium programmes, and product adoption; Prof. Dr. Andrei Ionut Damian leads
-        AI, software, and technical R&amp;D. SmartClover develops and owns CerviGuard and DataGems and advances future
-        products through applied research. Its business model is B2B software subscriptions and licensing, private
-        SaaS/PaaS deployments, API access, and product-specific onboarding and integration.
+        SMARTCLOVER S.R.L. was founded in July 2024. Dr. Andreea Damian leads healthcare research, consortium programmes,
+        and product adoption; Prof. Dr. Andrei Ionut Damian leads AI, software, and technical R&amp;D. SmartClover develops
+        and owns CerviGuard and DataGems and commercializes them through B2B software subscriptions, licensing, private
+        SaaS/PaaS deployments, API access, and product-specific integration.
       </p>
     </header>
 

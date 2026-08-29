@@ -37,7 +37,7 @@ const packages = [
       'Optional module planning for roadmap-aligned expansion'
     ],
     excludes: [
-      'Unscoped work outside a defined product or research programme',
+      'Unscoped work outside a defined product or R&D programme',
       'Public list pricing or unscoped commitments'
     ]
   }
@@ -78,7 +78,7 @@ const Pricing = () => (
     <section className="surface-card" aria-labelledby="package-heading">
       <div className="section-heading">
         <h2 id="package-heading">Package architecture</h2>
-        <p>Each package is scoped by operational complexity and governance obligations, not by one-off service hours.</p>
+        <p>Each package is scoped by product functionality, deployment complexity, and governance obligations.</p>
       </div>
       <div className="feature-grid three-up">
         {packages.map((item) => (

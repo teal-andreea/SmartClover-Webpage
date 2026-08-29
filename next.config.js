@@ -72,6 +72,11 @@ const nextConfig = {
         source: '/gep',
         destination: '/gender-equality-plan',
         permanent: true
+      },
+      {
+        source: '/services',
+        destination: '/products',
+        statusCode: 301
       }
     ];
   },

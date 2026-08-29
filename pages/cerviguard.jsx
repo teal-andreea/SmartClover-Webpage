@@ -6,7 +6,7 @@ import RepoIconLinks from '../components/RepoIconLinks';
 
 const pageTitle = 'CerviGuard | SmartClover Healthcare AI Platform';
 const pageDescription =
-  'CerviGuard is SmartClover\'s live cervical-screening workflow product for structured intake, AI-assisted review, and clinician-led follow-up, with draft MDR Class I self-assessment material published for review.';
+  'CerviGuard is SmartClover\'s live MVP/private beta and documented TRL 6 starting point for structured cervical-screening workflows, AI-assisted analysis, and clinician-led follow-up.';
 
 const featurePillars = [
   {
@@ -159,9 +159,9 @@ const CerviGuard = () => (
       <span className="tagline">CerviGuard</span>
       <h1>CerviGuard: AI-supported cervical screening for clinical teams</h1>
       <p>
-        CerviGuard is SmartClover&apos;s live MVP/private beta for cervical-screening teams, with a documented TRL 6 starting
-        point and public screenshots, feature descriptions, repository, and draft MDR Class I self-assessment. It supports
-        structured intake, AI-assisted analysis, and clinician-led follow-up; it is not an autonomous diagnostic system.
+        CerviGuard is SmartClover&apos;s live MVP/private beta and documented TRL 6 starting point for cervical-screening
+        workflows. It provides structured intake, AI-assisted analysis, and clinician-led follow-up. The public MDR Class I
+        self-assessment is a draft, not a final approval claim.
       </p>
     </header>
 
@@ -249,7 +249,7 @@ const CerviGuard = () => (
         <p>
           CerviGuard is the primary clinical product and the documented TRL 6 starting point for TealGuard, the approved
           R&amp;D programme developing ColVisionAI, NavigatorAI, Follow-upAI, and EcoAI toward multi-site validation and TRL
-          9. Related SmartClover research covers prevention communication, synthetic data, privacy-preserving AI, and
+          9. SmartClover&apos;s related research covers prevention communication, synthetic data, privacy-preserving AI, and
           future healthcare products.
         </p>
       </div>

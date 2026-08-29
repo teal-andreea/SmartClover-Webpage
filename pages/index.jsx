@@ -96,7 +96,7 @@ const organizationSchema = {
   name: 'SmartClover',
   url: siteUrl,
   description:
-    'Research-driven, digital-native healthcare AI company developing CerviGuard and DataGems for cervical screening and synthetic-data research workflows.',
+    'Digital-native healthcare AI product company developing CerviGuard and DataGems, with approved consortium R&D programmes advancing current and future products.',
   logo: `${siteUrl}/smartclover-logo_v2.png`,
   sameAs: ['https://www.linkedin.com/company/smartclover'],
   founder: {
@@ -122,7 +122,7 @@ const Home = () => (
   <>
     <PageSeo
       title="SmartClover | Research-Driven Healthcare AI Products"
-      description="SmartClover develops CerviGuard and DataGems as healthcare AI products for cervical screening and synthetic-data research workflows."
+      description="SmartClover develops CerviGuard and DataGems as live healthcare AI products, with approved consortium R&D programmes advancing its product roadmap."
       path="/"
       image="/images/og/brand-card_v1.png"
       jsonLd={organizationSchema}
@@ -140,12 +140,12 @@ const Home = () => (
 
           <div className="hero-copy">
             <h1 id="home-hero-title" className="hero-title">
-              Research-driven, digital-native healthcare AI products for cervical screening and clinical research.
+              Research-driven healthcare AI products with live clinical software.
             </h1>
             <p>
-              SmartClover is a research-driven, digital-native healthtech company that develops and owns CerviGuard and
-              DataGems. CerviGuard is a live product for structured cervical-screening intake, AI-assisted review, triage
-              coordination, and clinician-led follow-up; DataGems is a live product for synthetic-data research workflows.
+              SmartClover is a digital-native healthcare AI product company that develops and owns CerviGuard and DataGems.
+              Both have live public product surfaces; TealGuard and NIS2COMPASS are approved consortium R&amp;D programmes
+              advancing SmartClover&apos;s current and future products.
             </p>
           </div>
 
@@ -221,11 +221,10 @@ const Home = () => (
 
     <section className="surface-card" aria-labelledby="home-portfolio-heading">
       <div className="section-heading">
-        <h2 id="home-portfolio-heading">Research and product tracks around the flagship product</h2>
+        <h2 id="home-portfolio-heading">Products and applied research</h2>
         <p>
-          CerviGuard is the flagship live product. DataGems is the live synthetic-data research product; TealGuard, led by
-          HIPERDIA/Affidea, and NIS2COMPASS are approved consortium R&amp;D programmes extending SmartClover&apos;s products,
-          research, and future product roadmap.
+          CerviGuard is the flagship live product. DataGems is the live synthetic-data research product. TealGuard and
+          NIS2COMPASS extend SmartClover&apos;s product and research roadmap through approved consortium R&amp;D.
         </p>
       </div>
       <div className="story-grid">

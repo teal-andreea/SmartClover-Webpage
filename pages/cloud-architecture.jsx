@@ -65,18 +65,18 @@ const CloudArchitecture = () => (
   <>
     <PageSeo
       title="Cloud Architecture | SmartClover"
-      description="SmartClover cloud architecture baseline describing permissioned cloud-on-edge services, tenancy boundaries, encryption, reliability posture, and traceable deployment records."
+      description="SmartClover cloud architecture baseline for permissioned cloud-on-edge product deployment, tenancy boundaries, encryption, reliability posture, and traceable release records."
       path="/cloud-architecture"
       image="/images/diagrams/cloud-on-edge-boundary_v2.png"
     />
 
     <header className="page-header">
       <span className="tagline">Cloud Architecture</span>
-      <h1>Permissioned cloud-on-edge services for healthcare AI workloads</h1>
+      <h1>Permissioned cloud-on-edge deployment for healthcare AI products</h1>
       <p>
-        SmartClover supports tenant-designated edge and on-prem execution with hybrid cloud coordination. The model keeps
-        healthcare data boundaries explicit while cloud services support orchestration, observability, and release
-        control.
+        SmartClover product deployments support tenant-designated edge and on-premise execution with hybrid cloud
+        coordination. The model keeps healthcare data boundaries explicit while cloud components support orchestration,
+        observability, and release control.
       </p>
     </header>
 
