@@ -57,7 +57,8 @@ const kpiDefinitions = [
 const evidenceStatus = [
   {
     label: 'Verified public evidence',
-    detail: 'CerviGuard live surface, product screenshots, public repository, model/profile hub, and product route.'
+    detail:
+      'SmartClover company and team, CerviGuard and DataGems live products, TealGuard and NIS2COMPASS R&D evidence, repositories, screenshots, and commercial model.'
   },
   {
     label: 'Qualified public evidence',
@@ -75,19 +76,34 @@ const evidenceStatus = [
 
 const verifyTodayLinks = [
   {
-    href: 'https://cerviguard.link',
-    title: 'Live CerviGuard workspace',
-    description: 'Open the live workspace at cerviguard.link.'
+    href: '/about',
+    title: 'Company, team, and business model',
+    description: 'Verify SMARTCLOVER S.R.L., its leadership, product ownership, and B2B software model.'
   },
   {
-    href: 'https://github.com/SmartCloverAI/CerviGuard',
-    title: 'GitHub repository',
-    description: 'Read the public implementation source.'
+    href: '/cerviguard',
+    title: 'CerviGuard product evidence',
+    description: 'Review the live MVP/private beta, screenshots, features, documented TRL 6 starting point, and clinician-led boundaries.'
   },
   {
-    href: '/docs/CerviGuard_MDR_Class_I_Self_Assessment_Draft.pdf',
-    title: 'Draft MDR Class I self-assessment',
-    description: 'Download the draft regulatory PDF.'
+    href: '/products#products-datagems-heading',
+    title: 'DataGems product evidence',
+    description: 'Review the live synthetic-data product, screenshots, features, exports, and public repository.'
+  },
+  {
+    href: 'https://tealguard.eu/en',
+    title: 'TealGuard approved R&D programme',
+    description: 'Review the consortium, four-module platform, CerviGuard baseline, and TRL 6-to-TRL 9 roadmap.'
+  },
+  {
+    href: '/blog/nis2compass-verifiable-cybersecurity-proof',
+    title: 'NIS2COMPASS approved R&D programme',
+    description: 'Review SmartClover cybersecurity, resilience, and evidence-workflow R&D.'
+  },
+  {
+    href: '/pricing',
+    title: 'Commercial model',
+    description: 'Review B2B subscriptions, licensing, SaaS/PaaS deployment, and product-specific integration.'
   }
 ];
 
@@ -160,8 +176,8 @@ const Proof = () => (
     <section className="surface-card" aria-labelledby="proof-status-heading">
       <div className="status-badge-list" id="proof-status-heading">
         <span className="status-badge">Document status: Current public baseline</span>
-        <span className="status-badge">Evidence baseline updated: 2026-02-17</span>
-        <span className="status-badge">Page reviewed: 2026-07-01</span>
+        <span className="status-badge">Evidence baseline updated: 2026-08-30</span>
+        <span className="status-badge">Page reviewed: 2026-08-30</span>
         <span className="status-badge">Owner: Product + Commercial + Data</span>
       </div>
       <p>

@@ -1351,6 +1351,9 @@ test('operator-approved company, product, research, proof, and pricing positioni
     'pages/research.jsx': [
       'Healthcare AI products and applied research',
       'SmartClover develops CerviGuard and DataGems and advances current and future products through applied research, permissioned cloud-on-edge infrastructure, and cybersecurity and resilience R&D for regulated healthcare deployments.',
+      'Cybersecurity and resilience R&D is conducted for regulated healthcare environments through approved projects, product-security workstreams, and authorized human oversight.',
+      'What SmartClover is developing today',
+      'R&D and product-security work with qualified personnel and approved technology partners',
       'Scope, evidence, and next steps for a research or product-deployment programme.'
     ],
     'pages/about.jsx': [
@@ -1367,17 +1370,30 @@ test('operator-approved company, product, research, proof, and pricing positioni
       '2025-2026',
       'Live products and funded R&D expanded',
       "This page provides public evidence of SmartClover's legal identity, team, business model, live products, screenshots, product stages, repositories, and approved TealGuard and NIS2COMPASS consortium R&D programmes. Numeric clinical KPIs remain gated until cohort definitions and reporting windows are finalized.",
-      'SmartClover launched public CerviGuard and DataGems product surfaces and secured approved non-dilutive consortium R&D financing through TealGuard and NIS2COMPASS.'
+      'SmartClover launched public CerviGuard and DataGems product surfaces and secured approved non-dilutive consortium R&D financing through TealGuard and NIS2COMPASS.',
+      'Company, team, and business model',
+      'CerviGuard product evidence',
+      'DataGems product evidence',
+      'TealGuard approved R&D programme',
+      'NIS2COMPASS approved R&D programme',
+      'Commercial model',
+      'Evidence baseline updated: 2026-08-30',
+      'Page reviewed: 2026-08-30',
+      'SmartClover company and team, CerviGuard and DataGems live products, TealGuard and NIS2COMPASS R&D evidence, repositories, screenshots, and commercial model.'
     ],
     'pages/pricing.jsx': [
       'Commercial fees are provided through a Request for Quotation (RFQ) process after scope definition. Each quotation is tied to a SmartClover software subscription or licence and may include product-specific onboarding, integration, deployment, and optional modules.',
       'Each package is scoped by product functionality, deployment complexity, and governance obligations.',
+      'Integrations outside the agreed product scope',
+      'Work unrelated to SmartClover products or approved R&D programmes',
       'Unscoped work outside a defined product or R&D programme'
     ],
     'pages/trust/index.jsx': [
       'Product and R&D path',
       'CerviGuard and DataGems product context, TealGuard and NIS2COMPASS R&D scope, deployment architecture, and qualification next steps.',
-      'Review products and R&D'
+      'Review products and R&D',
+      'Review resilience R&D',
+      'Healthcare cybersecurity research, product-security controls, partner-technology context, and engineering workflows under authorized oversight.'
     ],
     'pages/cloud-architecture.jsx': [
       'Permissioned cloud-on-edge deployment for healthcare AI products',

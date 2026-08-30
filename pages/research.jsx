@@ -17,7 +17,7 @@ const researchPrinciples = [
   {
     title: 'Healthcare cybersecurity and resilience',
     description:
-      'Security/resilience engagements are scoped for healthcare environments and can involve authorized/certified personnel, partner security products, and engineering support where approved.'
+      'Cybersecurity and resilience R&D is conducted for regulated healthcare environments through approved projects, product-security workstreams, and authorized human oversight.'
   }
 ];
 
@@ -67,7 +67,7 @@ const platformCapabilities = [
     title: 'Cybersecurity and resilience R&D',
     points: [
       'Healthcare-focused assessment, hardening, and resilience planning',
-      'Delivery with authorized/certified personnel and partner security products within approved scopes',
+      'R&D and product-security work with qualified personnel and approved technology partners',
       'Automated monitoring, documentation, and remediation support, always under authorized human review.'
     ]
   }
@@ -161,7 +161,7 @@ const Research = () => (
 
     <section className="surface-card" aria-labelledby="services-modules-heading">
       <div className="section-heading">
-        <h2 id="services-modules-heading">What you can engage today</h2>
+        <h2 id="services-modules-heading">What SmartClover is developing today</h2>
       </div>
       <div className="service-programs">
         {platformCapabilities.map((capability) => (

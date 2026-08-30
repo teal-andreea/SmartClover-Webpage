@@ -79,9 +79,9 @@ const reviewAreas = [
   {
     href: '/cybersecurity',
     title: 'Healthcare cybersecurity and resilience',
-    cta: 'Review resilience services',
+    cta: 'Review resilience R&D',
     description:
-      'Healthcare-focused security assessment, partner-product context, and engineering workflows under authorized oversight.'
+      'Healthcare cybersecurity research, product-security controls, partner-technology context, and engineering workflows under authorized oversight.'
   },
   {
     href: '/products',

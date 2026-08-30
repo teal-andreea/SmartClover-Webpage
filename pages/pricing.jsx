@@ -12,7 +12,7 @@ const packages = [
     ],
     excludes: [
       'Large-scale multi-region rollout governance',
-      'Custom integration development outside agreed scope'
+      'Integrations outside the agreed product scope'
     ]
   },
   {
@@ -25,7 +25,7 @@ const packages = [
     ],
     excludes: [
       'Cross-enterprise contract harmonization beyond defined entities',
-      'Non-healthcare custom product development'
+      'Work unrelated to SmartClover products or approved R&D programmes'
     ]
   },
   {
