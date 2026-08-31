@@ -165,6 +165,74 @@ test('getPostData adds heading ids, toc entries, image attributes, and related c
   }
 });
 
+test('PurpleRay acquisition preserves the supplied publication package and predates TealGuard', dependencySkip, async () => {
+  const { getPostData, getSortedPostsData } = await loadPostsModule();
+  const slug = 'smartclover-purpleray-acquisition';
+  const post = await getPostData(slug);
+  const posts = getSortedPostsData();
+  const purpleRayIndex = posts.findIndex((item) => item.slug === slug);
+  const tealGuardIndex = posts.findIndex(
+    (item) => item.slug === 'tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology'
+  );
+
+  assert.equal(post.title, 'SmartClover acquires PurpleRay: making healthcare cybersecurity testable');
+  assert.equal(post.date, '2026-08-03');
+  assert.equal(post.updated, '2026-08-30');
+  assert.equal(post.modifiedDate, '2026-08-30');
+  assert.equal(post.author, 'Andreea Damian and the SmartClover team');
+  assert.equal(post.category, 'Cybersecurity Evidence');
+  assert.equal(post.topic, 'Cybersecurity Evidence');
+  assert.equal(
+    post.summary,
+    "The acquisition adds a local-first purple-team platform, a controlled laboratory and an open-source SBOM foundation to SmartClover's healthcare AI and research portfolio."
+  );
+  assert.equal(post.heroImage, '/blog/images/01-smartclover-purpleray-assurance-layer.png');
+  assert.equal(post.heroImageWidth, 1800);
+  assert.equal(post.heroImageHeight, 1000);
+  assert.equal(post.contentHtml.includes('<h1'), false, 'the supplied title should render once through the article template');
+  assert.ok(post.contentHtml.startsWith('<p><em>Published 3 August 2026'));
+  assert.equal(
+    post.contentHtml.includes('src="/blog/images/01-smartclover-purpleray-assurance-layer.png"'),
+    false,
+    'the supplied cover image should render through the article hero without being duplicated in the body'
+  );
+  assert.ok(post.contentHtml.includes('src="/blog/images/02-purpleray-sbom-analyzer-dashboard.png"'));
+  assert.ok(post.contentHtml.includes('src="/blog/images/03-cerviguard-dashboard.png"'));
+  assert.ok(post.contentHtml.includes('https://purpleray.eu'));
+  assert.ok(post.contentHtml.includes('https://github.com/aidamian/PurpleRay_SBOM_Analyzer'));
+  assert.ok(post.contentHtml.includes('https://smartclover.ro/products'));
+  assert.ok(tealGuardIndex >= 0, 'expected the TealGuard announcement in the English blog index');
+  assert.ok(purpleRayIndex > tealGuardIndex, 'the 3 August PurpleRay article should sort before the 26 August TealGuard article');
+
+  const expectedImages = new Map([
+    ['/blog/images/01-smartclover-purpleray-assurance-layer.png', [1800, 1000]],
+    ['/blog/images/02-purpleray-sbom-analyzer-dashboard.png', [1229, 750]],
+    ['/blog/images/03-cerviguard-dashboard.png', [1161, 741]]
+  ]);
+
+  for (const [src, [width, height]] of expectedImages) {
+    const image = post.images.find((item) => item.src === src);
+
+    assert.ok(image, `expected supplied PurpleRay image metadata for ${src}`);
+    assert.equal(image.width, width);
+    assert.equal(image.height, height);
+    assert.equal(image.type, 'png');
+    assert.ok(image.alt, `expected supplied alt text for ${src}`);
+  }
+
+  const expectedHashes = new Map([
+    ['posts/smartclover-purpleray-acquisition.md', '6254bb311a23eba977cff2f58dbd3ce1895c4a1ddafbcbbb340364a8248548ab'],
+    ['public/blog/images/01-smartclover-purpleray-assurance-layer.png', '39d7346d133c60ed1bc3bbbc3fe66ea8f399efe7e71fc649d4e4dd0024945689'],
+    ['public/blog/images/02-purpleray-sbom-analyzer-dashboard.png', 'ec82c12aebcd4a01d042974a95a6b9e22dc8a7b63e49837df8bdada714c3c196'],
+    ['public/blog/images/03-cerviguard-dashboard.png', '99decfa9cd4f9cf21bc1df24b66de5b5e8523421139f7ddc70d5def1346ae698']
+  ]);
+
+  for (const [filePath, expectedHash] of expectedHashes) {
+    const actualHash = createHash('sha256').update(readFileSync(filePath)).digest('hex');
+    assert.equal(actualHash, expectedHash, `expected verbatim PurpleRay publication artifact: ${filePath}`);
+  }
+});
+
 test('TealGuard announcement renders the operator-approved article, project links, and visual set', dependencySkip, async () => {
   const { getPostData } = await loadPostsModule();
   const post = await getPostData('tealguard-financing-contract-signed-sovereign-ai-gynecologic-oncology');
